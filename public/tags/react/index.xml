@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on 男胖友de部落格</title>
+    <link>http://example.org/tags/react/</link>
+    <description>Recent content in react on 男胖友de部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Mar 2020 10:06:14 +0000</lastBuildDate><atom:link href="http://example.org/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react生命周期</title>
+      <link>http://example.org/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Tue, 31 Mar 2020 10:06:14 +0000</pubDate>
+      
+      <guid>http://example.org/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <description>React 的生命周期 React 组件生命周期的执行次数是什么样子的？   只执行一次 : constructor、 componentWillMount、componentDidMount
+  执行多次 : render、 子组件的componentWillReceiveProp、componentWillUpdate、componentDidUpdate
+  有条件执行 : componentWillUnmount (页面离开，组件销毁时)
+  不执行的 : 根组件（ReactDOM.render在DOM上的组件）的componentWillReceiveProps（因为压根没有父组件给传递props）
+  执行顺序 假设组件嵌套关系是 App里有parent组件，parent组件有child组件。
+如果不涉及setState更新
+ App： constructor --&amp;gt; componentWillMount --&amp;gt; render --&amp;gt; parent: constructor --&amp;gt; componentWillMount --&amp;gt; render --&amp;gt; child: constructor --&amp;gt; componentWillMount --&amp;gt; render --&amp;gt; componentDidMount (child) --&amp;gt; componentDidMount (parent) --&amp;gt; componentDidMount (App) 这时候触发App的setState事件
+ App： componentWillUpdate --&amp;gt; render --&amp;gt; parent: componentWillReceiveProps --&amp;gt; componentWillUpdate --&amp;gt; render --&amp;gt; child: componentWillReceiveProps --&amp;gt; componentWillUpdate --&amp;gt; render --&amp;gt; componentDidUpdate (child) --&amp;gt; componentDidUpdate (parent) --&amp;gt; componentDidUpdate (App) 如果触发Parent的setState事件</description>
+    </item>
+    
+  </channel>
+</rss>

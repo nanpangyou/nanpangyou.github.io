@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Note on 男胖友de部落格</title>
+    <link>http://example.org/categories/note/</link>
+    <description>Recent content in Note on 男胖友de部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Jan 2020 11:24:37 +0000</lastBuildDate><atom:link href="http://example.org/categories/note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>flex-grow,flex-shrink和flex-basis</title>
+      <link>http://example.org/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/</link>
+      <pubDate>Mon, 06 Jan 2020 11:24:37 +0000</pubDate>
+      
+      <guid>http://example.org/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/</guid>
+      <description>flex 有三个属性值，分别是 flex-grow， flex-shrink， flex-basis，默认值是 0 1 auto
+flex-basis 和 width 一样，他的默认值为 auto，如果和 width 属性同时设置一个值，flex-basis 会比较优先。当然工作中最好用 flex-basis，更符合规范。
+flex-grow 该属性来设置，当父元素的宽度大于所有子元素的宽度的和时（即父元素会有剩余空间），子元素如何分配父元素的剩余空间。 flex-grow 的默认值为 0，意思是该元素不索取父元素的剩余空间，如果值大于 0，表示索取。值越大，索取的越厉害。
+例如: 父元素宽 400px，有两子元素：A 和 B。A 宽为 100px，B 宽为 200px。
+则空余空间为 400-（100+200）= 100px。
+如果 A，B 都不索取剩余空间，则有 100px 的空余空间。
+如果 A 索取剩余空间:设置 flex-grow 为 1，B 不索取。则最终 A 的大小为 自身宽度（100px）+ 剩余空间的宽度（100px）= 200px
+如果 A，B 都设索取剩余空间，A 设置 flex-grow 为 1，B 设置 flex-grow 为 2。 则最终 A 的大小为 自身宽度（100px）+ A 获得的剩余空间的宽度（100px * (1/(1+2))） 最终 B 的大小为 自身宽度（200px）+ B 获得的剩余空间的宽度（100px * (2/(1+2))）</description>
+    </item>
+    
+    <item>
+      <title>js-继承</title>
+      <link>http://example.org/post/js-%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Mon, 23 Sep 2019 15:25:24 +0000</pubDate>
+      
+      <guid>http://example.org/post/js-%E7%BB%A7%E6%89%BF/</guid>
+      <description>使用 JavaScript 实现继承 要求： 要求不使用 class，完成如下需求：
+  写出一个构造函数 Animal 输入为空 输出为一个新对象，该对象的共有属性为 {行动: function(){}}，没有自有属性
+  再写出一个构造函数 Human Human 继承 Animal 输入为一个对象，如 {name: &amp;lsquo;xxx&amp;rsquo;, birthday: &amp;lsquo;2000-10-10&amp;rsquo;} 输出为一个新对象，该对象自有的属性有 name 和 birthday，共有的属性有物种（人类）、行动和使用工具
+  再写出一个构造函数 Asian Asian 继承 Human 输入为一个对象，如 {city: &amp;lsquo;北京&amp;rsquo;, name: &amp;lsquo;xxx&amp;rsquo;, birthday: &amp;lsquo;2000-10-10&amp;rsquo; } 输出为一个新对象，改对象自有的属性有 name city 和 bitrhday，共有的属性有物种、行动和使用工具和肤色 既
+  最后一个新对象是 Asian 构造出来的
+ Asian 继承 Human，Human 继承 Animal 使用原型链
+function Animal(){ } Animal.prototype.行动 = function(){} function Human(options){ this.</description>
+    </item>
+    
+    <item>
+      <title>js-异步</title>
+      <link>http://example.org/post/js-%E5%BC%82%E6%AD%A5/</link>
+      <pubDate>Mon, 09 Sep 2019 11:04:01 +0000</pubDate>
+      
+      <guid>http://example.org/post/js-%E5%BC%82%E6%AD%A5/</guid>
+      <description>同步和异步 同步： 等待结果 异步： 不等待结果
+异步通常和回调一起出现，但是要注意，异步不是回调，回调也不一定是异步。
+常见的异步代码  获取图片的宽高   var w = document.getElementByTagName(&#39;img&#39;)[0].width console.log(w) //0 解决办法：
+使用 img 的 onload(表示图片已经下载并加载完成)事件来重新触发获取宽度的函数
+ var img = document.getElementByTagName(&#39;img&#39;)[0] img.onload = function(){ var w = img.width console.log(w) } 事件绑定的异步   let liList = document.querySelectorAll(&#39;li&#39;) for ( var i = 0;i &amp;lt; liList.length; i++ ){ liList[i].on(&#39;click&#39;,function(){ console.log(i) }) } 解决办法：
+将循环中变量的关键字 i 的声明关键字改为 let
+ let liList = document.querySelectorAll(&#39;li&#39;) for ( let i = 0;i &amp;lt; liList.</description>
+    </item>
+    
+    <item>
+      <title>js-函数</title>
+      <link>http://example.org/post/js-%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 30 Aug 2019 10:33:22 +0000</pubDate>
+      
+      <guid>http://example.org/post/js-%E5%87%BD%E6%95%B0/</guid>
+      <description>JavaScript 函数 js 中的函数
+定义  匿名函数 具名函数 箭头函数  // 匿名函数 var fn = function(){ return 1 } fn2 = fn; fn.name //fn fn2.name //fn // 具名函数 function fn3(){ return 1 } //fn3的作用域是全局 var fn5 = function fn4(){ return 5 } //如果将一个具名函数赋值给一个变量，那么这个具名函数的作用域就是该函数的花括号内 //例如fn4这个具名函数赋值给了fn5 那么fn4存在的作用域就是fn4的花括号内 // 箭头函数 var fn = () =&amp;gt; {} var fn2 = e =&amp;gt; console.log(e) var fn3 = (a, b) =&amp;gt; { let c = a + b; return c; } 词法作用域（也叫静态作用域） var global = 1; function fn1(param1){ var local1 = &#39;local1&#39; var local2 = &#39;local2&#39; function fn2(param2){ var local2 = &#39;inner local2&#39; console.</description>
+    </item>
+    
+    <item>
+      <title>Node-4</title>
+      <link>http://example.org/post/node-4/</link>
+      <pubDate>Thu, 29 Aug 2019 11:03:50 +0000</pubDate>
+      
+      <guid>http://example.org/post/node-4/</guid>
+      <description>Node 原生服务器搭建(简单版) // 引入http模块 let http = require(&amp;quot;http&amp;quot;); // 引入查询字符串处理函数 let { parse } = require(&amp;quot;querystring&amp;quot;); // 创建server对象 let server = http.createServer((request, response) =&amp;gt; { // request 请求对象 // response 返回对象 console.log(request.url); let str = request.url.split(&amp;quot;?&amp;quot;)[1]; let obj = parse(str); console.log(obj); response.setHeader(&amp;quot;content-type&amp;quot;, &amp;quot;text/html;charset=utf-8&amp;quot;); if (obj.haha === &amp;quot;1&amp;quot;) { response.end(&amp;quot;h1&amp;quot;); } else { response.end(&amp;quot;&amp;lt;h1&amp;gt;服务器启动成功&amp;lt;/h1&amp;gt;&amp;quot;); } }); // 监听端口 server.listen(9999, err =&amp;gt; { if (!err) { console.log(&amp;quot;服务器启动成功&amp;quot;); } else { console.log(&amp;quot;服务器启动失败&amp;quot;); } }); </description>
+    </item>
+    
+    <item>
+      <title>Node-3</title>
+      <link>http://example.org/post/node-3/</link>
+      <pubDate>Mon, 26 Aug 2019 15:30:49 +0000</pubDate>
+      
+      <guid>http://example.org/post/node-3/</guid>
+      <description>mongoose 一个概念 非关系型数据库：对象文档模型（ODM）库 关系型数据库：对象关系模型（ORM）映射表
+Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生的 MongoDB 模块进行了优化封装，并提供了很多功能。
+优点：
+ 可以为文档创建一个模式结构（Schema） 可以对模型中的对象/文档进行验证 数据可以通过类型转换转换为对象模型 可以使用中间件来应用业务逻辑挂钩 比 Node 原生的 MongoDB 驱动更容易  明确几个概念
+ mongoDB: 一个非关系型数据库的名称 mongod: 启动 mongo 服务的命令 mongo: 连接数据库的命令 mongoose: 在 Node 端连接数据库的一个库
+ Mongoose 的 CRUD   Create
+模型对象.create(文档对象,回调函数) 模型对象.create(文档对象) //返回值是一个 Promise 对象
+  Read
+模型对象.find(查询条件[,投影]) //不管有没有数据，都返回一个数组 模型对象.findOne(查询条件[,投影]) //找到了返回一个对象，没找到返回 NULL
+    Update
+模型对象.updateOne(查询条件,要更新的内容[,配置对象]) 模型对象.updateMany(查询条件,要更新的内容[,配置对象]) 备注：存在 update 方法，但是即将废弃，查询条件匹配多个时，只会更新一个，建议使用 updateOne()
+  Delete</description>
+    </item>
+    
+    <item>
+      <title>Node-2</title>
+      <link>http://example.org/post/node-2/</link>
+      <pubDate>Mon, 26 Aug 2019 11:00:03 +0000</pubDate>
+      
+      <guid>http://example.org/post/node-2/</guid>
+      <description>Mongodb 数据库分类  关系型数据库（RDBS） 如 MySQL, Oracle, DB2, SQL server &amp;hellip;  优点 ：
+ 易于维护： 都是使用表结构，格式一致 使用方便： SQL 语言通用，可用于复杂查询 高级查询： 可用于多表之间的复杂查询  缺点 ：
+ 读写性能比较差，尤其是海量数据的高效率读写 有固定的表结构，字段不可以随意修改，灵活度欠缺 高并发的读写需求，传统关系行数据库来说， 硬盘 I/O 是一个很大的瓶颈  非关系型数据库 如 MongoDB, Redis &amp;hellip;  优点 ：
+ 格式灵活：存储数据的格式可以是 key value 格式 速度快：nosql 可以内存作为载体，而关系型数据库只能用硬盘 易用： nosql 部署简单  缺点 ：
+ 不支持 sql 不支持事务  关键字    关系型数据库 非关系型数据库     数据库 数据库   表 集合   每一条数据 文档    MongoDB 安装后的一些注意  使用 homebrew 安装 MongoDB  brew install mongodb  安装成功后可使用 mongod -version 来查看是否成功</description>
+    </item>
+    
+    <item>
+      <title>Node-1</title>
+      <link>http://example.org/post/node-1/</link>
+      <pubDate>Fri, 23 Aug 2019 15:59:19 +0000</pubDate>
+      
+      <guid>http://example.org/post/node-1/</guid>
+      <description>Node - 1 Buffer 缓冲器 什么是 Buffer ?
+ 它是一个类似于数组的对象，用于存储数据（存储的是二进制数据） Buffer 的效率很高，存储和读取的速度很快，直接对计算机的内存进行操作。 Buffer 的大小一旦确定了，就不可修改 每个元素占用内存的大小为 1 字节 Buffer 是 Node 中非常核心的模块，无需下载和引用就可以直接使用  使用示例
+1. Buffer.from() // 将一个字符串存入Buffer中 let str = &#39;hello world&#39; let buf = Buffer.from(str) console.log(buf) 2. Buffer.alloc(); //alloc()方法创建Buffer的效率一般 会开辟一块完全没有使用过的空间 let buf2 = Buffer.alloc(); console.log(buf2) 3. Buffer.allocUnsafe(); //allocUnsafe()方法创建Buffer的效率很好，但是会有一些安全问题 会返回一块没有被引用的空间（有可能会有其他方法不用的数据，数据可能会有安全问题） let buf3 = Buffer.allocUnsafe() console.log(buf3) 4. new Buffer() // 官方不推荐，说是在后续会删除，效率也不高 let buf4 = new Buffer() console.log(buf4) Node 文件系统 Node 中的文件系统：</description>
+    </item>
+    
+    <item>
+      <title>Node-0</title>
+      <link>http://example.org/post/node-0/</link>
+      <pubDate>Fri, 23 Aug 2019 09:42:47 +0000</pubDate>
+      
+      <guid>http://example.org/post/node-0/</guid>
+      <description>Node - 0 什么是 Node？ 维基百科：
+ Node.js is an open-source, cross-platform, JavaScript run-time environment that executes JavaScript code outside of a browser.
+ 大意是 Node.js 是一款开源的，跨平台的，能让 JavaScript 在浏览器以外运行的运行环境
+优点  异步非阻塞的 I/O 适用于 I/O 密集型应用 事件循环机制 单线程 跨平台  缺点  回调函数较多，嵌套较深 单线程，处理不好 CPU 密集型任务  Node 的应用场景（大概）  Web 服务的 API 服务端渲染 后端的 web 服务，如跨域，服务器端请求  Node 中函数的特点 我们可以通过 console.log(arguments.callee.toString()) 来看到整个 Node 是通过一个大函数 function (exports, require, module, __filename, __dirname) { } 所包裹的，其中前三个是有关模块化的参数， __filename 是指但前文件的绝对路径 __dirname是指当前文件夹的绝对路径。</description>
+    </item>
+    
+    <item>
+      <title>vue组件之间传参之兄弟组件</title>
+      <link>http://example.org/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Mon, 19 Aug 2019 15:01:08 +0000</pubDate>
+      
+      <guid>http://example.org/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/</guid>
+      <description>vue 组件传参之兄弟组件 之前有一篇写了 vue 组件传参，主要写了父子组件之间的传参，通过 props 和 $emit(&#39;eventName&#39;) 的方式。
+这次主要来写一下另一种情况，两个平级的兄弟组件之间怎么传参。
+主要原理和父子组件之间通过触发事件来传参差不多 如何做：
+ 兄弟组件之间的传参需要借助 eventBus 这个概念。 eventBus 其实也是一个 vue 实例。 兄弟组件通过引入同一个 eventBus 来建立联系，触发并且监听同一个事件来进行传参 数据发送方，通过触发 bus.$emit(&#39;eventName&#39;, data) 来发送数据 数据接收方，通过 bus.$on(&#39;eventName&#39;, (data)=&amp;gt;console.log(data)) 其中 $on 的回调函数就可以接受传参  上 Demo：
+父组件 // 父组件（主要在 Demo 中做包裹层） &amp;lt;template&amp;gt; &amp;lt;div&amp;gt; &amp;lt;component-a&amp;gt;&amp;lt;/component-a&amp;gt; &amp;lt;component-b&amp;gt;&amp;lt;/component-b&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; eventBus.js // eventBus.js( 事件车，主要是用来承载监听函数) import Vue from &#39;vue&#39; export default new Vue(); 组件 A // 组件A 事件的触发方 &amp;lt;template&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h1&amp;gt;a组件&amp;lt;/h1&amp;gt; &amp;lt;button @click=&amp;quot;abtn&amp;quot;&amp;gt;A按钮&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; import eventVue from &amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>url编码</title>
+      <link>http://example.org/post/url%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Tue, 13 Aug 2019 15:39:32 +0000</pubDate>
+      
+      <guid>http://example.org/post/url%E7%BC%96%E7%A0%81/</guid>
+      <description>encodeURI() 和 encodeURIComponent() 方法 encodeURI() 和 encodeURIComponent() 方法，通常都用来进行对 url 的编码。
+  为什么要编码： 标准的 url 中不可以出现特殊字符，如 空格 等，如果有则会造成浏览器无法正确理解 url，因此需要使用 utf-8 来对特殊的字符进行替换
+  区别： encodeURI() 方法常用来对整个 URL 进行编码，但是对本身属性 url 的特殊字符进行编码，例如“冒号、正斜杠、问号、井号”则不转换。 encodeURIComponent() 方法常用域对 url 中的某一块进行编码，一般是参数部分，他会将任何非标准字符进行编码。
+  对应的解码函数： encodeURI() =&amp;gt; decodeURI() encodeURIComponent() =&amp;gt; decodeURIComponent()
+  </description>
+    </item>
+    
+    <item>
+      <title>VueRouter在Webpack上的坑</title>
+      <link>http://example.org/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/</link>
+      <pubDate>Fri, 02 Aug 2019 17:48:53 +0000</pubDate>
+      
+      <guid>http://example.org/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/</guid>
+      <description>VueRouter 学习笔记之在 Webpack(4.X) 上的坑 通常 VueRouter 给我们提供了常用的两种方式的使用
+  hash 模式 在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。
+  history 模式 url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请求。服务器没有对应的路径，就会报404
+  解决办法，就是在 webpack 的配置项中，在 devServer 加上
+//history模式下的url会请求到服务器端，但是服务器端并没有这一个资源文件，就会返回404，所以需要配置这一项 historyApiFallback: { rewrites: [{ from: /.*/g, to: &#39;/index.html&#39; //与output的publicPath有关(HTMLplugin生成的html默认为index.html) }] } </description>
+    </item>
+    
+    <item>
+      <title>flexbox布局</title>
+      <link>http://example.org/post/flexbox%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Wed, 24 Jul 2019 11:23:58 +0000</pubDate>
+      
+      <guid>http://example.org/post/flexbox%E5%B8%83%E5%B1%80/</guid>
+      <description>Flex 布局 什么是 Flex 布局？ Flex 是 Flexible box 的缩写，顾名思义为“ 弹性布局 ”， 可以为盒模型提供比较大的灵活性。
+兼容性 在 canIuse 上，flex 的兼容性如下 can i use
+可以看到，出了老版的 ie 支持不够好以外，现在浏览器的支持都还可以，尤其移动端可以使用。
+用法 任何一个容器都可以指定为 Flex 布局
+.box{ display: flex; } 基本概念 采用 Flex 布局的元素，称为 Flex 容器（flex container），简称“容器”。它的所有子元素自动成为容器成员，成为 flex 项目（flex item），简称“项目”。
+容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框 的交叉点）叫做 main start，结束位置叫做 main end；交叉轴的开始位置叫做 cross start，结束位置叫做 cross end。
+项目默认沿主轴排列。单个项目占据的主轴空间叫做 main size，占据的交叉轴空间叫做 cross size。
+容器属性 flex 容器主要有以下 6 个属性设置
+ flex-direction flex-wrap flex-flow justify-content align-items align-content  详细说明  flex-direction  flex-direction 属性决定主轴的方向，他有 4 个属性值</description>
+    </item>
+    
+    <item>
+      <title>Promise对象</title>
+      <link>http://example.org/post/promise%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Sat, 20 Jul 2019 10:32:28 +0000</pubDate>
+      
+      <guid>http://example.org/post/promise%E5%AF%B9%E8%B1%A1/</guid>
+      <description>Promise 是异步编程的一种解决方案。
+简单讲 promise 就是一个容器，里面装有一个未来得到结果的函数（通常为异步）。 在 js 中，promise 是以对象的形式存在，提供统一的 API， 对各种一步操作可以使用统一的方法处理。
+promise 主要有两个特征。
+  对象的状态不受外界影响。
+ Promise 对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。
+   一旦状态改变，就不会再变，任何时候都可以得到这个结果。
+ promise 对象的状态改变，只有两种情况： 1. 从 pending 到 fulfiled 2. 从 pending 到 rejected 。只要这两种状态发生后就冻结了，不会再变
+   Promise 的基本用法 function setTime(tm) { return new Promise((resolve, reject) =&amp;gt; { // setTimeout 的第三个参数是传给回调函数的第一个参数 setTimeout(resolve, tm, &amp;quot;success&amp;quot;); // setTimeout(reject, tm, &amp;quot;somethingErr&amp;quot;); }); } setTime(4000).then( data =&amp;gt; { console.log(&amp;quot;done&amp;quot; + data); }, err =&amp;gt; { console.</description>
+    </item>
+    
+    <item>
+      <title>Vue组件间的传值</title>
+      <link>http://example.org/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/</link>
+      <pubDate>Tue, 18 Jun 2019 19:21:50 +0000</pubDate>
+      
+      <guid>http://example.org/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/</guid>
+      <description>Vue 组件间的传值 Vue 组件间的传值，说白了就是父子组件和兄弟组件之间的传值。 这次梳理一下父子组件之间的传值。
+Vue 父子组件之间的传值 👨👦 传值主要涉及两种类型的传值
+ 单纯的值 函数（方法）   单纯的值
+ 单纯的值传递，主要是想将父组件data对象中的值传入子组件，在子组件中使用。
+主要使用 props
+&amp;lt;div class=&#39;app&#39;&amp;gt; &amp;lt;!-- 将需要传递的值通过 v-bind 的形式传递给子组件 --&amp;gt; &amp;lt;com1 :mymsg=&#39;msg&#39; &amp;gt;&amp;lt;/com1&amp;gt; &amp;lt;/div&amp;gt; var app = new Vue({ el: &#39;.app&#39;, data: { msg: &#39;要传入子组件的值&#39; }, components:{ com1:{ template: &#39;&amp;lt;div&amp;gt;{{ mymsg }}&amp;lt;/div&amp;gt;&#39;, &amp;lt;!-- 在组件中使用 props 接受父组件传递过来的值，并且声明，注意： 1，命名要一致，2.props是个数组 --&amp;gt; &amp;lt;!-- props中的值和data中的值都可以使用，区别不大，但是要注意，父组件传递过来的值不要重新赋值，赋值只会在子组件内部生效 --&amp;gt; props: [&#39;mymsg&#39;] } } })  函数传递
+ 父组件的函数传递给子组件，一般用在子组件内部更新后让父组件刷新状态。
+主要使用 this.$emit()
+&amp;lt;div class=&#39;app&#39;&amp;gt; &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>JS剪贴板相关</title>
+      <link>http://example.org/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Fri, 19 Apr 2019 16:47:55 +0000</pubDate>
+      
+      <guid>http://example.org/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/</guid>
+      <description>JS 剪贴板相关的内容 这两天做了一个需求，是通过 js 获取剪贴板中的字符串，对用户复制不同长度的字符串进行分类处理。
+由于自己之前从来都没有关注过复制事件 paste ,于是就去网上找了找相关的资料，记录如下：
+JS 是可以拿到用户所输入的内容的 paste 事件不一定需要绑定在 input 元素中，可以绑定在任意元素中，当用户鼠标在该元素上或者该元素处于 focus 状态，绑定的 paste 事件就会在复制的时候执行。
+事件对象  if (window.clipboardData &amp;amp;&amp;amp; window.clipboardData.getData) { // IE pastedText = window.clipboardData.getData(&amp;quot;Text&amp;quot;); } else { //e.clipboardData.getData(&#39;text/plain&#39;); pastedText = e.originalEvent.clipboardData.getData(&amp;quot;Text&amp;quot;); } 粘贴事件为你提供了一个 clipboardData 对象, 它实际上是一个 DataTransfer 类型的对象, DataTransfer 是拖动产生的一个对象，但实际上粘贴事件也是它。
+clipboardData 属性介绍
+   属性 类型 说明     dropEffect String 默认是 none   effectAllowed String 默认是 uninitialized   files FileList 粘贴操作为空 List   items DataTransferItemList 剪切板中的各项数据   types Array 剪切板中的数据类型 该属性在 Safari 下比较混乱    items 介绍 items 是一个 DataTransferItemList 对象，自然里面都是 DataTransferItem 类型的数据了。</description>
+    </item>
+    
+    <item>
+      <title>cssFilter</title>
+      <link>http://example.org/post/cssfilter/</link>
+      <pubDate>Wed, 03 Apr 2019 16:42:23 +0000</pubDate>
+      
+      <guid>http://example.org/post/cssfilter/</guid>
+      <description>昨天在写一个需求的时候，用到半透明蒙版遮罩 之前这种需求都是用background: rgba(0,0,0,.5)或者hsla(50, 33%, 25%, 0.75)这类使用Alpha通道,或者使用opacity来增加背景层的透明度。
+单单增加透明度，整体缺少质感，并且如果有文字在遮罩层上的话会使得上下文字重叠，视觉效果并不好。
+毛玻璃的效果刚好可以弥补这一点。
+主要用到的属性是filter: blur(10px);
+代码结构不难理解
+&amp;lt;body&amp;gt; &amp;lt;div class=&amp;quot;bg&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;wrapper&amp;quot;&amp;gt; &amp;lt;p&amp;gt; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias aperiam, sequi velit dolores accusantium voluptas. Facere dolorem tempore similique nobis eos maxime error perspiciatis temporibus, fugiat vel deserunt esse unde! &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias aperiam, sequi velit dolores accusantium voluptas. Facere dolorem tempore similique nobis eos maxime error perspiciatis temporibus, fugiat vel deserunt esse unde!</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,16 @@
+baseURL = "https://blog.joway.io/"
+languageCode = "en-us"
+title = '男胖友de部落格'
+theme = "yinyang"
+[author]
+  name = "nanpangyou"
+  homepage = "https://joway.io/"
+[params]
+ headTitle = "这里是男胖友" 
+ mainSections = ["post"]
+[[params.socials]]
+name = "About Me"
+link = "https://joway.io"
+[[params.socials]]
+name = "Github"
+link = "https://github.com/joway"

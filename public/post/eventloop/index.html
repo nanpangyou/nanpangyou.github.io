@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.91.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="http://example.org/post/eventloop/" />
+  <link rel="canonical" href="http://example.org/post/eventloop/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "http:\/\/example.org\/"
+      },
+      "articleSection" : "post",
+      "name" : "eventloop",
+      "headline" : "eventloop",
+      "description" : "Eventloop 关于Eventloop，大概可以理解为一种操作系统的运行机制。JS使用的就是这种运行机制来解决单线程运行带来的一些问题。\nWiki的定义如下\n \u0026ldquo;Event Loop是一个程序结构，用于等待和发送消息和事件。（a programming construct that waits for and dispatches events or messages in a program.）\u0026rdquo;\n 有关Eventloop的详细信息，可以参考Node的官方文档。\n这里主要是就常见的题目来进行总结。\n Eventloop主要有6个阶段\n timers I\/O callbacks idle prepare poll check close callbacks  牢记以下的三个不同阶段\n timers阶段 poll阶段 check阶段  与之对应的有三个常见的API\n setTimeout setImmediate nextTick  其中 setTimeout 会在timers阶段执行 setImmediate 会在check阶段执行 nextTick 会在每个阶段结束后立刻执行\n举个🌰\nsetImmediate(()=\u0026gt;{ console.log(\u0027setImmediate1\u0027) setTimeout(()=\u0026gt;{ console.log(\u0027setTimeout1\u0027) },0) }) setTimeout(()=\u0026gt;{ console.log(\u0027setTimeout2\u0027) setImmediate(()=\u0026gt;{ console.log(\u0027setImmediate2\u0027) }) },0) 在这个🌰中 最外层有两个函数，分别为setImmediate和setTimeout。每个函数内部又有一个与之不同的函数\n  先执行最外层",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-11-13 02:22:19 \u002b0000 UTC",
+      "dateModified" : "2020-11-13 02:22:19 \u002b0000 UTC",
+      "url" : "http:\/\/example.org\/post\/eventloop\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>eventloop</title>
+  <meta property="og:title" content="eventloop" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Eventloop 关于Eventloop，大概可以理解为一种操作系统的运行机制。JS使用的就是这种运行机制来解决单线程运行带来的一些问题。
+Wiki的定义如下
+ &amp;ldquo;Event Loop是一个程序结构，用于等待和发送消息和事件。（a programming construct that waits for and dispatches events or messages in a program.）&amp;rdquo;
+ 有关Eventloop的详细信息，可以参考Node的官方文档。
+这里主要是就常见的题目来进行总结。
+ Eventloop主要有6个阶段
+ timers I/O callbacks idle prepare poll check close callbacks  牢记以下的三个不同阶段
+ timers阶段 poll阶段 check阶段  与之对应的有三个常见的API
+ setTimeout setImmediate nextTick  其中 setTimeout 会在timers阶段执行 setImmediate 会在check阶段执行 nextTick 会在每个阶段结束后立刻执行
+举个🌰
+setImmediate(()=&amp;gt;{ console.log(&#39;setImmediate1&#39;) setTimeout(()=&amp;gt;{ console.log(&#39;setTimeout1&#39;) },0) }) setTimeout(()=&amp;gt;{ console.log(&#39;setTimeout2&#39;) setImmediate(()=&amp;gt;{ console.log(&#39;setImmediate2&#39;) }) },0) 在这个🌰中 最外层有两个函数，分别为setImmediate和setTimeout。每个函数内部又有一个与之不同的函数
+  先执行最外层" />
+  <meta name="description" content="Eventloop 关于Eventloop，大概可以理解为一种操作系统的运行机制。JS使用的就是这种运行机制来解决单线程运行带来的一些问题。
+Wiki的定义如下
+ &amp;ldquo;Event Loop是一个程序结构，用于等待和发送消息和事件。（a programming construct that waits for and dispatches events or messages in a program.）&amp;rdquo;
+ 有关Eventloop的详细信息，可以参考Node的官方文档。
+这里主要是就常见的题目来进行总结。
+ Eventloop主要有6个阶段
+ timers I/O callbacks idle prepare poll check close callbacks  牢记以下的三个不同阶段
+ timers阶段 poll阶段 check阶段  与之对应的有三个常见的API
+ setTimeout setImmediate nextTick  其中 setTimeout 会在timers阶段执行 setImmediate 会在check阶段执行 nextTick 会在每个阶段结束后立刻执行
+举个🌰
+setImmediate(()=&amp;gt;{ console.log(&#39;setImmediate1&#39;) setTimeout(()=&amp;gt;{ console.log(&#39;setTimeout1&#39;) },0) }) setTimeout(()=&amp;gt;{ console.log(&#39;setTimeout2&#39;) setImmediate(()=&amp;gt;{ console.log(&#39;setImmediate2&#39;) }) },0) 在这个🌰中 最外层有两个函数，分别为setImmediate和setTimeout。每个函数内部又有一个与之不同的函数
+  先执行最外层" />
+  <meta property="og:locale" content="en-us" />
+
+  
+    <style>body{font-family:bree serif,sans-serif;-webkit-font-smoothing:antialiased;margin:0 20px}article{max-width:800px;margin-left:auto;margin-right:auto}a{color:#000;text-decoration:none}a:hover{font-weight:600;text-decoration:underline}.post-ads{margin:50px 0}.markdown-body{font-size:18px;max-width:100%}.markdown-body a{text-decoration:underline;text-decoration-color:#000}.markdown-body pre{padding:16px;overflow:auto;border-radius:10px}.markdown-body code{padding:.2em .4em;font-size:85%;background-color:#f6f8fa;border-radius:6px}.markdown-body pre>code{padding:0;font-size:100%;background-color:inherit;border:0}.Chinese .markdown-body{line-height:200%}.site-date-catalog{font-size:2rem}.header-title{font-size:2rem;font-weight:700;margin-top:32px;font-family:bungee shade,sans-serif}.header-title a{text-decoration:none}.header-subtitle{color:#666}.header-items{margin:10px 0}.header-item{margin:0 5px}.header-line{width:100%;border-width:2px;border-color:#482936;border-style:solid none none none}.lang-switch{font-weight:600}#posts-list{min-height:600px}.posts-line{font-size:1.2rem;margin:12px 0}.posts-categories{font-size:.8rem;margin:auto;text-align:center}.posts-category{padding:3px 0;border:#000 2px solid;border-radius:5px}.site-footer{margin-top:50px}.site-footer-item{margin-right:12px}.post-content img{max-width:100%;display:block;margin-right:auto;margin-top:12px}.post-header{margin-bottom:50px}.post-title{font-size:2rem;font-weight:600}.post-tags{display:inline;font-weight:600;padding:2px 5px;margin-right:6px;border:#000 2px solid;border-radius:5px}.post-date{font-weight:800;font-style:italic}.post-author{float:right;font-weight:600}.page-content{min-height:60%}.post-content{margin-bottom:50px}.post-content p{hyphens:auto;line-height:1.8;text-justify:ideographic;margin-bottom:1em}.related-content{border-width:3px;border-style:solid;border-color:#000;padding:0 10px;margin-bottom:50px;margin-top:100px}.related-content li{margin:5px 0}.taxonomy-term{font-size:3rem}.gallery-img{text-align:center}.gallery-img span{text-align:center}.gallery-img-desc{font-size:.8em;font-weight:800}#disqus_thread{position:relative}#disqus_thread:after{content:"";display:block;height:55px;width:100%;position:absolute;bottom:0;background:#fff}@media screen and (max-width:600px){.header-title,.header-subtitle,.header-items{text-align:center}.posts-line{font-size:16px}.markdown-body{font-size:16px}.post-title{font-size:2rem}.post-content p{letter-spacing:.05em}}@media screen and (max-width:48em){.posts-category{display:none}}</style>
+  
+  
+    <style>.container,.container-fluid{margin-right:auto;margin-left:auto}.container-fluid{padding-right:2rem;padding-left:2rem}.row{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:0;-ms-flex:0 1 auto;flex:initial;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-.5rem;margin-left:-.5rem}.row.reverse{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.col.reverse{-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.col-xs,.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-offset-0,.col-xs-offset-1,.col-xs-offset-10,.col-xs-offset-11,.col-xs-offset-12,.col-xs-offset-2,.col-xs-offset-3,.col-xs-offset-4,.col-xs-offset-5,.col-xs-offset-6,.col-xs-offset-7,.col-xs-offset-8,.col-xs-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-xs{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-xs-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-xs-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-xs-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-xs-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-xs-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-xs-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-xs-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-xs-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-xs-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-xs-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-xs-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-xs-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-xs-offset-0{margin-left:0}.col-xs-offset-1{margin-left:8.33333333%}.col-xs-offset-2{margin-left:16.66666667%}.col-xs-offset-3{margin-left:25%}.col-xs-offset-4{margin-left:33.33333333%}.col-xs-offset-5{margin-left:41.66666667%}.col-xs-offset-6{margin-left:50%}.col-xs-offset-7{margin-left:58.33333333%}.col-xs-offset-8{margin-left:66.66666667%}.col-xs-offset-9{margin-left:75%}.col-xs-offset-10{margin-left:83.33333333%}.col-xs-offset-11{margin-left:91.66666667%}.start-xs{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-xs{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-xs{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-xs{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-xs{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-xs{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-xs{-ms-flex-pack:distribute;justify-content:space-around}.between-xs{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-xs{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-xs{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}@media only screen and (min-width:48em){.container{width:49rem}.col-sm,.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-offset-0,.col-sm-offset-1,.col-sm-offset-10,.col-sm-offset-11,.col-sm-offset-12,.col-sm-offset-2,.col-sm-offset-3,.col-sm-offset-4,.col-sm-offset-5,.col-sm-offset-6,.col-sm-offset-7,.col-sm-offset-8,.col-sm-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-sm{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-sm-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-sm-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-sm-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-sm-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-sm-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-sm-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-sm-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-sm-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-sm-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-sm-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-sm-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-sm-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-sm-offset-0{margin-left:0}.col-sm-offset-1{margin-left:8.33333333%}.col-sm-offset-2{margin-left:16.66666667%}.col-sm-offset-3{margin-left:25%}.col-sm-offset-4{margin-left:33.33333333%}.col-sm-offset-5{margin-left:41.66666667%}.col-sm-offset-6{margin-left:50%}.col-sm-offset-7{margin-left:58.33333333%}.col-sm-offset-8{margin-left:66.66666667%}.col-sm-offset-9{margin-left:75%}.col-sm-offset-10{margin-left:83.33333333%}.col-sm-offset-11{margin-left:91.66666667%}.start-sm{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-sm{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-sm{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-sm{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-sm{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-sm{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-sm{-ms-flex-pack:distribute;justify-content:space-around}.between-sm{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-sm{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-sm{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}@media only screen and (min-width:64em){.container{width:65rem}.col-md,.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-offset-0,.col-md-offset-1,.col-md-offset-10,.col-md-offset-11,.col-md-offset-12,.col-md-offset-2,.col-md-offset-3,.col-md-offset-4,.col-md-offset-5,.col-md-offset-6,.col-md-offset-7,.col-md-offset-8,.col-md-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-md{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-md-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-md-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-md-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-md-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-md-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-md-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-md-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-md-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-md-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-md-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-md-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-md-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-md-offset-0{margin-left:0}.col-md-offset-1{margin-left:8.33333333%}.col-md-offset-2{margin-left:16.66666667%}.col-md-offset-3{margin-left:25%}.col-md-offset-4{margin-left:33.33333333%}.col-md-offset-5{margin-left:41.66666667%}.col-md-offset-6{margin-left:50%}.col-md-offset-7{margin-left:58.33333333%}.col-md-offset-8{margin-left:66.66666667%}.col-md-offset-9{margin-left:75%}.col-md-offset-10{margin-left:83.33333333%}.col-md-offset-11{margin-left:91.66666667%}.start-md{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-md{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-md{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-md{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-md{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-md{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-md{-ms-flex-pack:distribute;justify-content:space-around}.between-md{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-md{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-md{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}@media only screen and (min-width:75em){.container{width:76rem}.col-lg,.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-offset-0,.col-lg-offset-1,.col-lg-offset-10,.col-lg-offset-11,.col-lg-offset-12,.col-lg-offset-2,.col-lg-offset-3,.col-lg-offset-4,.col-lg-offset-5,.col-lg-offset-6,.col-lg-offset-7,.col-lg-offset-8,.col-lg-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-lg{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-lg-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-lg-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-lg-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-lg-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-lg-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-lg-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-lg-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-lg-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-lg-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-lg-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-lg-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-lg-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-lg-offset-0{margin-left:0}.col-lg-offset-1{margin-left:8.33333333%}.col-lg-offset-2{margin-left:16.66666667%}.col-lg-offset-3{margin-left:25%}.col-lg-offset-4{margin-left:33.33333333%}.col-lg-offset-5{margin-left:41.66666667%}.col-lg-offset-6{margin-left:50%}.col-lg-offset-7{margin-left:58.33333333%}.col-lg-offset-8{margin-left:66.66666667%}.col-lg-offset-9{margin-left:75%}.col-lg-offset-10{margin-left:83.33333333%}.col-lg-offset-11{margin-left:91.66666667%}.start-lg{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-lg{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-lg{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-lg{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-lg{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-lg{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-lg{-ms-flex-pack:distribute;justify-content:space-around}.between-lg{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-lg{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-lg{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}</style>
+  
+
+  
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="男胖友de部落格">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Bungee+Shade" rel="stylesheet">
+  
+  
+
+  
+  
+</head>
+
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="header-title">
+    <a href="/"
+      ></a
+    >
+  </div>
+  <div class="header-subtitle"></div>
+</header>
+<div class="row end-md center-xs header-items">
+  
+</div>
+<div class="row end-xs">
+   
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">eventloop</h1>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <h1 id="eventloop">Eventloop</h1>
+<p>关于<code>Eventloop</code>，大概可以理解为一种操作系统的运行机制。JS使用的就是这种运行机制来解决单线程运行带来的一些问题。</p>
+<p>Wiki的定义如下</p>
+<blockquote>
+<p>&ldquo;Event Loop是一个程序结构，用于等待和发送消息和事件。（a programming construct that waits for and dispatches events or messages in a program.）&rdquo;</p>
+</blockquote>
+<p>有关<code>Eventloop</code>的详细信息，可以参考Node的官方文档。</p>
+<p>这里主要是就常见的题目来进行总结。</p>
+<hr>
+<p>Eventloop主要有6个阶段</p>
+<ul>
+<li>timers</li>
+<li>I/O callbacks</li>
+<li>idle prepare</li>
+<li>poll</li>
+<li>check</li>
+<li>close callbacks</li>
+</ul>
+<p><strong>牢记以下的三个不同阶段</strong></p>
+<ul>
+<li>timers阶段</li>
+<li>poll阶段</li>
+<li>check阶段</li>
+</ul>
+<p>与之对应的有三个常见的API</p>
+<ul>
+<li>setTimeout</li>
+<li>setImmediate</li>
+<li>nextTick</li>
+</ul>
+<p>其中
+setTimeout 会在timers阶段执行
+setImmediate 会在check阶段执行
+nextTick 会在每个阶段结束后立刻执行</p>
+<p>举个🌰</p>
+<pre tabindex="0"><code>setImmediate(()=&gt;{
+    console.log('setImmediate1')
+    setTimeout(()=&gt;{
+        console.log('setTimeout1')
+    },0)
+})
+
+setTimeout(()=&gt;{
+    console.log('setTimeout2')
+    setImmediate(()=&gt;{
+        console.log('setImmediate2')
+    })
+},0)
+</code></pre><p>在这个🌰中
+最外层有两个函数，分别为setImmediate和setTimeout。每个函数内部又有一个与之不同的函数</p>
+<ol>
+<li>
+<p>先执行最外层</p>
+<blockquote>
+<p>setImmediate将函数体(fn1)内部的部分放入check阶段。setTimeout将函数体(fn2)内部的部分放入timers阶段。</p>
+</blockquote>
+</li>
+<li>
+<p>eventloop由poll阶段执行到check阶段</p>
+<blockquote>
+<p>eventloop由poll阶段执行到check阶段后发现fn1，执行fn1。先输出&rsquo;setImmediate1'，然后执行fn1内部的setTimeout(fn3)，将fn3的函数体放入timers阶段。</p>
+</blockquote>
+</li>
+<li>
+<p>eventloop由check阶段执行到timers阶段</p>
+<blockquote>
+<p>eventloop由check阶段执行到timers阶段发现fn2，fn3。先执行fn2，输出‘setTimeout2’然后将fn2内部的setImmediate(fn4)放入check阶段，继续执行fn3，输出‘setTimeout1’</p>
+</blockquote>
+</li>
+<li>
+<p>eventloop由timers阶段执行到poll阶段再到check阶段</p>
+<blockquote>
+<p>发现有fn4，执行后输出&rsquo;setImmediate2'</p>
+</blockquote>
+</li>
+</ol>
+<p>所以结果为setImmediate1-&gt;setTimeout2-&gt;setTimeout1-&gt;setImmediate2</p>
+<h1 id="浏览器中的eventloop">浏览器中的eventloop</h1>
+<p>浏览器中没有setImmediate和nextTick</p>
+<p>一般将浏览器中的调度分为<code>宏任务</code>和<code>微任务</code></p>
+<p>一般可以这样理解。</p>
+<p>宏任务就是可以一会做的任务，微任务就是要马上做的任务</p>
+<p><strong>常见的浏览器异步中（setTimeout，setInterval，promise）只有promise.then(fn)后面的fn属于微任务，要立马执行，其他均为宏任务</strong></p>
+<p>如果见到await，可以将await改写为promise即可判断。</p>
+<p>值得注意的是:<strong>new Promise（fn）后面的函数fn是立即执行的</strong></p>
+<p>举个🌰</p>
+<pre tabindex="0"><code>async function async1(){
+    console.log(1)
+    await async2();
+    console.log(2)
+}
+
+async function async2(){
+    console.log(3)
+}
+
+async1()
+
+new Promise(function(resolve){
+    console.log(4)
+    resolve()
+}).then(function(){
+    console.log(5)
+})
+</code></pre><p>在这个🌰中</p>
+<ol>
+<li>
+<p>声明了两个async函数。执行async1</p>
+<blockquote>
+<p>先输出console.log(1)。然后将await async2()以及后面的部分改写为 async2().then(console.log(2)).这时先执行async2函数，输出console.log(3).然后将then后面的函数放入微任务队列</p>
+</blockquote>
+</li>
+<li>
+<p>继续执行后面的函数</p>
+<blockquote>
+<p>new Promise内部的函数会立即执行。所以接着输出console.log(4)，然后执行resolve回调。将Promise后面的then函数放入微任务队列</p>
+</blockquote>
+</li>
+<li>
+<p>检查微任务队列</p>
+<blockquote>
+<p>按照顺序依次执行。先输出console.log(2).然后输出console.log(5)</p>
+</blockquote>
+</li>
+</ol>
+<p>最后的结果：1-&gt;3-&gt;4-&gt;2-&gt;5</p>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  
+
+<script>
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>
