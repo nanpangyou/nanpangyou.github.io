@@ -2,71 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 男胖友de部落格</title>
-    <link>http://example.org/tags/</link>
+    <link>https://nanpangyou.github.io/tags/</link>
     <description>Recent content in Tags on 男胖友de部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Mar 2020 10:06:14 +0000</lastBuildDate><atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Mar 2020 10:06:14 +0000</lastBuildDate><atom:link href="https://nanpangyou.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>note</title>
-      <link>http://example.org/tags/note/</link>
+      <link>https://nanpangyou.github.io/tags/note/</link>
       <pubDate>Tue, 31 Mar 2020 10:06:14 +0000</pubDate>
       
-      <guid>http://example.org/tags/note/</guid>
+      <guid>https://nanpangyou.github.io/tags/note/</guid>
       <description></description>
     </item>
     
     <item>
       <title>react</title>
-      <link>http://example.org/tags/react/</link>
+      <link>https://nanpangyou.github.io/tags/react/</link>
       <pubDate>Tue, 31 Mar 2020 10:06:14 +0000</pubDate>
       
-      <guid>http://example.org/tags/react/</guid>
+      <guid>https://nanpangyou.github.io/tags/react/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blog</title>
-      <link>http://example.org/tags/blog/</link>
+      <link>https://nanpangyou.github.io/tags/blog/</link>
       <pubDate>Mon, 23 Sep 2019 15:25:24 +0000</pubDate>
       
-      <guid>http://example.org/tags/blog/</guid>
+      <guid>https://nanpangyou.github.io/tags/blog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>code</title>
-      <link>http://example.org/tags/code/</link>
+      <link>https://nanpangyou.github.io/tags/code/</link>
       <pubDate>Mon, 23 Sep 2019 15:25:24 +0000</pubDate>
       
-      <guid>http://example.org/tags/code/</guid>
+      <guid>https://nanpangyou.github.io/tags/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>js</title>
-      <link>http://example.org/tags/js/</link>
+      <link>https://nanpangyou.github.io/tags/js/</link>
       <pubDate>Mon, 09 Sep 2019 11:04:01 +0000</pubDate>
       
-      <guid>http://example.org/tags/js/</guid>
+      <guid>https://nanpangyou.github.io/tags/js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>js深入</title>
-      <link>http://example.org/tags/js%E6%B7%B1%E5%85%A5/</link>
+      <link>https://nanpangyou.github.io/tags/js%E6%B7%B1%E5%85%A5/</link>
       <pubDate>Mon, 09 Sep 2019 11:04:01 +0000</pubDate>
       
-      <guid>http://example.org/tags/js%E6%B7%B1%E5%85%A5/</guid>
+      <guid>https://nanpangyou.github.io/tags/js%E6%B7%B1%E5%85%A5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>node</title>
-      <link>http://example.org/tags/node/</link>
+      <link>https://nanpangyou.github.io/tags/node/</link>
       <pubDate>Thu, 29 Aug 2019 11:03:50 +0000</pubDate>
       
-      <guid>http://example.org/tags/node/</guid>
+      <guid>https://nanpangyou.github.io/tags/node/</guid>
       <description></description>
     </item>
     

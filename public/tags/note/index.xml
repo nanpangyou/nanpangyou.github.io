@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>note on 男胖友de部落格</title>
-    <link>http://example.org/tags/note/</link>
+    <link>https://nanpangyou.github.io/tags/note/</link>
     <description>Recent content in note on 男胖友de部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Mar 2020 10:06:14 +0000</lastBuildDate><atom:link href="http://example.org/tags/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Mar 2020 10:06:14 +0000</lastBuildDate><atom:link href="https://nanpangyou.github.io/tags/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>react生命周期</title>
-      <link>http://example.org/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <link>https://nanpangyou.github.io/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
       <pubDate>Tue, 31 Mar 2020 10:06:14 +0000</pubDate>
       
-      <guid>http://example.org/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <guid>https://nanpangyou.github.io/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
       <description>React 的生命周期 React 组件生命周期的执行次数是什么样子的？   只执行一次 : constructor、 componentWillMount、componentDidMount
   执行多次 : render、 子组件的componentWillReceiveProp、componentWillUpdate、componentDidUpdate
   有条件执行 : componentWillUnmount (页面离开，组件销毁时)
@@ -25,10 +25,10 @@
     
     <item>
       <title>flex-grow,flex-shrink和flex-basis</title>
-      <link>http://example.org/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/</link>
+      <link>https://nanpangyou.github.io/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/</link>
       <pubDate>Mon, 06 Jan 2020 11:24:37 +0000</pubDate>
       
-      <guid>http://example.org/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/</guid>
+      <guid>https://nanpangyou.github.io/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/</guid>
       <description>flex 有三个属性值，分别是 flex-grow， flex-shrink， flex-basis，默认值是 0 1 auto
 flex-basis 和 width 一样，他的默认值为 auto，如果和 width 属性同时设置一个值，flex-basis 会比较优先。当然工作中最好用 flex-basis，更符合规范。
 flex-grow 该属性来设置，当父元素的宽度大于所有子元素的宽度的和时（即父元素会有剩余空间），子元素如何分配父元素的剩余空间。 flex-grow 的默认值为 0，意思是该元素不索取父元素的剩余空间，如果值大于 0，表示索取。值越大，索取的越厉害。
@@ -41,19 +41,19 @@ flex-grow 该属性来设置，当父元素的宽度大于所有子元素的宽�
     
     <item>
       <title>Node-4</title>
-      <link>http://example.org/post/node-4/</link>
+      <link>https://nanpangyou.github.io/post/node-4/</link>
       <pubDate>Thu, 29 Aug 2019 11:03:50 +0000</pubDate>
       
-      <guid>http://example.org/post/node-4/</guid>
+      <guid>https://nanpangyou.github.io/post/node-4/</guid>
       <description>Node 原生服务器搭建(简单版) // 引入http模块 let http = require(&amp;quot;http&amp;quot;); // 引入查询字符串处理函数 let { parse } = require(&amp;quot;querystring&amp;quot;); // 创建server对象 let server = http.createServer((request, response) =&amp;gt; { // request 请求对象 // response 返回对象 console.log(request.url); let str = request.url.split(&amp;quot;?&amp;quot;)[1]; let obj = parse(str); console.log(obj); response.setHeader(&amp;quot;content-type&amp;quot;, &amp;quot;text/html;charset=utf-8&amp;quot;); if (obj.haha === &amp;quot;1&amp;quot;) { response.end(&amp;quot;h1&amp;quot;); } else { response.end(&amp;quot;&amp;lt;h1&amp;gt;服务器启动成功&amp;lt;/h1&amp;gt;&amp;quot;); } }); // 监听端口 server.listen(9999, err =&amp;gt; { if (!err) { console.log(&amp;quot;服务器启动成功&amp;quot;); } else { console.log(&amp;quot;服务器启动失败&amp;quot;); } }); </description>
     </item>
     
     <item>
       <title>Node-3</title>
-      <link>http://example.org/post/node-3/</link>
+      <link>https://nanpangyou.github.io/post/node-3/</link>
       <pubDate>Mon, 26 Aug 2019 15:30:49 +0000</pubDate>
       
-      <guid>http://example.org/post/node-3/</guid>
+      <guid>https://nanpangyou.github.io/post/node-3/</guid>
       <description>mongoose 一个概念 非关系型数据库：对象文档模型（ODM）库 关系型数据库：对象关系模型（ORM）映射表
 Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生的 MongoDB 模块进行了优化封装，并提供了很多功能。
 优点：
@@ -70,10 +70,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>Node-2</title>
-      <link>http://example.org/post/node-2/</link>
+      <link>https://nanpangyou.github.io/post/node-2/</link>
       <pubDate>Mon, 26 Aug 2019 11:00:03 +0000</pubDate>
       
-      <guid>http://example.org/post/node-2/</guid>
+      <guid>https://nanpangyou.github.io/post/node-2/</guid>
       <description>Mongodb 数据库分类  关系型数据库（RDBS） 如 MySQL, Oracle, DB2, SQL server &amp;hellip;  优点 ：
  易于维护： 都是使用表结构，格式一致 使用方便： SQL 语言通用，可用于复杂查询 高级查询： 可用于多表之间的复杂查询  缺点 ：
  读写性能比较差，尤其是海量数据的高效率读写 有固定的表结构，字段不可以随意修改，灵活度欠缺 高并发的读写需求，传统关系行数据库来说， 硬盘 I/O 是一个很大的瓶颈  非关系型数据库 如 MongoDB, Redis &amp;hellip;  优点 ：
@@ -83,10 +83,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>Node-1</title>
-      <link>http://example.org/post/node-1/</link>
+      <link>https://nanpangyou.github.io/post/node-1/</link>
       <pubDate>Fri, 23 Aug 2019 15:59:19 +0000</pubDate>
       
-      <guid>http://example.org/post/node-1/</guid>
+      <guid>https://nanpangyou.github.io/post/node-1/</guid>
       <description>Node - 1 Buffer 缓冲器 什么是 Buffer ?
  它是一个类似于数组的对象，用于存储数据（存储的是二进制数据） Buffer 的效率很高，存储和读取的速度很快，直接对计算机的内存进行操作。 Buffer 的大小一旦确定了，就不可修改 每个元素占用内存的大小为 1 字节 Buffer 是 Node 中非常核心的模块，无需下载和引用就可以直接使用  使用示例
 1. Buffer.from() // 将一个字符串存入Buffer中 let str = &#39;hello world&#39; let buf = Buffer.from(str) console.log(buf) 2. Buffer.alloc(); //alloc()方法创建Buffer的效率一般 会开辟一块完全没有使用过的空间 let buf2 = Buffer.alloc(); console.log(buf2) 3. Buffer.allocUnsafe(); //allocUnsafe()方法创建Buffer的效率很好，但是会有一些安全问题 会返回一块没有被引用的空间（有可能会有其他方法不用的数据，数据可能会有安全问题） let buf3 = Buffer.allocUnsafe() console.log(buf3) 4. new Buffer() // 官方不推荐，说是在后续会删除，效率也不高 let buf4 = new Buffer() console.log(buf4) Node 文件系统 Node 中的文件系统：</description>
@@ -94,10 +94,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>Node-0</title>
-      <link>http://example.org/post/node-0/</link>
+      <link>https://nanpangyou.github.io/post/node-0/</link>
       <pubDate>Fri, 23 Aug 2019 09:42:47 +0000</pubDate>
       
-      <guid>http://example.org/post/node-0/</guid>
+      <guid>https://nanpangyou.github.io/post/node-0/</guid>
       <description>Node - 0 什么是 Node？ 维基百科：
  Node.js is an open-source, cross-platform, JavaScript run-time environment that executes JavaScript code outside of a browser.
  大意是 Node.js 是一款开源的，跨平台的，能让 JavaScript 在浏览器以外运行的运行环境
@@ -106,10 +106,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>vue组件之间传参之兄弟组件</title>
-      <link>http://example.org/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/</link>
+      <link>https://nanpangyou.github.io/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/</link>
       <pubDate>Mon, 19 Aug 2019 15:01:08 +0000</pubDate>
       
-      <guid>http://example.org/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/</guid>
+      <guid>https://nanpangyou.github.io/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/</guid>
       <description>vue 组件传参之兄弟组件 之前有一篇写了 vue 组件传参，主要写了父子组件之间的传参，通过 props 和 $emit(&#39;eventName&#39;) 的方式。
 这次主要来写一下另一种情况，两个平级的兄弟组件之间怎么传参。
 主要原理和父子组件之间通过触发事件来传参差不多 如何做：
@@ -119,10 +119,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>url编码</title>
-      <link>http://example.org/post/url%E7%BC%96%E7%A0%81/</link>
+      <link>https://nanpangyou.github.io/post/url%E7%BC%96%E7%A0%81/</link>
       <pubDate>Tue, 13 Aug 2019 15:39:32 +0000</pubDate>
       
-      <guid>http://example.org/post/url%E7%BC%96%E7%A0%81/</guid>
+      <guid>https://nanpangyou.github.io/post/url%E7%BC%96%E7%A0%81/</guid>
       <description>encodeURI() 和 encodeURIComponent() 方法 encodeURI() 和 encodeURIComponent() 方法，通常都用来进行对 url 的编码。
   为什么要编码： 标准的 url 中不可以出现特殊字符，如 空格 等，如果有则会造成浏览器无法正确理解 url，因此需要使用 utf-8 来对特殊的字符进行替换
   区别： encodeURI() 方法常用来对整个 URL 进行编码，但是对本身属性 url 的特殊字符进行编码，例如“冒号、正斜杠、问号、井号”则不转换。 encodeURIComponent() 方法常用域对 url 中的某一块进行编码，一般是参数部分，他会将任何非标准字符进行编码。
@@ -132,10 +132,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>VueRouter在Webpack上的坑</title>
-      <link>http://example.org/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/</link>
+      <link>https://nanpangyou.github.io/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/</link>
       <pubDate>Fri, 02 Aug 2019 17:48:53 +0000</pubDate>
       
-      <guid>http://example.org/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/</guid>
+      <guid>https://nanpangyou.github.io/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/</guid>
       <description>VueRouter 学习笔记之在 Webpack(4.X) 上的坑 通常 VueRouter 给我们提供了常用的两种方式的使用
   hash 模式 在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。
   history 模式 url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请求。服务器没有对应的路径，就会报404
@@ -145,10 +145,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>flexbox布局</title>
-      <link>http://example.org/post/flexbox%E5%B8%83%E5%B1%80/</link>
+      <link>https://nanpangyou.github.io/post/flexbox%E5%B8%83%E5%B1%80/</link>
       <pubDate>Wed, 24 Jul 2019 11:23:58 +0000</pubDate>
       
-      <guid>http://example.org/post/flexbox%E5%B8%83%E5%B1%80/</guid>
+      <guid>https://nanpangyou.github.io/post/flexbox%E5%B8%83%E5%B1%80/</guid>
       <description>Flex 布局 什么是 Flex 布局？ Flex 是 Flexible box 的缩写，顾名思义为“ 弹性布局 ”， 可以为盒模型提供比较大的灵活性。
 兼容性 在 canIuse 上，flex 的兼容性如下 can i use
 可以看到，出了老版的 ie 支持不够好以外，现在浏览器的支持都还可以，尤其移动端可以使用。
@@ -162,10 +162,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>Promise对象</title>
-      <link>http://example.org/post/promise%E5%AF%B9%E8%B1%A1/</link>
+      <link>https://nanpangyou.github.io/post/promise%E5%AF%B9%E8%B1%A1/</link>
       <pubDate>Sat, 20 Jul 2019 10:32:28 +0000</pubDate>
       
-      <guid>http://example.org/post/promise%E5%AF%B9%E8%B1%A1/</guid>
+      <guid>https://nanpangyou.github.io/post/promise%E5%AF%B9%E8%B1%A1/</guid>
       <description>Promise 是异步编程的一种解决方案。
 简单讲 promise 就是一个容器，里面装有一个未来得到结果的函数（通常为异步）。 在 js 中，promise 是以对象的形式存在，提供统一的 API， 对各种一步操作可以使用统一的方法处理。
 promise 主要有两个特征。
@@ -178,10 +178,10 @@ promise 主要有两个特征。
     
     <item>
       <title>Vue组件间的传值</title>
-      <link>http://example.org/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/</link>
+      <link>https://nanpangyou.github.io/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/</link>
       <pubDate>Tue, 18 Jun 2019 19:21:50 +0000</pubDate>
       
-      <guid>http://example.org/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/</guid>
+      <guid>https://nanpangyou.github.io/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/</guid>
       <description>Vue 组件间的传值 Vue 组件间的传值，说白了就是父子组件和兄弟组件之间的传值。 这次梳理一下父子组件之间的传值。
 Vue 父子组件之间的传值 👨👦 传值主要涉及两种类型的传值
  单纯的值 函数（方法）   单纯的值
@@ -195,10 +195,10 @@ Vue 父子组件之间的传值 👨👦 传值主要涉及两种类型的传值
     
     <item>
       <title>JS剪贴板相关</title>
-      <link>http://example.org/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/</link>
+      <link>https://nanpangyou.github.io/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/</link>
       <pubDate>Fri, 19 Apr 2019 16:47:55 +0000</pubDate>
       
-      <guid>http://example.org/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/</guid>
+      <guid>https://nanpangyou.github.io/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/</guid>
       <description>JS 剪贴板相关的内容 这两天做了一个需求，是通过 js 获取剪贴板中的字符串，对用户复制不同长度的字符串进行分类处理。
 由于自己之前从来都没有关注过复制事件 paste ,于是就去网上找了找相关的资料，记录如下：
 JS 是可以拿到用户所输入的内容的 paste 事件不一定需要绑定在 input 元素中，可以绑定在任意元素中，当用户鼠标在该元素上或者该元素处于 focus 状态，绑定的 paste 事件就会在复制的时候执行。
@@ -209,10 +209,10 @@ clipboardData 属性介绍
     
     <item>
       <title>cssFilter</title>
-      <link>http://example.org/post/cssfilter/</link>
+      <link>https://nanpangyou.github.io/post/cssfilter/</link>
       <pubDate>Wed, 03 Apr 2019 16:42:23 +0000</pubDate>
       
-      <guid>http://example.org/post/cssfilter/</guid>
+      <guid>https://nanpangyou.github.io/post/cssfilter/</guid>
       <description>昨天在写一个需求的时候，用到半透明蒙版遮罩 之前这种需求都是用background: rgba(0,0,0,.5)或者hsla(50, 33%, 25%, 0.75)这类使用Alpha通道,或者使用opacity来增加背景层的透明度。
 单单增加透明度，整体缺少质感，并且如果有文字在遮罩层上的话会使得上下文字重叠，视觉效果并不好。
 毛玻璃的效果刚好可以弥补这一点。

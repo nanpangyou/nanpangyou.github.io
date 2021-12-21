@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>react on 男胖友de部落格</title>
-    <link>http://example.org/tags/react/</link>
+    <link>https://nanpangyou.github.io/tags/react/</link>
     <description>Recent content in react on 男胖友de部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Mar 2020 10:06:14 +0000</lastBuildDate><atom:link href="http://example.org/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Mar 2020 10:06:14 +0000</lastBuildDate><atom:link href="https://nanpangyou.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>react生命周期</title>
-      <link>http://example.org/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <link>https://nanpangyou.github.io/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
       <pubDate>Tue, 31 Mar 2020 10:06:14 +0000</pubDate>
       
-      <guid>http://example.org/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <guid>https://nanpangyou.github.io/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
       <description>React 的生命周期 React 组件生命周期的执行次数是什么样子的？   只执行一次 : constructor、 componentWillMount、componentDidMount
   执行多次 : render、 子组件的componentWillReceiveProp、componentWillUpdate、componentDidUpdate
   有条件执行 : componentWillUnmount (页面离开，组件销毁时)

@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA/" />
-  <link rel="canonical" href="http://example.org/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "为什么在zsh中curl命令总有一个%",
       "headline" : "为什么在zsh中curl命令总有一个%",
       "description" : "在本地搭建了一个简单的 server 在测试的过程中 每次使用curl命令中，打印出来的返回字符串末尾都会自带一个%\n原因： 由于使用的 zsh\n这是一个 zsh 功能,如果该命令在其输出结尾处尚未包含换行符,则在命令完成后打印百分比和换行符. curl 可以打印从源头获得的任何结果,并且不会在没有被要求的情况下自发地打印换行.\n如果正在编写使用 curl 的工具,当然可以选择自己添加换行符\n$curl http:\/\/localhost:9999\/1.js alert(1)% $curl -w \u0027\\n\u0027 http:\/\/localhost:9999\/1.js alert(1) ",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2019",
       "datePublished": "2019-10-17 16:52:26 \u002b0000 UTC",
       "dateModified" : "2019-10-17 16:52:26 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA\/",
       "keywords" : [  ]
   }
 </script>
@@ -81,12 +81,20 @@ $curl http://localhost:9999/1.js alert(1)% $curl -w &#39;\n&#39; http://localhos
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -97,6 +105,23 @@ $curl http://localhost:9999/1.js alert(1)% $curl -w &#39;\n&#39; http://localhos
         </div>
         <header class="post-header">
           <h1 class="post-title">为什么在zsh中curl命令总有一个%</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-10-17 16:52:26 UTC">
+                17 Oct 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -120,6 +145,21 @@ alert(1)
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

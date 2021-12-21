@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9/" />
-  <link rel="canonical" href="http://example.org/post/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "Vue——transition动画的一个小注意点",
       "headline" : "Vue——transition动画的一个小注意点",
       "description" : "太长不看就记住display属性不能transition 起源于日常进行着龟速的Vue自啃。\n看到有关于transition标签相关的内容。 做了一个小小的动画实验。\nDemo：\n\u0026lt;body\u0026gt; \u0026lt;div class=\u0026quot;app\u0026quot;\u0026gt; \u0026lt;!-- 测试小球的动画，使用Vue自带的transition元素 --\u0026gt; \u0026lt;button @click=\u0026quot;flag = !flag\u0026quot;\u0026gt;车来了\u0026lt;\/button\u0026gt; \u0026lt;transition @before-enter=\u0026quot;beforeEnter\u0026quot; @enter=\u0026quot;enter\u0026quot; @after-enter=\u0026quot;afterEnter\u0026quot; \u0026gt; \u0026lt;div class=\u0026quot;car\u0026quot; v-show=\u0026quot;flag\u0026quot;\u0026gt;车速很快\u0026lt;\/div\u0026gt; \u0026lt;\/transition\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;script\u0026gt; var app = new Vue({ el: \u0026quot;.app\u0026quot;, data: { flag: false }, methods: { beforeEnter(el) { el.style.transform = \u0026quot;translate(0,0)\u0026quot;; }, enter(el) { el.style.transform = \u0026quot;translate(350px,0)\u0026quot;; el.style.transition = \u0026quot;all 400ms ease\u0026quot;; }, afterEnter(el) { this.flag = !this.flag; } } }); \u0026lt;\/script\u0026gt; \u0026lt;\/body\u0026gt; 这个demo中\u0008在transition中使用了自带的钩子函数，分别处理动画开始前（before-enter）,动画开始后到动画结束（enter），以及动画结束后（after-enter）三个不通状态的样式\n在上面的代码里，虽然在enter的方法中使用了 el.style.transition = \u0027all 400ms ease\u0027,但是，代表🚗的方块并没有从开始位置逐渐过度到结束的位置。只是在结束的位置瞬间出现。",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2019",
       "datePublished": "2019-05-30 15:43:14 \u002b0000 UTC",
       "dateModified" : "2019-05-30 15:43:14 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9\/",
       "keywords" : [  ]
   }
 </script>
@@ -81,12 +81,20 @@ Demo：
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -97,6 +105,23 @@ Demo：
         </div>
         <header class="post-header">
           <h1 class="post-title">Vue——transition动画的一个小注意点</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-05-30 15:43:14 UTC">
+                30 May 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -198,6 +223,21 @@ demo2:</p>
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

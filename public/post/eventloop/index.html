@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/eventloop/" />
-  <link rel="canonical" href="http://example.org/post/eventloop/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/eventloop/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/eventloop/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "eventloop",
       "headline" : "eventloop",
       "description" : "Eventloop 关于Eventloop，大概可以理解为一种操作系统的运行机制。JS使用的就是这种运行机制来解决单线程运行带来的一些问题。\nWiki的定义如下\n \u0026ldquo;Event Loop是一个程序结构，用于等待和发送消息和事件。（a programming construct that waits for and dispatches events or messages in a program.）\u0026rdquo;\n 有关Eventloop的详细信息，可以参考Node的官方文档。\n这里主要是就常见的题目来进行总结。\n Eventloop主要有6个阶段\n timers I\/O callbacks idle prepare poll check close callbacks  牢记以下的三个不同阶段\n timers阶段 poll阶段 check阶段  与之对应的有三个常见的API\n setTimeout setImmediate nextTick  其中 setTimeout 会在timers阶段执行 setImmediate 会在check阶段执行 nextTick 会在每个阶段结束后立刻执行\n举个🌰\nsetImmediate(()=\u0026gt;{ console.log(\u0027setImmediate1\u0027) setTimeout(()=\u0026gt;{ console.log(\u0027setTimeout1\u0027) },0) }) setTimeout(()=\u0026gt;{ console.log(\u0027setTimeout2\u0027) setImmediate(()=\u0026gt;{ console.log(\u0027setImmediate2\u0027) }) },0) 在这个🌰中 最外层有两个函数，分别为setImmediate和setTimeout。每个函数内部又有一个与之不同的函数\n  先执行最外层",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2020",
       "datePublished": "2020-11-13 02:22:19 \u002b0000 UTC",
       "dateModified" : "2020-11-13 02:22:19 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/eventloop\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/eventloop\/",
       "keywords" : [  ]
   }
 </script>
@@ -95,12 +95,20 @@ setImmediate(()=&amp;gt;{ console.log(&#39;setImmediate1&#39;) setTimeout(()=&am
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -111,6 +119,23 @@ setImmediate(()=&amp;gt;{ console.log(&#39;setImmediate1&#39;) setTimeout(()=&am
         </div>
         <header class="post-header">
           <h1 class="post-title">eventloop</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2020-11-13 02:22:19 UTC">
+                13 Nov 2020
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -250,6 +275,21 @@ new Promise(function(resolve){
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

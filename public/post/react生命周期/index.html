@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" />
-  <link rel="canonical" href="http://example.org/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "react生命周期",
       "headline" : "react生命周期",
       "description" : "React 的生命周期 React 组件生命周期的执行次数是什么样子的？   只执行一次 : constructor、 componentWillMount、componentDidMount\n  执行多次 : render、 子组件的componentWillReceiveProp、componentWillUpdate、componentDidUpdate\n  有条件执行 : componentWillUnmount (页面离开，组件销毁时)\n  不执行的 : 根组件（ReactDOM.render在DOM上的组件）的componentWillReceiveProps（因为压根没有父组件给传递props）\n  执行顺序 假设组件嵌套关系是 App里有parent组件，parent组件有child组件。\n如果不涉及setState更新\n App： constructor --\u0026gt; componentWillMount --\u0026gt; render --\u0026gt; parent: constructor --\u0026gt; componentWillMount --\u0026gt; render --\u0026gt; child: constructor --\u0026gt; componentWillMount --\u0026gt; render --\u0026gt; componentDidMount (child) --\u0026gt; componentDidMount (parent) --\u0026gt; componentDidMount (App) 这时候触发App的setState事件\n App： componentWillUpdate --\u0026gt; render --\u0026gt; parent: componentWillReceiveProps --\u0026gt; componentWillUpdate --\u0026gt; render --\u0026gt; child: componentWillReceiveProps --\u0026gt; componentWillUpdate --\u0026gt; render --\u0026gt; componentDidUpdate (child) --\u0026gt; componentDidUpdate (parent) --\u0026gt; componentDidUpdate (App) 如果触发Parent的setState事件",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2020",
       "datePublished": "2020-03-31 10:06:14 \u002b0000 UTC",
       "dateModified" : "2020-03-31 10:06:14 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F\/",
       "keywords" : [ "react","note", ]
   }
 </script>
@@ -87,12 +87,20 @@
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -103,6 +111,23 @@
         </div>
         <header class="post-header">
           <h1 class="post-title">react生命周期</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2020-03-31 10:06:14 UTC">
+                31 Mar 2020
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -182,6 +207,34 @@ componentDidUpdate (child) --&gt;  componentDidUpdate (parent)
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+<div class="related-content">
+  <h3>Related Posts</h3>
+  <ul>
+    
+    <li><a href="/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/">flex-grow,flex-shrink和flex-basis</a></li>
+    
+    <li><a href="/post/node-4/">Node-4</a></li>
+    
+    <li><a href="/post/node-3/">Node-3</a></li>
+    
+  </ul>
+</div>
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

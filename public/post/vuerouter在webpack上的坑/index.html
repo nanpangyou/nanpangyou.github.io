@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/" />
-  <link rel="canonical" href="http://example.org/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "VueRouter在Webpack上的坑",
       "headline" : "VueRouter在Webpack上的坑",
       "description" : "VueRouter 学习笔记之在 Webpack(4.X) 上的坑 通常 VueRouter 给我们提供了常用的两种方式的使用\n  hash 模式 在 url 中有 # 号的存在，不美观，也不利于 SEO ，部署没有成本，用户向服务器发送请求时，浏览器会忽略 # 后面的值。刷新时不会重新请求。\n  history 模式 url 看起来是正常的，会向服务器发送请求。所以在刷新的时候，会向服务器发送对应路径的请求。服务器没有对应的路径，就会报404\n  解决办法，就是在 webpack 的配置项中，在 devServer 加上\n\/\/history模式下的url会请求到服务器端，但是服务器端并没有这一个资源文件，就会返回404，所以需要配置这一项 historyApiFallback: { rewrites: [{ from: \/.*\/g, to: \u0027\/index.html\u0027 \/\/与output的publicPath有关(HTMLplugin生成的html默认为index.html) }] } ",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2019",
       "datePublished": "2019-08-02 17:48:53 \u002b0000 UTC",
       "dateModified" : "2019-08-02 17:48:53 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91\/",
       "keywords" : [ "note", ]
   }
 </script>
@@ -81,12 +81,20 @@
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -97,6 +105,23 @@
         </div>
         <header class="post-header">
           <h1 class="post-title">VueRouter在Webpack上的坑</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-08-02 17:48:53 UTC">
+                02 Aug 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -136,6 +161,34 @@ historyApiFallback: {
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+<div class="related-content">
+  <h3>Related Posts</h3>
+  <ul>
+    
+    <li><a href="/post/flexbox%E5%B8%83%E5%B1%80/">flexbox布局</a></li>
+    
+    <li><a href="/post/promise%E5%AF%B9%E8%B1%A1/">Promise对象</a></li>
+    
+    <li><a href="/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/">Vue组件间的传值</a></li>
+    
+  </ul>
+</div>
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

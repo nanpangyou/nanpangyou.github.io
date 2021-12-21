@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/" />
-  <link rel="canonical" href="http://example.org/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "JS剪贴板相关",
       "headline" : "JS剪贴板相关",
       "description" : "JS 剪贴板相关的内容 这两天做了一个需求，是通过 js 获取剪贴板中的字符串，对用户复制不同长度的字符串进行分类处理。\n由于自己之前从来都没有关注过复制事件 paste ,于是就去网上找了找相关的资料，记录如下：\nJS 是可以拿到用户所输入的内容的 paste 事件不一定需要绑定在 input 元素中，可以绑定在任意元素中，当用户鼠标在该元素上或者该元素处于 focus 状态，绑定的 paste 事件就会在复制的时候执行。\n事件对象  if (window.clipboardData \u0026amp;\u0026amp; window.clipboardData.getData) { \/\/ IE pastedText = window.clipboardData.getData(\u0026quot;Text\u0026quot;); } else { \/\/e.clipboardData.getData(\u0027text\/plain\u0027); pastedText = e.originalEvent.clipboardData.getData(\u0026quot;Text\u0026quot;); } 粘贴事件为你提供了一个 clipboardData 对象, 它实际上是一个 DataTransfer 类型的对象, DataTransfer 是拖动产生的一个对象，但实际上粘贴事件也是它。\nclipboardData 属性介绍\n   属性 类型 说明     dropEffect String 默认是 none   effectAllowed String 默认是 uninitialized   files FileList 粘贴操作为空 List   items DataTransferItemList 剪切板中的各项数据   types Array 剪切板中的数据类型 该属性在 Safari 下比较混乱    items 介绍 items 是一个 DataTransferItemList 对象，自然里面都是 DataTransferItem 类型的数据了。",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2019",
       "datePublished": "2019-04-19 16:47:55 \u002b0000 UTC",
       "dateModified" : "2019-04-19 16:47:55 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3\/",
       "keywords" : [ "note", ]
   }
 </script>
@@ -83,12 +83,20 @@ clipboardData 属性介绍
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -99,6 +107,23 @@ clipboardData 属性介绍
         </div>
         <header class="post-header">
           <h1 class="post-title">JS剪贴板相关</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-04-19 16:47:55 UTC">
+                19 Apr 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -261,6 +286,30 @@ clipboardData 属性介绍
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+<div class="related-content">
+  <h3>Related Posts</h3>
+  <ul>
+    
+    <li><a href="/post/cssfilter/">cssFilter</a></li>
+    
+  </ul>
+</div>
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

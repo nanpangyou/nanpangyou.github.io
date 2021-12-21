@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js/" />
-  <link rel="canonical" href="http://example.org/post/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "代码片段-js",
       "headline" : "代码片段-js",
       "description" : "curry 函数（可以将函数柯里化的函数） 当传入的参数个数没有到达 func 函数要求的参数个数的时候一直返回柯里化函数。 只有参数满足 func 函数的个数的时候才通过 apply 执行 func 函数\n \/* function curry(???){ ??? return ??? } var abc = function(a, b, c) { return [a, b, c]; }; *\/ function curry(fn,thisArg){ if ( !Array.isArray(thisArg) ) { thisArg = []; } return function(){ let args = Array.prototype.slice.call(arguments); if ( (args.length\u002bthisArg.length) \u0026lt; fn.length ) { return curry(fn , thisArg.concat(args)); } return fn.apply(this , thisArg.concat(args)); }; } var abc = function(a, b, c) { return [a, b, c]; }; var curried = curry(abc); curried(1)(2)(3); curried(1, 2)(3); curried(1, 2, 3); 参考博客",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2019",
       "datePublished": "2019-09-07 16:23:58 \u002b0000 UTC",
       "dateModified" : "2019-09-07 16:23:58 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js\/",
       "keywords" : [  ]
   }
 </script>
@@ -75,12 +75,20 @@
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -91,6 +99,23 @@
         </div>
         <header class="post-header">
           <h1 class="post-title">代码片段-js</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-09-07 16:23:58 UTC">
+                07 Sep 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -211,6 +236,21 @@
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/promise%E5%AF%B9%E8%B1%A1/" />
-  <link rel="canonical" href="http://example.org/post/promise%E5%AF%B9%E8%B1%A1/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/promise%E5%AF%B9%E8%B1%A1/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/promise%E5%AF%B9%E8%B1%A1/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "Promise对象",
       "headline" : "Promise对象",
       "description" : "Promise 是异步编程的一种解决方案。\n简单讲 promise 就是一个容器，里面装有一个未来得到结果的函数（通常为异步）。 在 js 中，promise 是以对象的形式存在，提供统一的 API， 对各种一步操作可以使用统一的方法处理。\npromise 主要有两个特征。\n  对象的状态不受外界影响。\n Promise 对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。\n   一旦状态改变，就不会再变，任何时候都可以得到这个结果。\n promise 对象的状态改变，只有两种情况： 1. 从 pending 到 fulfiled 2. 从 pending 到 rejected 。只要这两种状态发生后就冻结了，不会再变\n   Promise 的基本用法 function setTime(tm) { return new Promise((resolve, reject) =\u0026gt; { \/\/ setTimeout 的第三个参数是传给回调函数的第一个参数 setTimeout(resolve, tm, \u0026quot;success\u0026quot;); \/\/ setTimeout(reject, tm, \u0026quot;somethingErr\u0026quot;); }); } setTime(4000).then( data =\u0026gt; { console.log(\u0026quot;done\u0026quot; \u002b data); }, err =\u0026gt; { console.",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2019",
       "datePublished": "2019-07-20 10:32:28 \u002b0000 UTC",
       "dateModified" : "2019-07-20 10:32:28 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/promise%E5%AF%B9%E8%B1%A1\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/promise%E5%AF%B9%E8%B1%A1\/",
       "keywords" : [ "note", ]
   }
 </script>
@@ -87,12 +87,20 @@ promise 主要有两个特征。
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -103,6 +111,23 @@ promise 主要有两个特征。
         </div>
         <header class="post-header">
           <h1 class="post-title">Promise对象</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-07-20 10:32:28 UTC">
+                20 Jul 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -202,6 +227,34 @@ finally 方法的回调函数不接受任何参数，这意味着没有办法知
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+<div class="related-content">
+  <h3>Related Posts</h3>
+  <ul>
+    
+    <li><a href="/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/">Vue组件间的传值</a></li>
+    
+    <li><a href="/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/">JS剪贴板相关</a></li>
+    
+    <li><a href="/post/cssfilter/">cssFilter</a></li>
+    
+  </ul>
+</div>
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

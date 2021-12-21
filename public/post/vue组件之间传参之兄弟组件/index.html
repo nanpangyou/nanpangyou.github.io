@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/" />
-  <link rel="canonical" href="http://example.org/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "vue组件之间传参之兄弟组件",
       "headline" : "vue组件之间传参之兄弟组件",
       "description" : "vue 组件传参之兄弟组件 之前有一篇写了 vue 组件传参，主要写了父子组件之间的传参，通过 props 和 $emit(\u0027eventName\u0027) 的方式。\n这次主要来写一下另一种情况，两个平级的兄弟组件之间怎么传参。\n主要原理和父子组件之间通过触发事件来传参差不多 如何做：\n 兄弟组件之间的传参需要借助 eventBus 这个概念。 eventBus 其实也是一个 vue 实例。 兄弟组件通过引入同一个 eventBus 来建立联系，触发并且监听同一个事件来进行传参 数据发送方，通过触发 bus.$emit(\u0027eventName\u0027, data) 来发送数据 数据接收方，通过 bus.$on(\u0027eventName\u0027, (data)=\u0026gt;console.log(data)) 其中 $on 的回调函数就可以接受传参  上 Demo：\n父组件 \/\/ 父组件（主要在 Demo 中做包裹层） \u0026lt;template\u0026gt; \u0026lt;div\u0026gt; \u0026lt;component-a\u0026gt;\u0026lt;\/component-a\u0026gt; \u0026lt;component-b\u0026gt;\u0026lt;\/component-b\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;\/template\u0026gt; eventBus.js \/\/ eventBus.js( 事件车，主要是用来承载监听函数) import Vue from \u0027vue\u0027 export default new Vue(); 组件 A \/\/ 组件A 事件的触发方 \u0026lt;template\u0026gt; \u0026lt;div\u0026gt; \u0026lt;h1\u0026gt;a组件\u0026lt;\/h1\u0026gt; \u0026lt;button @click=\u0026quot;abtn\u0026quot;\u0026gt;A按钮\u0026lt;\/button\u0026gt; \u0026lt;\/div\u0026gt; \u0026lt;\/template\u0026gt; \u0026lt;script\u0026gt; import eventVue from \u0026quot;.",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2019",
       "datePublished": "2019-08-19 15:01:08 \u002b0000 UTC",
       "dateModified" : "2019-08-19 15:01:08 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6\/",
       "keywords" : [ "note", ]
   }
 </script>
@@ -81,12 +81,20 @@
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -97,6 +105,23 @@
         </div>
         <header class="post-header">
           <h1 class="post-title">vue组件之间传参之兄弟组件</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-08-19 15:01:08 UTC">
+                19 Aug 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -202,6 +227,34 @@ export default {
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+<div class="related-content">
+  <h3>Related Posts</h3>
+  <ul>
+    
+    <li><a href="/post/url%E7%BC%96%E7%A0%81/">url编码</a></li>
+    
+    <li><a href="/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/">VueRouter在Webpack上的坑</a></li>
+    
+    <li><a href="/post/flexbox%E5%B8%83%E5%B1%80/">flexbox布局</a></li>
+    
+  </ul>
+</div>
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">

@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/post/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B/" />
-  <link rel="canonical" href="http://example.org/post/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="男胖友de部落格">
+  <meta name="author" content="nanpangyou" />
+  <meta property="og:url" content="https://nanpangyou.github.io/post/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B/" />
+  <link rel="canonical" href="https://nanpangyou.github.io/post/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B/" /><link rel="alternate" type="application/atom+xml" href="https://nanpangyou.github.io/index.xml" title="男胖友de部落格">
 
   <script type="application/ld+json">
   {
@@ -16,22 +16,22 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "https:\/\/nanpangyou.github.io\/"
       },
       "articleSection" : "post",
       "name" : "动态创建vue实例",
       "headline" : "动态创建vue实例",
       "description" : "动态创建一个vue实例 在写toast组件时，需要在toastPlugin中使用toast.vue文件动态创建一个vue实例，将toast组件以及相关的样式加载进来（当然也可以使用document.createElement来做，但是原生dom无法使用vue组件的生命周期）\n此时则需要在pulgin中动态创建一个vue实例\n步骤：\n 引入toast.vue文件 使用Vue.extend创建构造函数 new一个vue实例 设置相关的属性（比如slot，事件监听等） mount到内存中 append到页面中  代码示例\nimport Toast from \u0026quot;.\/toast\u0026quot;; export default { install(Vue, options) { Vue.prototype.$toast = function(message,props) { let ToastConstructor = Vue.extend(Toast); let toast = new ToastConstructor({ propsData: {...props} }); toast.$slots.default = [message]; toast.$mount(); document.body.appendChild(toast.$el); }; } }; ",
       "inLanguage" : "en-US",
-      "author" : "",
-      "creator" : "",
-      "publisher": "",
-      "accountablePerson" : "",
-      "copyrightHolder" : "",
+      "author" : "nanpangyou",
+      "creator" : "nanpangyou",
+      "publisher": "nanpangyou",
+      "accountablePerson" : "nanpangyou",
+      "copyrightHolder" : "nanpangyou",
       "copyrightYear" : "2020",
       "datePublished": "2020-09-21 15:08:57 \u002b0000 UTC",
       "dateModified" : "2020-09-21 15:08:57 \u002b0000 UTC",
-      "url" : "http:\/\/example.org\/post\/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B\/",
+      "url" : "https:\/\/nanpangyou.github.io\/post\/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B\/",
       "keywords" : [  ]
   }
 </script>
@@ -81,12 +81,20 @@ import Toast from &amp;quot;./toast&amp;quot;; export default { install(Vue, opt
 <header>
   <div class="header-title">
     <a href="/"
-      ></a
+      >这里是男胖友</a
     >
   </div>
   <div class="header-subtitle"></div>
 </header>
 <div class="row end-md center-xs header-items">
+  
+  <div class="header-item">
+    <a href="https://joway.io" target="_blank">About Me</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/joway" target="_blank">Github</a>
+  </div>
   
 </div>
 <div class="row end-xs">
@@ -97,6 +105,23 @@ import Toast from &amp;quot;./toast&amp;quot;; export default { install(Vue, opt
         </div>
         <header class="post-header">
           <h1 class="post-title">动态创建vue实例</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2020-09-21 15:08:57 UTC">
+                21 Sep 2020
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://joway.io/">@nanpangyou</a>
+              </div>
+              
+            </div>
+          </div>
           
         </header>
 
@@ -139,6 +164,21 @@ export default {
             
           </div>
         </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
         
 
         <div class="site-footer">
