@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>code on 男胖友de部落格</title>
+    <link>https://nanpangyou.github.io/categories/code/</link>
+    <description>Recent content in code on 男胖友de部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Sep 2019 15:25:24 +0000</lastBuildDate><atom:link href="https://nanpangyou.github.io/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>js-继承</title>
+      <link>https://nanpangyou.github.io/post/js-%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Mon, 23 Sep 2019 15:25:24 +0000</pubDate>
+      
+      <guid>https://nanpangyou.github.io/post/js-%E7%BB%A7%E6%89%BF/</guid>
+      <description>使用 JavaScript 实现继承 要求： 要求不使用 class，完成如下需求：
+  写出一个构造函数 Animal 输入为空 输出为一个新对象，该对象的共有属性为 {行动: function(){}}，没有自有属性
+  再写出一个构造函数 Human Human 继承 Animal 输入为一个对象，如 {name: &amp;lsquo;xxx&amp;rsquo;, birthday: &amp;lsquo;2000-10-10&amp;rsquo;} 输出为一个新对象，该对象自有的属性有 name 和 birthday，共有的属性有物种（人类）、行动和使用工具
+  再写出一个构造函数 Asian Asian 继承 Human 输入为一个对象，如 {city: &amp;lsquo;北京&amp;rsquo;, name: &amp;lsquo;xxx&amp;rsquo;, birthday: &amp;lsquo;2000-10-10&amp;rsquo; } 输出为一个新对象，改对象自有的属性有 name city 和 bitrhday，共有的属性有物种、行动和使用工具和肤色 既
+  最后一个新对象是 Asian 构造出来的
+ Asian 继承 Human，Human 继承 Animal 使用原型链
+function Animal(){ } Animal.prototype.行动 = function(){} function Human(options){ this.</description>
+    </item>
+    
+  </channel>
+</rss>
