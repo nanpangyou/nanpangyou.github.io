@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 男胖友de部落格</title>
-    <link>https://nanpangyou.github.io/public/categories/</link>
+    <link>https://nanpangyou.github.io/categories/</link>
     <description>Recent content in Categories on 男胖友de部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Jan 2020 11:24:37 +0000</lastBuildDate><atom:link href="https://nanpangyou.github.io/public/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Jan 2020 11:24:37 +0000</lastBuildDate><atom:link href="https://nanpangyou.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>daily</title>
-      <link>https://nanpangyou.github.io/public/categories/daily/</link>
+      <link>https://nanpangyou.github.io/categories/daily/</link>
       <pubDate>Mon, 06 Jan 2020 11:24:37 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/public/categories/daily/</guid>
+      <guid>https://nanpangyou.github.io/categories/daily/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Note</title>
-      <link>https://nanpangyou.github.io/public/categories/note/</link>
+      <link>https://nanpangyou.github.io/categories/note/</link>
       <pubDate>Mon, 06 Jan 2020 11:24:37 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/public/categories/note/</guid>
+      <guid>https://nanpangyou.github.io/categories/note/</guid>
       <description></description>
     </item>
     
     <item>
       <title>code</title>
-      <link>https://nanpangyou.github.io/public/categories/code/</link>
+      <link>https://nanpangyou.github.io/categories/code/</link>
       <pubDate>Mon, 23 Sep 2019 15:25:24 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/public/categories/code/</guid>
+      <guid>https://nanpangyou.github.io/categories/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>js</title>
-      <link>https://nanpangyou.github.io/public/categories/js/</link>
+      <link>https://nanpangyou.github.io/categories/js/</link>
       <pubDate>Mon, 09 Sep 2019 11:04:01 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/public/categories/js/</guid>
+      <guid>https://nanpangyou.github.io/categories/js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>函数</title>
-      <link>https://nanpangyou.github.io/public/categories/%E5%87%BD%E6%95%B0/</link>
+      <link>https://nanpangyou.github.io/categories/%E5%87%BD%E6%95%B0/</link>
       <pubDate>Mon, 09 Sep 2019 11:04:01 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/public/categories/%E5%87%BD%E6%95%B0/</guid>
+      <guid>https://nanpangyou.github.io/categories/%E5%87%BD%E6%95%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>learnNote</title>
-      <link>https://nanpangyou.github.io/public/categories/learnnote/</link>
+      <link>https://nanpangyou.github.io/categories/learnnote/</link>
       <pubDate>Thu, 29 Aug 2019 11:03:50 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/public/categories/learnnote/</guid>
+      <guid>https://nanpangyou.github.io/categories/learnnote/</guid>
       <description></description>
     </item>
     
