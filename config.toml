@@ -1,4 +1,4 @@
-baseURL = "https://nanpangyou.github.io/"
+baseURL = "https://nanpangyou.github.io/public/"
 languageCode = "en-us"
 title = '男胖友de部落格'
 theme = "yinyang"

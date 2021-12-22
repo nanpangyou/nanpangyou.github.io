@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abouts on 男胖友de部落格</title>
-    <link>https://nanpangyou.github.io/about/</link>
+    <link>https://nanpangyou.github.io/public/about/</link>
     <description>Recent content in Abouts on 男胖友de部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Dec 2021 14:42:34 +0800</lastBuildDate><atom:link href="https://nanpangyou.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Dec 2021 14:42:34 +0800</lastBuildDate><atom:link href="https://nanpangyou.github.io/public/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>https://nanpangyou.github.io/about/about/</link>
+      <link>https://nanpangyou.github.io/public/about/about/</link>
       <pubDate>Tue, 21 Dec 2021 14:42:34 +0800</pubDate>
       
-      <guid>https://nanpangyou.github.io/about/about/</guid>
+      <guid>https://nanpangyou.github.io/public/about/about/</guid>
       <description>关于我 </description>
     </item>
     
