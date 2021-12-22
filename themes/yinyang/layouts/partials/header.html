@@ -10,7 +10,11 @@
 <div class="row end-md center-xs header-items">
   {{ range .Site.Params.socials }}
   <div class="header-item">
+    {{ if .type}}
+    <a href="{{ .link }}">{{ .name }}</a>
+    {{ else }}
     <a href="{{ .link }}" target="_blank">{{ .name }}</a>
+    {{ end }}
   </div>
   {{ end }}
 </div>
