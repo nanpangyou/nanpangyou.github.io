@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>js on 男胖友de部落格</title>
-    <link>https://nanpangyou.github.io/categories/js/</link>
+    <link>/categories/js/</link>
     <description>Recent content in js on 男胖友de部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Sep 2019 11:04:01 +0000</lastBuildDate><atom:link href="https://nanpangyou.github.io/categories/js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Sep 2019 11:04:01 +0000</lastBuildDate><atom:link href="/categories/js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>js-异步</title>
-      <link>https://nanpangyou.github.io/post/js-%E5%BC%82%E6%AD%A5/</link>
+      <link>/post/js-%E5%BC%82%E6%AD%A5/</link>
       <pubDate>Mon, 09 Sep 2019 11:04:01 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/post/js-%E5%BC%82%E6%AD%A5/</guid>
+      <guid>/post/js-%E5%BC%82%E6%AD%A5/</guid>
       <description>同步和异步 同步： 等待结果 异步： 不等待结果
 异步通常和回调一起出现，但是要注意，异步不是回调，回调也不一定是异步。
 常见的异步代码  获取图片的宽高   var w = document.getElementByTagName(&#39;img&#39;)[0].width console.log(w) //0 解决办法：
@@ -24,10 +24,10 @@
     
     <item>
       <title>js-函数</title>
-      <link>https://nanpangyou.github.io/post/js-%E5%87%BD%E6%95%B0/</link>
+      <link>/post/js-%E5%87%BD%E6%95%B0/</link>
       <pubDate>Fri, 30 Aug 2019 10:33:22 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/post/js-%E5%87%BD%E6%95%B0/</guid>
+      <guid>/post/js-%E5%87%BD%E6%95%B0/</guid>
       <description>JavaScript 函数 js 中的函数
 定义  匿名函数 具名函数 箭头函数  // 匿名函数 var fn = function(){ return 1 } fn2 = fn; fn.name //fn fn2.name //fn // 具名函数 function fn3(){ return 1 } //fn3的作用域是全局 var fn5 = function fn4(){ return 5 } //如果将一个具名函数赋值给一个变量，那么这个具名函数的作用域就是该函数的花括号内 //例如fn4这个具名函数赋值给了fn5 那么fn4存在的作用域就是fn4的花括号内 // 箭头函数 var fn = () =&amp;gt; {} var fn2 = e =&amp;gt; console.log(e) var fn3 = (a, b) =&amp;gt; { let c = a + b; return c; } 词法作用域（也叫静态作用域） var global = 1; function fn1(param1){ var local1 = &#39;local1&#39; var local2 = &#39;local2&#39; function fn2(param2){ var local2 = &#39;inner local2&#39; console.</description>
     </item>

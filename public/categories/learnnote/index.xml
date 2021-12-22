@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>learnNote on 男胖友de部落格</title>
-    <link>https://nanpangyou.github.io/categories/learnnote/</link>
+    <link>/categories/learnnote/</link>
     <description>Recent content in learnNote on 男胖友de部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Aug 2019 11:03:50 +0000</lastBuildDate><atom:link href="https://nanpangyou.github.io/categories/learnnote/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Aug 2019 11:03:50 +0000</lastBuildDate><atom:link href="/categories/learnnote/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Node-4</title>
-      <link>https://nanpangyou.github.io/post/node-4/</link>
+      <link>/post/node-4/</link>
       <pubDate>Thu, 29 Aug 2019 11:03:50 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/post/node-4/</guid>
+      <guid>/post/node-4/</guid>
       <description>Node 原生服务器搭建(简单版) // 引入http模块 let http = require(&amp;quot;http&amp;quot;); // 引入查询字符串处理函数 let { parse } = require(&amp;quot;querystring&amp;quot;); // 创建server对象 let server = http.createServer((request, response) =&amp;gt; { // request 请求对象 // response 返回对象 console.log(request.url); let str = request.url.split(&amp;quot;?&amp;quot;)[1]; let obj = parse(str); console.log(obj); response.setHeader(&amp;quot;content-type&amp;quot;, &amp;quot;text/html;charset=utf-8&amp;quot;); if (obj.haha === &amp;quot;1&amp;quot;) { response.end(&amp;quot;h1&amp;quot;); } else { response.end(&amp;quot;&amp;lt;h1&amp;gt;服务器启动成功&amp;lt;/h1&amp;gt;&amp;quot;); } }); // 监听端口 server.listen(9999, err =&amp;gt; { if (!err) { console.log(&amp;quot;服务器启动成功&amp;quot;); } else { console.log(&amp;quot;服务器启动失败&amp;quot;); } }); </description>
     </item>
     
     <item>
       <title>Node-3</title>
-      <link>https://nanpangyou.github.io/post/node-3/</link>
+      <link>/post/node-3/</link>
       <pubDate>Mon, 26 Aug 2019 15:30:49 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/post/node-3/</guid>
+      <guid>/post/node-3/</guid>
       <description>mongoose 一个概念 非关系型数据库：对象文档模型（ODM）库 关系型数据库：对象关系模型（ORM）映射表
 Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生的 MongoDB 模块进行了优化封装，并提供了很多功能。
 优点：
@@ -38,10 +38,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>Node-2</title>
-      <link>https://nanpangyou.github.io/post/node-2/</link>
+      <link>/post/node-2/</link>
       <pubDate>Mon, 26 Aug 2019 11:00:03 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/post/node-2/</guid>
+      <guid>/post/node-2/</guid>
       <description>Mongodb 数据库分类  关系型数据库（RDBS） 如 MySQL, Oracle, DB2, SQL server &amp;hellip;  优点 ：
  易于维护： 都是使用表结构，格式一致 使用方便： SQL 语言通用，可用于复杂查询 高级查询： 可用于多表之间的复杂查询  缺点 ：
  读写性能比较差，尤其是海量数据的高效率读写 有固定的表结构，字段不可以随意修改，灵活度欠缺 高并发的读写需求，传统关系行数据库来说， 硬盘 I/O 是一个很大的瓶颈  非关系型数据库 如 MongoDB, Redis &amp;hellip;  优点 ：
@@ -51,10 +51,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>Node-1</title>
-      <link>https://nanpangyou.github.io/post/node-1/</link>
+      <link>/post/node-1/</link>
       <pubDate>Fri, 23 Aug 2019 15:59:19 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/post/node-1/</guid>
+      <guid>/post/node-1/</guid>
       <description>Node - 1 Buffer 缓冲器 什么是 Buffer ?
  它是一个类似于数组的对象，用于存储数据（存储的是二进制数据） Buffer 的效率很高，存储和读取的速度很快，直接对计算机的内存进行操作。 Buffer 的大小一旦确定了，就不可修改 每个元素占用内存的大小为 1 字节 Buffer 是 Node 中非常核心的模块，无需下载和引用就可以直接使用  使用示例
 1. Buffer.from() // 将一个字符串存入Buffer中 let str = &#39;hello world&#39; let buf = Buffer.from(str) console.log(buf) 2. Buffer.alloc(); //alloc()方法创建Buffer的效率一般 会开辟一块完全没有使用过的空间 let buf2 = Buffer.alloc(); console.log(buf2) 3. Buffer.allocUnsafe(); //allocUnsafe()方法创建Buffer的效率很好，但是会有一些安全问题 会返回一块没有被引用的空间（有可能会有其他方法不用的数据，数据可能会有安全问题） let buf3 = Buffer.allocUnsafe() console.log(buf3) 4. new Buffer() // 官方不推荐，说是在后续会删除，效率也不高 let buf4 = new Buffer() console.log(buf4) Node 文件系统 Node 中的文件系统：</description>
@@ -62,10 +62,10 @@ Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生�
     
     <item>
       <title>Node-0</title>
-      <link>https://nanpangyou.github.io/post/node-0/</link>
+      <link>/post/node-0/</link>
       <pubDate>Fri, 23 Aug 2019 09:42:47 +0000</pubDate>
       
-      <guid>https://nanpangyou.github.io/post/node-0/</guid>
+      <guid>/post/node-0/</guid>
       <description>Node - 0 什么是 Node？ 维基百科：
  Node.js is an open-source, cross-platform, JavaScript run-time environment that executes JavaScript code outside of a browser.
  大意是 Node.js 是一款开源的，跨平台的，能让 JavaScript 在浏览器以外运行的运行环境

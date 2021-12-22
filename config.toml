@@ -1,4 +1,4 @@
-baseURL = "https://nanpangyou.github.io/"
+baseURL = "/"
 languageCode = "en-us"
 title = '男胖友de部落格'
 theme = "yinyang"
@@ -10,7 +10,9 @@ theme = "yinyang"
  headTitle = "这里是男胖友" 
 #  mainSections = ["post"]
 [[params.socials]]
+type = "about"
 name = "About Me"
+link = "./about/about"
 [[params.socials]]
 name = "Github"
 link = "https://github.com/nanpangyou"

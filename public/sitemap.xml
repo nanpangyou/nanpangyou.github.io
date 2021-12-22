@@ -2,175 +2,178 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nanpangyou.github.io/about/</loc>
+    <loc>/about/about/</loc>
     <lastmod>2021-12-21T14:42:34+08:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/</loc>
+    <loc>/about/</loc>
+    <lastmod>2021-12-21T14:42:34+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2021-12-21T14:42:34+08:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
     <lastmod>2021-10-27T16:56:47+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/tmux/</loc>
+    <loc>/post/tmux/</loc>
     <lastmod>2021-10-27T16:56:47+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/</loc>
-    <lastmod>2021-10-27T16:56:47+00:00</lastmod>
-  </url><url>
-    <loc>https://nanpangyou.github.io/post/vim%E5%A4%87%E5%BF%98/</loc>
+    <loc>/post/vim%E5%A4%87%E5%BF%98/</loc>
     <lastmod>2021-09-28T23:11:07+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/asynccomponent/</loc>
+    <loc>/post/asynccomponent/</loc>
     <lastmod>2021-07-07T15:41:54+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E8%A6%86%E7%9B%96antdv%E7%9A%84%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F/</loc>
+    <loc>/post/%E8%A6%86%E7%9B%96antdv%E7%9A%84%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F/</loc>
     <lastmod>2020-12-06T23:49:23+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/eventloop/</loc>
+    <loc>/post/eventloop/</loc>
     <lastmod>2020-11-13T02:22:19+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B/</loc>
+    <loc>/post/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B/</loc>
     <lastmod>2020-09-21T15:08:57+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</loc>
+    <loc>/post/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2020-05-12T11:06:31+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/tags/note/</loc>
+    <loc>/tags/note/</loc>
     <lastmod>2020-03-31T10:06:14+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/tags/react/</loc>
+    <loc>/tags/react/</loc>
     <lastmod>2020-03-31T10:06:14+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    <loc>/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
     <lastmod>2020-03-31T10:06:14+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2020-03-31T10:06:14+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/style-getcomputedstyle-getboundingclientrect%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    <loc>/post/style-getcomputedstyle-getboundingclientrect%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
     <lastmod>2020-01-17T15:34:21+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2020-01-06T11:24:37+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/categories/daily/</loc>
+    <loc>/categories/daily/</loc>
     <lastmod>2020-01-06T11:24:37+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/</loc>
+    <loc>/post/flex-grow-flex-shrink%E5%92%8Cflex-basis/</loc>
     <lastmod>2020-01-06T11:24:37+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/categories/note/</loc>
+    <loc>/categories/note/</loc>
     <lastmod>2020-01-06T11:24:37+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E4%BD%BF%E7%94%A8npm-link%E6%88%96yarn-link/</loc>
+    <loc>/post/%E4%BD%BF%E7%94%A8npm-link%E6%88%96yarn-link/</loc>
     <lastmod>2019-12-06T12:27:09+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E4%BD%BF%E7%94%A8karma-mocha-sinon%E5%92%8Ctravis%E5%B0%9D%E8%AF%95%E5%81%9A%E6%8C%81%E7%BB%AD%E6%B5%8B%E8%AF%95/</loc>
+    <loc>/post/%E4%BD%BF%E7%94%A8karma-mocha-sinon%E5%92%8Ctravis%E5%B0%9D%E8%AF%95%E5%81%9A%E6%8C%81%E7%BB%AD%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2019-12-04T20:31:52+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/css%E5%B1%9E%E6%80%A7/</loc>
+    <loc>/post/css%E5%B1%9E%E6%80%A7/</loc>
     <lastmod>2019-11-13T18:12:29+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/css-variable/</loc>
+    <loc>/post/css-variable/</loc>
     <lastmod>2019-11-05T10:38:24+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA/</loc>
+    <loc>/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA/</loc>
     <lastmod>2019-10-17T16:52:26+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/tags/blog/</loc>
+    <loc>/tags/blog/</loc>
     <lastmod>2019-09-23T15:25:24+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/tags/code/</loc>
+    <loc>/tags/code/</loc>
     <lastmod>2019-09-23T15:25:24+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/categories/code/</loc>
+    <loc>/categories/code/</loc>
     <lastmod>2019-09-23T15:25:24+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/js-%E7%BB%A7%E6%89%BF/</loc>
+    <loc>/post/js-%E7%BB%A7%E6%89%BF/</loc>
     <lastmod>2019-09-23T15:25:24+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E5%A5%87%E6%80%AA%E7%9A%84%E4%BB%A3%E7%A0%81/</loc>
+    <loc>/post/%E5%A5%87%E6%80%AA%E7%9A%84%E4%BB%A3%E7%A0%81/</loc>
     <lastmod>2019-09-11T09:41:40+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/tags/js/</loc>
+    <loc>/tags/js/</loc>
     <lastmod>2019-09-09T11:04:01+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/categories/js/</loc>
+    <loc>/categories/js/</loc>
     <lastmod>2019-09-09T11:04:01+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/js-%E5%BC%82%E6%AD%A5/</loc>
+    <loc>/post/js-%E5%BC%82%E6%AD%A5/</loc>
     <lastmod>2019-09-09T11:04:01+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/tags/js%E6%B7%B1%E5%85%A5/</loc>
+    <loc>/tags/js%E6%B7%B1%E5%85%A5/</loc>
     <lastmod>2019-09-09T11:04:01+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/categories/%E5%87%BD%E6%95%B0/</loc>
+    <loc>/categories/%E5%87%BD%E6%95%B0/</loc>
     <lastmod>2019-09-09T11:04:01+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js/</loc>
+    <loc>/post/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js/</loc>
     <lastmod>2019-09-07T16:23:58+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/js-%E5%87%BD%E6%95%B0/</loc>
+    <loc>/post/js-%E5%87%BD%E6%95%B0/</loc>
     <lastmod>2019-08-30T10:33:22+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/categories/learnnote/</loc>
+    <loc>/categories/learnnote/</loc>
     <lastmod>2019-08-29T11:03:50+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/tags/node/</loc>
+    <loc>/tags/node/</loc>
     <lastmod>2019-08-29T11:03:50+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/node-4/</loc>
+    <loc>/post/node-4/</loc>
     <lastmod>2019-08-29T11:03:50+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/node-3/</loc>
+    <loc>/post/node-3/</loc>
     <lastmod>2019-08-26T15:30:49+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/node-2/</loc>
+    <loc>/post/node-2/</loc>
     <lastmod>2019-08-26T11:00:03+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/node-1/</loc>
+    <loc>/post/node-1/</loc>
     <lastmod>2019-08-23T15:59:19+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/node-0/</loc>
+    <loc>/post/node-0/</loc>
     <lastmod>2019-08-23T09:42:47+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/</loc>
+    <loc>/post/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%8F%82%E4%B9%8B%E5%85%84%E5%BC%9F%E7%BB%84%E4%BB%B6/</loc>
     <lastmod>2019-08-19T15:01:08+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/url%E7%BC%96%E7%A0%81/</loc>
+    <loc>/post/url%E7%BC%96%E7%A0%81/</loc>
     <lastmod>2019-08-13T15:39:32+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/</loc>
+    <loc>/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/</loc>
     <lastmod>2019-08-02T17:48:53+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/flexbox%E5%B8%83%E5%B1%80/</loc>
+    <loc>/post/flexbox%E5%B8%83%E5%B1%80/</loc>
     <lastmod>2019-07-24T11:23:58+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/promise%E5%AF%B9%E8%B1%A1/</loc>
+    <loc>/post/promise%E5%AF%B9%E8%B1%A1/</loc>
     <lastmod>2019-07-20T10:32:28+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85%E6%97%B6%E7%9A%84%E5%8F%82%E6%95%B0/</loc>
+    <loc>/post/%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85%E6%97%B6%E7%9A%84%E5%8F%82%E6%95%B0/</loc>
     <lastmod>2019-06-28T15:02:12+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/</loc>
+    <loc>/post/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/</loc>
     <lastmod>2019-06-18T19:21:50+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/homebrew%E8%8A%82%E7%82%B9/</loc>
+    <loc>/post/homebrew%E8%8A%82%E7%82%B9/</loc>
     <lastmod>2019-06-12T14:50:48+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
+    <loc>/post/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
     <lastmod>2019-05-30T15:43:14+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E6%8B%BC%E9%9F%B3/</loc>
+    <loc>/post/%E6%8B%BC%E9%9F%B3/</loc>
     <lastmod>2019-05-27T12:24:37+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%87%E6%8D%A2tab/</loc>
+    <loc>/post/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%87%E6%8D%A2tab/</loc>
     <lastmod>2019-05-15T11:17:35+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/</loc>
+    <loc>/post/js%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2019-04-19T16:47:55+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/arrayapi/</loc>
+    <loc>/post/arrayapi/</loc>
     <lastmod>2019-04-09T15:03:23+00:00</lastmod>
   </url><url>
-    <loc>https://nanpangyou.github.io/post/cssfilter/</loc>
+    <loc>/post/cssfilter/</loc>
     <lastmod>2019-04-03T16:42:23+00:00</lastmod>
   </url>
 </urlset>
