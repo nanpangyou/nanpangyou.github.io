@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>404 Page not found ♡ 男胖友de部落格</title>
+	
+    
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content page404">
+            
+            <div class="poetry_container">
+                <div class="poetry_title"></div>
+                <div class="poetry_author"></div>
+                <div class="poetry_content"></div>
+                <div class="poetry_translate">译文</div>
+                <div class="poetry_translate_content"></div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        function q(selector) {
+            return document.querySelector(selector);
+        }
+
+        jinrishici.load(function(result) {
+            var data = result.data;
+            q('.poetry_title').innerHTML = data.origin.title;
+            q('.poetry_author').innerHTML = '—— ' + data.origin.dynasty + '·' + data.origin.author;
+            q('.poetry_content').innerHTML = data.origin.content.map(c => '<p>' + c + '</p>').join('');
+
+            if(data.origin.translate) {
+                var t = q('.poetry_translate');
+                var tc = q('.poetry_translate_content');
+                tc.innerHTML = data.origin.translate;
+                t.style.display = 'block';
+                tc.style.display = 'block';
+            }
+
+            q('.poetry_container').style.display = 'block';
+        });
+    </script>
+
+</body>
+
+</html>
