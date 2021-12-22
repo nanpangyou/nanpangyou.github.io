@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>Node-1 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="Node - 1 Buffer 缓冲器 什么是 Buffer ?
+ 它是一个类似于数组的对象，用于存储数据（存储的是二进制数据） Buffer 的效率很高，存储和读取的速度很快，直接对计算机的内存进行操作。 Buffer 的大小一旦确定了，就不可修改 每个元素占用内存的大小为 1 字节 Buffer 是 Node 中非常核心的模块，无需下载和引用就可以直接使用  使用示例
+1. Buffer.from() // 将一个字符串存入Buffer中 let str = &#39;hello world&#39; let buf = Buffer.from(str) console.log(buf) 2. Buffer.alloc(); //alloc()方法创建Buffer的效率一般 会开辟一块完全没有使用过的空间 let buf2 = Buffer.alloc(); console.log(buf2) 3. Buffer.allocUnsafe(); //allocUnsafe()方法创建Buffer的效率很好，但是会有一些安全问题 会返回一块没有被引用的空间（有可能会有其他方法不用的数据，数据可能会有安全问题） let buf3 = Buffer.allocUnsafe() console.log(buf3) 4. new Buffer() // 官方不推荐，说是在后续会删除，效率也不高 let buf4 = new Buffer() console.log(buf4) Node 文件系统 Node 中的文件系统：" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>Node-1</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.08.23</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="node---1">Node - 1</h1>
+<h2 id="buffer-缓冲器">Buffer 缓冲器</h2>
+<p>什么是 Buffer ?</p>
+<ol>
+<li>它是一个类似于数组的对象，用于存储数据（存储的是二进制数据）</li>
+<li>Buffer 的效率很高，存储和读取的速度很快，直接对计算机的内存进行操作。</li>
+<li>Buffer 的大小一旦确定了，就不可修改</li>
+<li>每个元素占用内存的大小为 1 字节</li>
+<li>Buffer 是 Node 中非常核心的模块，无需下载和引用就可以直接使用</li>
+</ol>
+<p>使用示例</p>
+<pre tabindex="0"><code>1. Buffer.from()
+  // 将一个字符串存入Buffer中
+    let str = 'hello world'
+    let buf = Buffer.from(str)
+    console.log(buf)
+
+2. Buffer.alloc();
+  //alloc()方法创建Buffer的效率一般 会开辟一块完全没有使用过的空间
+    let buf2 = Buffer.alloc();
+    console.log(buf2)
+
+3. Buffer.allocUnsafe();
+  //allocUnsafe()方法创建Buffer的效率很好，但是会有一些安全问题 会返回一块没有被引用的空间（有可能会有其他方法不用的数据，数据可能会有安全问题）
+    let buf3 = Buffer.allocUnsafe()
+    console.log(buf3)
+
+4. new Buffer()
+  // 官方不推荐，说是在后续会删除，效率也不高
+    let buf4 = new Buffer()
+    console.log(buf4)
+</code></pre><h2 id="node-文件系统">Node 文件系统</h2>
+<p>Node 中的文件系统：</p>
+<ol>
+<li>在 Node 中有一个文件系统，所谓文件系统，就是对计算机中的文件进行增删查改等操作</li>
+<li>在 Node 中，提供了一个模块，叫 fs 模块，专门由于用户操作文件</li>
+<li>fs 模块，是 Node 的核心模块，使用的时候，要引入，无需下载</li>
+</ol>
+<pre tabindex="0"><code>let fs = require('fs')
+</code></pre><h3 id="简单文件写入">简单文件写入</h3>
+<p>语法：<code>fs.writeFile(file, data[,options], callback)</code></p>
+<p>参数：
+&ndash;file ： 文件名+文件路径
+&ndash;data ：要写入的数据
+&ndash;options ： 配置选项</p>
+<blockquote>
+<p>&ndash;flag : 打开文件要进行的操作 &lsquo;w&rsquo;:写入(默认) &lsquo;a&rsquo;:追加
+&ndash;mode : 文件权限的限制 （默认是 0o666: 文件可读可写 0o222+0o444） 0o111:文件可被执行 0o222:文件可被读取 0o444:文件可被写入
+&ndash;encoding : utf8(默认值)</p>
+</blockquote>
+<p>&ndash;callback ： 回调函数</p>
+<pre tabindex="0"><code>const fs = require('fs')
+fs.writeFile('./test.md','test content',(err)=&gt;{
+  if(!err){
+    console.log('success');
+  }else{
+    console.log(err);
+  }
+})
+</code></pre><h4 id="简单文件写入的不足">简单文件写入的不足</h4>
+<p>简单文件写入是一次性将所有要写入的数据加载到内存中，对于比较大的数据容易造成内存溢出。适用于较小的文件写入。</p>
+<h3 id="流式文件写入">流式文件写入</h3>
+<p>流，分为 可读流，可写流</p>
+<ol>
+<li>创建一个可写流</li>
+</ol>
+<p><code>fs.createWriteStream(path[, options])</code>
+&ndash;path: 文件路径+文件名
+&ndash;options: 配置对象（可选）</p>
+<blockquote>
+<p>flags : 打开文件要进行的操作 &lsquo;w&rsquo;:写入(默认) &lsquo;a&rsquo;:追加
+mode : 文件权限的限制 （默认是 0o666: 文件可读可写 0o222+0o444） 0o111:文件可被执行 0o222:文件可被读取 0o444:文件可被写入
+encoding : utf8（默认）
+fd : 文件的唯一标识
+autoClose : 当数据操作完毕后，自动关闭文件，默认值是 true
+start : 文件写入的其实位置 文件中的位置，不是内存中的位置</p>
+</blockquote>
+<pre tabindex="0"><code>const fs = require('fs')
+let ws = fs.createWriteStream('./demo.md')
+// 只要使用了流，需要给流加监听，来控制打开和关闭。
+ws.on(&quot;open&quot;,()=&gt;{
+  console.log('流打开了')
+})
+ws.on(&quot;close&quot;,()=&gt;{
+  console.log(&quot;流关闭了&quot;)
+})
+
+ws.write('马上上学了，\n')
+ws.write('饿了，\n')
+ws.write('忍着  \n')
+// ws.close()  //如果用的是8版本以下（包括8版本），用close方法关闭流，会造成数据的丢失，这个时候推荐使用end方法
+ws.end()
+</code></pre><h3 id="简单文件读取">简单文件读取</h3>
+<p><code>fs.readFile(path[, options], callback)</code></p>
+<p>&ndash;path: 文件路径和文件名字
+&ndash;options： 配置对象</p>
+<blockquote>
+<p>flag: &lsquo;a&rsquo; add 加入 ， &lsquo;w&rsquo; write 写入 , &lsquo;r&rsquo; read 读取
+encoding: utf8 （默认）</p>
+</blockquote>
+<p>&ndash;callback: 回调函数</p>
+<blockquote>
+<p>err: 错误对象
+data ： 数据</p>
+</blockquote>
+<pre tabindex="0"><code>const fs = require('fs')
+fs.readFile('./demo.md',(err,data)=&gt;{
+  if(!err){
+    console.log(data)
+    //打印的是buffer类型的数据，如果本身文件是文本，可以调用Buffer自身的toString()方法，将buffer类型的数据转换成文本
+    //如果本身文件为非文本（例如：mp3 mp4 rar等其他类型），Buffer格式的数据较为方便操作
+  }else{
+    console.log(err)
+  }
+})
+</code></pre><h3 id="流式文件读取">流式文件读取</h3>
+<p><code>fs.createReadStream(path[, options])</code></p>
+<p>&ndash;path: 文件路径 + 文件名
+&ndash;options: 配置文件</p>
+<blockquote>
+<p>start : 读取的起始点
+end : 读取的结束点
+highWaterMark ：每次读取的数据大小 默认值是 64* 1024 （65536） kb</p>
+</blockquote>
+<pre tabindex="0"><code>const fs = require('fs')
+// 创建一个可读流
+
+let rs = fs.createReadStream('./demo.md')
+let ws = fs.createWriteStream('./demo-out.md')
+
+//  监听读取流
+rs.on('open',()=&gt;{
+  console.log('开始读取')
+})
+rs.on('close',()=&gt;{
+  console.log('读取结束')
+  ws.end()
+})
+//  监听写入流
+ws.on('open',()=&gt;{
+  console.log('写入开始')
+})
+ws.on('close',()=&gt;{
+  console.log('读取结束')
+})
+
+// 当给可读流绑定一个data事件，会自动触发流读取文件
+rs.on('data',data=&gt;{
+  console.log(data)   // 读取的数据
+  console.log(data.toString())  // 读取的Buffer字符串化
+  console.log(data.length)  // 读取的Buffer长度
+  ws.write(data)
+
+})
+</code></pre>
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/note/">note</a>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/node/">node</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/node-0/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">Node-0</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/node-2/">
+                                    <span class="next_title">Node-2</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

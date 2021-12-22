@@ -1,0 +1,21 @@
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="{{ "js/jquery-3.5.1.min.js" | absURL }}"></script>
+<script src="{{ "js/fancybox.min.js" | absURL }}"></script>
+<script src="{{ "js/captain.js" | absURL }}"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+{{ if .Site.Params.enableMathJax }}
+{{ partial "mathjax.html" . }}
+{{ end }}

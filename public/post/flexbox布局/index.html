@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>flexbox布局 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="Flex 布局 什么是 Flex 布局？ Flex 是 Flexible box 的缩写，顾名思义为“ 弹性布局 ”， 可以为盒模型提供比较大的灵活性。
+兼容性 在 canIuse 上，flex 的兼容性如下 can i use
+可以看到，出了老版的 ie 支持不够好以外，现在浏览器的支持都还可以，尤其移动端可以使用。
+用法 任何一个容器都可以指定为 Flex 布局
+.box{ display: flex; } 基本概念 采用 Flex 布局的元素，称为 Flex 容器（flex container），简称“容器”。它的所有子元素自动成为容器成员，成为 flex 项目（flex item），简称“项目”。
+容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框 的交叉点）叫做 main start，结束位置叫做 main end；交叉轴的开始位置叫做 cross start，结束位置叫做 cross end。
+项目默认沿主轴排列。单个项目占据的主轴空间叫做 main size，占据的交叉轴空间叫做 cross size。
+容器属性 flex 容器主要有以下 6 个属性设置
+ flex-direction flex-wrap flex-flow justify-content align-items align-content  详细说明  flex-direction  flex-direction 属性决定主轴的方向，他有 4 个属性值" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>flexbox布局</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.07.24</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="flex-布局">Flex 布局</h1>
+<h2 id="什么是-flex-布局">什么是 Flex 布局？</h2>
+<p>Flex 是 Flexible box 的缩写，顾名思义为“ 弹性布局 ”， 可以为盒模型提供比较大的灵活性。</p>
+<h2 id="兼容性">兼容性</h2>
+<p>在 canIuse 上，flex 的兼容性如下
+<img src="compatibility.jpg" alt="兼容性"></p>
+<p><a href="https://www.caniuse.com/#search=flex" target="_blank">can i use</a></p>
+<p>可以看到，出了老版的 ie 支持不够好以外，现在浏览器的支持都还可以，尤其移动端可以使用。</p>
+<h2 id="用法">用法</h2>
+<p>任何一个容器都可以指定为 Flex 布局</p>
+<pre tabindex="0"><code>.box{
+  display: flex;
+}
+</code></pre><h3 id="基本概念">基本概念</h3>
+<p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称“容器”。它的所有子元素自动成为容器成员，成为 flex 项目（flex item），简称“项目”。</p>
+<p><img src="basic.png" alt="基本概念"></p>
+<p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框 的交叉点）叫做 main start，结束位置叫做 main end；交叉轴的开始位置叫做 cross start，结束位置叫做 cross end。</p>
+<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做 main size，占据的交叉轴空间叫做 cross size。</p>
+<h3 id="容器属性">容器属性</h3>
+<p>flex 容器主要有以下 6 个属性设置</p>
+<ul>
+<li>flex-direction</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ul>
+<h3 id="详细说明">详细说明</h3>
+<ol>
+<li>flex-direction</li>
+</ol>
+<p>flex-direction 属性决定主轴的方向，他有 4 个属性值</p>
+<blockquote>
+<p>row（默认值）：主轴为水平方向，起点在左端
+row-reverse:主轴为水平方向，起点在右端
+column:主轴为垂直方向，起点在上沿
+column-reverse:主轴为垂直方向，起点在下沿</p>
+</blockquote>
+<ol start="2">
+<li>flex-wrap</li>
+</ol>
+<p>默认情况下，项目都排在一条线（又称“轴线”）上。flex-wrap 属性定义，如果一条轴线 排不下，如何换行</p>
+<blockquote>
+<p>nowrap（默认）：不换行
+wrap:换行，第一行在上方
+wrap-reverse:换行，在第一行的下方</p>
+</blockquote>
+<ol start="3">
+<li>flex-flow</li>
+</ol>
+<p>flex-flow 属性是 flex-direction 属性和 flex-wrap 属性的简写形式，默认 row nowrap。</p>
+<ol start="4">
+<li>justify-content</li>
+</ol>
+<p>justify-content 属性定义了项目在主轴上的对齐方式</p>
+<blockquote>
+<p>flex-start（默认值）：左对齐
+flex-end：右对齐
+center：居中
+space-between:两端对齐，项目之间的间隔都相等
+space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
+</blockquote>
+<ol start="5">
+<li>align-items</li>
+</ol>
+<p>align-items 属性定义项目在交叉轴上如何对齐。</p>
+<blockquote>
+<p>flex-start：交叉轴的起点对齐
+flex-end:交叉轴的终点对齐
+center：交叉轴的中点对齐
+baseline：项目的第一行文字的基线对齐。
+stretch（默认值）：如果项目未设置高度或设为 auto，将占满整个容器的高度。</p>
+</blockquote>
+<ol start="6">
+<li>align-content</li>
+</ol>
+<p>align-content 属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<blockquote>
+<p>flex-start：与交叉轴的起点对齐。
+flex-end：与交叉轴的终点对齐。
+center：与交叉轴的中点对齐。
+space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+stretch（默认值）：轴线占满整个交叉轴。</p>
+</blockquote>
+<h3 id="项目的属性">项目的属性</h3>
+<p>项目的属性主要包括 6 个</p>
+<ul>
+<li>order</li>
+<li>flex-grow</li>
+<li>flex-shrink</li>
+<li>flex-basis</li>
+<li>flex</li>
+<li>align-self</li>
+</ul>
+<h4 id="项目属性的用法">项目属性的用法</h4>
+<ol>
+<li>order</li>
+</ol>
+<blockquote>
+<p>order 属性定义项目的排列顺序。数值越小，排列越靠前，默认为 0.</p>
+</blockquote>
+<ol start="2">
+<li>flex-grow</li>
+</ol>
+<blockquote>
+<p>flex-grow 属性定义项目的放大比例，默认值为 0，即如果存在剩余空间，也不放大。</p>
+</blockquote>
+<ol start="3">
+<li>flex-shrink</li>
+</ol>
+<blockquote>
+<p>flex-shrink 属性定义了项目的缩小比例，默认为 1，即如果空间不足，改项目将缩小。</p>
+</blockquote>
+<ol start="4">
+<li>flex-basis</li>
+</ol>
+<blockquote>
+<p>flex-basis 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为 auto，即项目的本来大小。它可以设为跟 width 或 height 属性一样的值（比如 350px），则项目将占据固定空间。</p>
+</blockquote>
+<ol start="5">
+<li>flex</li>
+</ol>
+<blockquote>
+<p>flex 属性是 flex-grow，flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后面两个属性可选
+改属性有两个快捷值：auto（1 1 auto）和 none（0 0 auto）.
+建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值</p>
+</blockquote>
+<ol start="6">
+<li>align-self</li>
+</ol>
+<blockquote>
+<p>align-self: auto | flex-start | flex-end | center | baseline | stretch;
+属性和 align-items 属性一致</p>
+</blockquote>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.cnblogs.com/dreamperson/p/9367008.html" target="_blank">Flex 布局</a>
+<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank">Flex 布局教程：语法篇</a></p>
+<p>🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸</p>
+<p>练习:
+<a href="http://flexboxfroggy.com/#zh-cn" target="_blank">小青蛙游戏&amp;ndash;练习使用</a></p>
+<p>🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸🐸</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/note/">note</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/promise%E5%AF%B9%E8%B1%A1/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">Promise对象</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/vuerouter%E5%9C%A8webpack%E4%B8%8A%E7%9A%84%E5%9D%91/">
+                                    <span class="next_title">VueRouter在Webpack上的坑</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>cssFilter ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="昨天在写一个需求的时候，用到半透明蒙版遮罩 之前这种需求都是用background: rgba(0,0,0,.5)或者hsla(50, 33%, 25%, 0.75)这类使用Alpha通道,或者使用opacity来增加背景层的透明度。
+单单增加透明度，整体缺少质感，并且如果有文字在遮罩层上的话会使得上下文字重叠，视觉效果并不好。
+毛玻璃的效果刚好可以弥补这一点。
+主要用到的属性是filter: blur(10px);
+代码结构不难理解
+&amp;lt;body&amp;gt; &amp;lt;div class=&amp;quot;bg&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;wrapper&amp;quot;&amp;gt; &amp;lt;p&amp;gt; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias aperiam, sequi velit dolores accusantium voluptas. Facere dolorem tempore similique nobis eos maxime error perspiciatis temporibus, fugiat vel deserunt esse unde! &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias aperiam, sequi velit dolores accusantium voluptas. Facere dolorem tempore similique nobis eos maxime error perspiciatis temporibus, fugiat vel deserunt esse unde!" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>cssFilter</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.04.03</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <p>昨天在写一个需求的时候，用到半透明蒙版遮罩
+之前这种需求都是用<code>background: rgba(0,0,0,.5)</code>或者<code>hsla(50, 33%, 25%, 0.75)</code>这类使用<code>Alpha</code>通道,或者使用<code>opacity</code>来增加背景层的透明度。</p>
+<p>单单增加透明度，整体缺少质感，并且如果有文字在遮罩层上的话会使得上下文字重叠，视觉效果并不好。</p>
+<p>毛玻璃的效果刚好可以弥补这一点。</p>
+<p>主要用到的属性是<code>filter: blur(10px);</code></p>
+<p>代码结构不难理解</p>
+<pre tabindex="0"><code>&lt;body&gt;
+    &lt;div class=&quot;bg&quot;&gt;
+      &lt;div class=&quot;wrapper&quot;&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias
+          aperiam, sequi velit dolores accusantium voluptas. Facere dolorem
+          tempore similique nobis eos maxime error perspiciatis temporibus,
+          fugiat vel deserunt esse unde!
+        &lt;/p&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias
+          aperiam, sequi velit dolores accusantium voluptas. Facere dolorem
+          tempore similique nobis eos maxime error perspiciatis temporibus,
+          fugiat vel deserunt esse unde!
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+</code></pre><p>对应的样式文件</p>
+<pre tabindex="0"><code> &lt;style&gt;
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .bg {
+        background: url(./01.jpeg);
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .wrapper {
+        width: 55%;
+        height: 55%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+      }
+      .wrapper:before {
+        content: &quot;&quot;;
+        background: url(./01.jpeg);
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        top: -41%;
+        left: -41%;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        width: 182%;
+        height: 182%;
+        filter: blur(10px);
+      }
+      .wrapper &gt; p {
+        font-size: 20px;
+        color: #fff;
+        width: 90%;
+        margin: 0 auto;
+      }
+    &lt;/style&gt;
+</code></pre><p>最后的效果图如下
+<img src="01.png" alt="毛玻璃效果"></p>
+<p>值得注意的有以下几点</p>
+<ol>
+<li>wrapper 层的背景图片和 bg 层的图片是一样的，原理就是两张图片完全重合，设置<code>overflow: hidden;</code>来隐藏超出部分并增加模糊</li>
+<li>位置计算很重要，要让两张图片重叠，否则模糊部分的纹路对不上背景图片</li>
+<li>可以不使用伪元素，一个空的<code>div</code>也可以，但是。。。。emmmmm，你懂得</li>
+</ol>
+<p>最后一个事，<code>filter</code>的兼容性，caniuse 上好好看看呀</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/note/">note</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/arrayapi/">
+                                    <span class="next_title">ArrayAPI</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>js-函数 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="JavaScript 函数 js 中的函数
+定义  匿名函数 具名函数 箭头函数  // 匿名函数 var fn = function(){ return 1 } fn2 = fn; fn.name //fn fn2.name //fn // 具名函数 function fn3(){ return 1 } //fn3的作用域是全局 var fn5 = function fn4(){ return 5 } //如果将一个具名函数赋值给一个变量，那么这个具名函数的作用域就是该函数的花括号内 //例如fn4这个具名函数赋值给了fn5 那么fn4存在的作用域就是fn4的花括号内 // 箭头函数 var fn = () =&amp;gt; {} var fn2 = e =&amp;gt; console.log(e) var fn3 = (a, b) =&amp;gt; { let c = a &#43; b; return c; } 词法作用域（也叫静态作用域） var global = 1; function fn1(param1){ var local1 = &#39;local1&#39; var local2 = &#39;local2&#39; function fn2(param2){ var local2 = &#39;inner local2&#39; console." />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>js-函数</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.08.30</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="javascript-函数">JavaScript 函数</h1>
+<p>js 中的函数</p>
+<h2 id="定义">定义</h2>
+<ol>
+<li>匿名函数</li>
+<li>具名函数</li>
+<li>箭头函数</li>
+</ol>
+<pre tabindex="0"><code>// 匿名函数
+var fn = function(){
+  return 1
+}
+fn2 = fn;
+
+fn.name //fn
+fn2.name //fn
+
+// 具名函数
+function fn3(){
+  return 1
+}      //fn3的作用域是全局
+
+var fn5 = function fn4(){
+  return 5
+}
+//如果将一个具名函数赋值给一个变量，那么这个具名函数的作用域就是该函数的花括号内
+//例如fn4这个具名函数赋值给了fn5 那么fn4存在的作用域就是fn4的花括号内
+
+// 箭头函数
+var fn = () =&gt; {}
+var fn2 = e =&gt; console.log(e)
+var fn3 = (a, b) =&gt; {
+  let c = a + b;
+  return c;
+}
+</code></pre><p><img src="%E5%85%B7%E5%90%8D%E5%87%BD%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F.png" alt="具名函数作用域"></p>
+<h2 id="词法作用域也叫静态作用域">词法作用域（也叫静态作用域）</h2>
+<pre tabindex="0"><code>var global = 1;
+function fn1(param1){
+  var local1 = 'local1'
+  var local2 = 'local2'
+  function fn2(param2){
+    var local2 = 'inner local2'
+    console.log(local1)
+    console.log(local2)
+  }
+  function fn3(){
+    var local2 = 'fn3 local2'
+    fn2(local2)
+  }
+}
+</code></pre><p><img src="%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F.jpg" alt="词法作用域">
+词法作用域： 变量的作用域是在定义的时候决定的，而不是执行的时候决定的，也就是说词法作用域取决于源码，通过静态分析就能确定，因此词法作用域也叫静态作用域。with 和 eval 除外，所以只能说 JS 的作用域机制非常接近词法作用域（ Lexical scope ）</p>
+<p>值得一看的博客<a href="https://js8.in/2011/08/15/javascript%e7%9a%84%e8%af%8d%e6%b3%95%e4%bd%9c%e7%94%a8%e5%9f%9f/" target="_blank">javascript 的词法作用域</a></p>
+<h2 id="call-stack">call stack</h2>
+<p>stack - 栈 - 先进后出</p>
+<p><a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYSgpewogICAgY29uc29sZS5sb2coJ2ExJykKICAgIGIoKQogICAgY29uc29sZS5sb2coJ2EyJykKICByZXR1cm4gJ2EnICAKfQpmdW5jdGlvbiBiKCl7CiAgICBjb25zb2xlLmxvZygnYjEnKQogICAgYygpCiAgICBjb25zb2xlLmxvZygnYjInKQogICAgcmV0dXJuICdiJwp9CmZ1bmN0aW9uIGMoKXsKICAgIGNvbnNvbGUubG9nKCdjJykKICAgIHJldHVybiAnYycKfQphKCkKY29uc29sZS5sb2coJ2VuZCcp!!!" target="_blank">简单调用栈</a></p>
+<p><a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYSgpewogICAgY29uc29sZS5sb2coJ2ExJykKICAgIGIoKQogICAgY29uc29sZS5sb2coJ2EyJykKICByZXR1cm4gJ2EnICAKfQpmdW5jdGlvbiBiKCl7CiAgICBjb25zb2xlLmxvZygnYjEnKQogICAgYygpCiAgICBjb25zb2xlLmxvZygnYjInKQogICAgcmV0dXJuICdiJwp9CmZ1bmN0aW9uIGMoKXsKICAgIGNvbnNvbGUubG9nKCdjJykKICAgIHJldHVybiAnYycKfQphKCkKY29uc29sZS5sb2coJ2VuZCcp!!!" target="_blank">稍复杂的调用栈</a></p>
+<p><a href="http://latentflip.com/loupe/?code=ZnVuY3Rpb24gZmFiKG4pewogICAgY29uc29sZS5sb2coJ3N0YXJ0IGNhbGMgZmFiICcrIG4pCiAgICBpZihuPj0zKXsKICAgICAgICByZXR1cm4gZmFiKG4tMSkgKyBmYWIobi0yKQogICAgfWVsc2V7CiAgICAgICAgcmV0dXJuIDEKICAgIH0KfQoKZmFiKDUp!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" target="_blank">递归（斐波那契数列）</a></p>
+<h2 id="this--argument">this &amp; argument</h2>
+<pre tabindex="0"><code>  function f(){
+      console.log(this)
+      console.log(arguments)
+  }
+  f.call() // window
+  f.call({name:'男胖友'}) // {name: '男胖友'}, []
+  f.call({name:'男胖友'},1) // {name: '男胖友'}, [1]
+  f.call({name:'男胖友'},1,2) // {name: '男胖友'}, [1,2]
+</code></pre><p><strong>注意</strong>
+call, apply, bind
+call, apply 都是直接调用函数，只有参数上的区别，call 为逗号分割的值，apply 为数组
+bind 则返回一个新的函数（并没有调用原来的函数），这个新的函数会 call 原来的函数，call 的参数由你指定</p>
+<h2 id="高阶函数柯里化">高阶函数/柯里化</h2>
+<ul>
+<li>
+<p>柯里化:</p>
+<p>将 f( x, y )变成 f( 1, y ) 或者 f( x, 1 ) 【固定其余的参数，每次只有一个变量】</p>
+</li>
+<li>
+<p>高阶函数:</p>
+<p>至少满足以下条件之一的就可以称为高阶函数</p>
+<ol>
+<li>接受一个或者多个函数作为输入： forEach, sort, reduce, map 等</li>
+<li>输出一个函数： lodash.curry</li>
+<li>同时满足以上两个条件： function.prototype.bind</li>
+</ol>
+</li>
+</ul>
+<h2 id="回调和构造函数">回调和构造函数</h2>
+<ul>
+<li>
+<p>回调函数
+被当做参数的函数就是回调
+回调和异步没有关系</p>
+</li>
+<li>
+<p>构造函数
+返回对象的函数就是构造函数
+一般首字母大写</p>
+</li>
+</ul>
+<h2 id="几个知识">几个知识</h2>
+<ol>
+<li>对象和对象之间的关系
+不同的对象之间，可以通过 <code>__proto__</code> 来互相关联，<code>a.__proto__ = b;c.__proto__ = b;</code> 则  对象 a,c 都共同含有一个共有属性 b。 <code>__proto__</code> 就是共有属性的意思。
+通过共有属性，对象和对象之间就可以建立一种联系，减少重复的东西占用的空间</li>
+<li>函数和对象之间的关系
+关键字<code>this</code>
+<code>obj.sayName()</code> 等价于 <code>obj.sayName.call(obj)</code></li>
+<li>关键字<code>new</code>
+如果你是用 new 和一个构造函数来创建一个对象，那么 new 的作用就是如下图注释掉的三行
+<img src="%E4%BD%BF%E7%94%A8new%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.jpg" alt="使用new的构造函数">
+<img src="%E4%B8%8D%E4%BD%BF%E7%94%A8new%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.jpg" alt="不使用new的构造函数"></li>
+</ol>
+
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/blog/">blog</a>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/js/">js</a>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/js%E6%B7%B1%E5%85%A5/">js深入</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/node-4/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">Node-4</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-js/">
+                                    <span class="next_title">代码片段-js</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

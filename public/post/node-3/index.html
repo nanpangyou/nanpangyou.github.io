@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>Node-3 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="mongoose 一个概念 非关系型数据库：对象文档模型（ODM）库 关系型数据库：对象关系模型（ORM）映射表
+Mongoose Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生的 MongoDB 模块进行了优化封装，并提供了很多功能。
+优点：
+ 可以为文档创建一个模式结构（Schema） 可以对模型中的对象/文档进行验证 数据可以通过类型转换转换为对象模型 可以使用中间件来应用业务逻辑挂钩 比 Node 原生的 MongoDB 驱动更容易  明确几个概念
+ mongoDB: 一个非关系型数据库的名称 mongod: 启动 mongo 服务的命令 mongo: 连接数据库的命令 mongoose: 在 Node 端连接数据库的一个库
+ Mongoose 的 CRUD   Create
+模型对象.create(文档对象,回调函数) 模型对象.create(文档对象) //返回值是一个 Promise 对象
+  Read
+模型对象.find(查询条件[,投影]) //不管有没有数据，都返回一个数组 模型对象.findOne(查询条件[,投影]) //找到了返回一个对象，没找到返回 NULL
+    Update
+模型对象.updateOne(查询条件,要更新的内容[,配置对象]) 模型对象.updateMany(查询条件,要更新的内容[,配置对象]) 备注：存在 update 方法，但是即将废弃，查询条件匹配多个时，只会更新一个，建议使用 updateOne()
+  Delete" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>Node-3</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.08.26</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="mongoose">mongoose</h1>
+<h2 id="一个概念">一个概念</h2>
+<p>非关系型数据库：对象文档模型（ODM）库
+关系型数据库：对象关系模型（ORM）映射表</p>
+<h2 id="mongoose-1">Mongoose</h2>
+<p>Mongoose 是一个对象文档模型（ODM）库，它对 Node 原生的 MongoDB 模块进行了优化封装，并提供了很多功能。</p>
+<p>优点：</p>
+<ol>
+<li>可以为文档创建一个模式结构（Schema）</li>
+<li>可以对模型中的对象/文档进行验证</li>
+<li>数据可以通过类型转换转换为对象模型</li>
+<li>可以使用中间件来应用业务逻辑挂钩</li>
+<li>比 Node 原生的 MongoDB 驱动更容易</li>
+</ol>
+<p>明确几个概念</p>
+<blockquote>
+<p>mongoDB: 一个非关系型数据库的名称
+mongod: 启动 mongo 服务的命令
+mongo: 连接数据库的命令
+mongoose: 在 Node 端连接数据库的一个库</p>
+</blockquote>
+<h2 id="mongoose-的-crud">Mongoose 的 CRUD</h2>
+<ul>
+<li>
+<p>Create</p>
+<p>模型对象.create(文档对象,回调函数)
+模型对象.create(文档对象) //返回值是一个 Promise 对象</p>
+</li>
+<li>
+<p>Read</p>
+<p>模型对象.find(查询条件[,投影]) //不管有没有数据，都返回一个数组
+模型对象.findOne(查询条件[,投影]) //找到了返回一个对象，没找到返回 NULL</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Update</p>
+<p>模型对象.updateOne(查询条件,要更新的内容[,配置对象])
+模型对象.updateMany(查询条件,要更新的内容[,配置对象])
+备注：存在 update 方法，但是即将废弃，查询条件匹配多个时，只会更新一个，建议使用 updateOne()</p>
+</li>
+<li>
+<p>Delete</p>
+<p>模型对象.deleteOne(查询条件)
+模型对象.deleteMany(查询条件)
+备注： 没有 delete 方法，会报错</p>
+</li>
+</ul>
+<h2 id="schema">Schema</h2>
+<p>类似于建表语句，用来约束字段类型以及是否必须等等</p>
+<pre tabindex="0"><code>let mongoose = require(&quot;mongoose&quot;);
+//  引入约束schema
+let Schema = mongoose.Schema;
+// 创建一个约束对象实例
+let studentSchema = new Schema({
+  stu_id: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  age: {
+    type: Number,
+    required: true
+  },
+  sex: {
+    type: String,
+    required: true
+  },
+  hobby: [String],
+  info: {
+    type: Schema.Types.Mixed
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  },
+  enable_flag: {
+    type: String,
+    default: &quot;Y&quot;
+  }
+});
+// 创建模型对象
+module.exports = mongoose.model(&quot;student&quot;, studentSchema); //第一个参数与数据库中的集合相对应，第二个参数制定约束对象实例
+
+</code></pre><h2 id="demo">Demo</h2>
+<pre tabindex="0"><code>let studentDB = require(&quot;./db/studentsDB&quot;);
+let studentSchema = require(&quot;./models/studentSchema&quot;);
+!(async () =&gt; {
+  await studentDB;
+  let insertResult = await studentSchema.create({
+    stu_id: &quot;201908272007&quot;,
+    name: &quot;lee&quot;,
+    age: 18,
+    sex: &quot;男&quot;,
+    hobby: [&quot;吃饭&quot;, &quot;逛街&quot;],
+    info: 7777
+  });
+  console.log(insertResult);
+})();
+
+</code></pre>
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/note/">note</a>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/node/">node</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/node-2/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">Node-2</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/node-4/">
+                                    <span class="next_title">Node-4</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

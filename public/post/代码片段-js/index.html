@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>代码片段-js ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="curry 函数（可以将函数柯里化的函数） 当传入的参数个数没有到达 func 函数要求的参数个数的时候一直返回柯里化函数。 只有参数满足 func 函数的个数的时候才通过 apply 执行 func 函数
+ /* function curry(???){ ??? return ??? } var abc = function(a, b, c) { return [a, b, c]; }; */ function curry(fn,thisArg){ if ( !Array.isArray(thisArg) ) { thisArg = []; } return function(){ let args = Array.prototype.slice.call(arguments); if ( (args.length&#43;thisArg.length) &amp;lt; fn.length ) { return curry(fn , thisArg.concat(args)); } return fn.apply(this , thisArg.concat(args)); }; } var abc = function(a, b, c) { return [a, b, c]; }; var curried = curry(abc); curried(1)(2)(3); curried(1, 2)(3); curried(1, 2, 3); 参考博客" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>代码片段-js</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.09.07</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <hr>
+<ul>
+<li>
+<p>curry 函数（可以将函数柯里化的函数）
+当传入的参数个数没有到达 func 函数要求的参数个数的时候一直返回柯里化函数。 只有参数满足 func 函数的个数的时候才通过 apply 执行 func 函数</p>
+<pre tabindex="0"><code>  /*
+    function curry(???){
+        ???
+        return ???
+    }
+    var abc = function(a, b, c) {
+      return [a, b, c];
+    };
+  */
+
+  function curry(fn,thisArg){
+      if ( !Array.isArray(thisArg) ) {
+                thisArg = [];
+      }
+      return function(){
+            let args = Array.prototype.slice.call(arguments);
+            if ( (args.length+thisArg.length) &lt; fn.length ) {
+                return curry(fn , thisArg.concat(args));
+            }
+            return fn.apply(this , thisArg.concat(args));
+        };
+  }
+
+  var abc = function(a, b, c) {
+    return [a, b, c];
+  };
+
+  var curried = curry(abc);
+
+  curried(1)(2)(3);
+  curried(1, 2)(3);
+  curried(1, 2, 3);
+</code></pre><p><strong><a href="https://yi-love.github.io/articles/js-func-curry" target="_blank">参考博客</a></strong></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p>简易双向绑定</p>
+<pre tabindex="0"><code>  class X{
+      __N行代码__
+  }
+
+  var view = new X({
+      data: {
+          name: 'frank'
+      }
+  })
+
+  console.log(view.name === 'frank') // 输出 true
+  view.name = 'jack' // 输出「有人修改了 name」
+</code></pre><p>使用 Object.defineProperty</p>
+<pre tabindex="0"><code>class X{
+    constructor(options){
+      Object.defineProperty(this, 'name',{
+        get(){
+            return options.data.name
+        },
+        set(value){
+            options.data.name =  value
+            console.log('有人修改了name')
+        }
+      })
+    }
+  }
+  var view = new X({
+      data: {
+          name: 'frank'
+      }
+  })
+  console.log(view.name === 'frank') // 输出 true
+  view.name = 'jack' // 输出「有人修改了 name」
+</code></pre><p>(使用 Proxy 的方式还是不太会)</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>事件触发和监听</li>
+</ul>
+<pre tabindex="0"><code>  class EventHub{
+    constructor(){
+        this.events = {}
+    }
+    on(eventName,fn){
+        console.log('间听到事件',data)
+        if(!this.events[eventName]){
+            this.envents[eventName] = []
+        }
+        this.events[eventName].push(fn)
+    }
+    trigger(eventName,params){
+          let fnList = this.events[eventName]
+          fnList.map((fn)=&gt;{
+              fn.apply(null,params)
+          })
+    }
+  }
+  var a = new EventHub()
+  a.trigger('zzz','a')
+  a.on('zzz',()=&gt;{
+      console.log('间听到了')
+  })
+</code></pre>
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/js-%E5%87%BD%E6%95%B0/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">js-函数</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/js-%E5%BC%82%E6%AD%A5/">
+                                    <span class="next_title">js-异步</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>Vue组件间的传值 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="Vue 组件间的传值 Vue 组件间的传值，说白了就是父子组件和兄弟组件之间的传值。 这次梳理一下父子组件之间的传值。
+Vue 父子组件之间的传值 👨👦 传值主要涉及两种类型的传值
+ 单纯的值 函数（方法）   单纯的值
+ 单纯的值传递，主要是想将父组件data对象中的值传入子组件，在子组件中使用。
+主要使用 props
+&amp;lt;div class=&#39;app&#39;&amp;gt; &amp;lt;!-- 将需要传递的值通过 v-bind 的形式传递给子组件 --&amp;gt; &amp;lt;com1 :mymsg=&#39;msg&#39; &amp;gt;&amp;lt;/com1&amp;gt; &amp;lt;/div&amp;gt; var app = new Vue({ el: &#39;.app&#39;, data: { msg: &#39;要传入子组件的值&#39; }, components:{ com1:{ template: &#39;&amp;lt;div&amp;gt;{{ mymsg }}&amp;lt;/div&amp;gt;&#39;, &amp;lt;!-- 在组件中使用 props 接受父组件传递过来的值，并且声明，注意： 1，命名要一致，2.props是个数组 --&amp;gt; &amp;lt;!-- props中的值和data中的值都可以使用，区别不大，但是要注意，父组件传递过来的值不要重新赋值，赋值只会在子组件内部生效 --&amp;gt; props: [&#39;mymsg&#39;] } } })  函数传递
+ 父组件的函数传递给子组件，一般用在子组件内部更新后让父组件刷新状态。
+主要使用 this.$emit()
+&amp;lt;div class=&#39;app&#39;&amp;gt; &amp;lt;!" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>Vue组件间的传值</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.06.18</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="vue-组件间的传值">Vue 组件间的传值</h1>
+<p>Vue 组件间的传值，说白了就是父子组件和兄弟组件之间的传值。
+这次梳理一下父子组件之间的传值。</p>
+<h2 id="vue-父子组件之间的传值-">Vue 父子组件之间的传值 👨👦</h2>
+<p>传值主要涉及两种类型的传值</p>
+<ul>
+<li>单纯的值</li>
+<li>函数（方法）</li>
+</ul>
+<blockquote>
+<p>单纯的值</p>
+</blockquote>
+<p>单纯的值传递，主要是想将父组件<code>data</code>对象中的值传入子组件，在子组件中使用。</p>
+<p>主要使用 props</p>
+<pre tabindex="0"><code>&lt;div class='app'&gt;
+  &lt;!-- 将需要传递的值通过 v-bind 的形式传递给子组件 --&gt;
+  &lt;com1 :mymsg='msg' &gt;&lt;/com1&gt;
+&lt;/div&gt;
+
+var app = new Vue({
+  el: '.app',
+  data: {
+    msg: '要传入子组件的值'
+  },
+  components:{
+    com1:{
+      template: '&lt;div&gt;{{ mymsg }}&lt;/div&gt;',
+      &lt;!-- 在组件中使用 props 接受父组件传递过来的值，并且声明，注意： 1，命名要一致，2.props是个数组 --&gt;
+      &lt;!-- props中的值和data中的值都可以使用，区别不大，但是要注意，父组件传递过来的值不要重新赋值，赋值只会在子组件内部生效 --&gt;
+      props: ['mymsg']
+    }
+  }
+})
+
+</code></pre><blockquote>
+<p>函数传递</p>
+</blockquote>
+<p>父组件的函数传递给子组件，一般用在子组件内部更新后让父组件刷新状态。</p>
+<p>主要使用 this.$emit()</p>
+<pre tabindex="0"><code>&lt;div class='app'&gt;
+  &lt;!-- 将需要传递的值通过 v-on 的形式传递给子组件 --&gt;
+  &lt;com1 @func='show' &gt;&lt;/com1&gt;
+&lt;/div&gt;
+
+var app = new Vue({
+  el: '.app',
+  data: {
+    msg: '要传入子组件的值'
+  },
+  methods: {
+    show(arg){
+      // 如果在子组件的this.$emit('func')有第二，第三个参数的时候，这里的，arg对应第二个参数，依次往后，就可以拿到子组件的值了
+      console.log('父组件的show方法')
+    }
+  }
+  components:{
+    com1:{
+      template: '&lt;input type=&quot;button&quot; @click='subshow' value='点击调用父组件的方法'&gt;',
+      methods: {
+        subshow(){
+          //如果需要向父组件传递值，则只需要在this.$emit方法中增加第二第三个参数
+          this.$emit('func',data)
+        }
+      }
+    }
+  }
+})
+</code></pre><h2 id="在父组件中直接获取子组件的数值或者函数">在父组件中直接获取子组件的数值或者函数</h2>
+<p>在 Vue 中，可以使用 ref 来做到类似上古时代使用 id 绑定元素的功能</p>
+<pre tabindex="0"><code>&lt;div class= 'app'&gt;
+  &lt;p ref='p'&gt;p里面的数据&lt;/p&gt;
+  &lt;com1 ref='com1'&gt;&lt;/com1&gt;
+&lt;/div&gt;
+
+let app = new Vue({
+  el: '.app',
+  data: {},
+  components: {
+    com1: {
+      template: `&lt;div&gt;子组件&lt;/div&gt;`,
+      data(){
+        return {
+          submsg: '子组件中的值'
+        }
+      },
+      methods: {
+        subshow(){
+          console.log(&quot;执行子组件的show方法&quot;)
+        }
+      }
+    }
+  }
+})
+
+
+就可以使用 app.$refs.p 来获取原生的dom元素p。来用相关的原生api
+
+使用 app.$refs.com1 来获取子组件com1，可以使用app.$refs.com1.submsg 来获取子组件的data值，
+使用 app.$refs.com1.subshow() 来执行子组件的subshow 方法
+
+
+</code></pre><p>羊肉夹饼 GOGOGO！🐑🐑🐑🐑🐑🐑🐑🐑🐑🐑</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/note/">note</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/homebrew%E8%8A%82%E7%82%B9/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">homebrew节点</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85%E6%97%B6%E7%9A%84%E5%8F%82%E6%95%B0/">
+                                    <span class="next_title">使用npm安装时的参数</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

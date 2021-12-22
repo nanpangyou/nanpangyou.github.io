@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>tmux ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="Tumx 使用备忘 什么是tmux Tmux 是一个终端复用器（terminal multiplexer）
+Tmux 中有三个比较重要的概念 session, window , pane 在这里我们就把他们分别叫做会话，窗口，窗格
+" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>tmux</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2021.10.27</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="tumx-使用备忘">Tumx 使用备忘</h1>
+<h2 id="什么是tmux">什么是tmux</h2>
+<p>Tmux 是一个终端复用器（terminal multiplexer）</p>
+<p>Tmux 中有三个比较重要的概念
+session, window , pane 在这里我们就把他们分别叫做会话，窗口，窗格</p>
+<p>他们的关系大概就是这样</p>
+<p><img src="tmux.png" alt="tmux"></p>
+<!-- raw HTML omitted -->
+<h2 id="tmux的快捷键">tmux的快捷键</h2>
+<blockquote>
+<p>进入tmux</p>
+</blockquote>
+<p>只需要在终端输入<code>tmux</code>即可</p>
+<blockquote>
+<p>退出tmux</p>
+</blockquote>
+<p>按下<code>Ctrl+d</code>或者显式输入<code>exit</code>命令，就可以退出 Tmux 窗口</p>
+<blockquote>
+<p>前缀键</p>
+</blockquote>
+<p>Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl+b，即先按下Ctrl+b，快捷键才会生效。</p>
+<p>举例来说，帮助命令的快捷键是Ctrl+b ?。它的用法是，在 Tmux 窗口中，先按下Ctrl+b，再按下?，就会显示帮助信息。</p>
+<h2 id="会话管理">会话管理</h2>
+<ol>
+<li>新建会话</li>
+</ol>
+<p>第一个启动的 Tmux 窗口，编号是0，第二个窗口的编号是1,使用编号区分会话，不太直观，更好的方法是为会话起名。</p>
+<p><code>tmux new -s &lt;session-name&gt;</code></p>
+<ol start="2">
+<li>分离会话</li>
+</ol>
+<p>在 Tmux 窗口中，按下Ctrl+b d或者输入tmux detach命令，就会将当前会话与窗口分离。</p>
+<p><code>tmux detach</code></p>
+<p>执行命令后，tmux会退出当前窗口，但是会话进程会在后台继续运行</p>
+<p><code>tmux ls</code>可以查看当前所有的tmux会话</p>
+<ol start="3">
+<li>接入会话</li>
+</ol>
+<p><code>tmux attach</code> 用来重新接入某个已存在的会话</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+tmux attach
+</code></pre></div>
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/vim%E5%A4%87%E5%BF%98/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">vim备忘</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

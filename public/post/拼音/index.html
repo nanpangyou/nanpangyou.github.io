@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>拼音 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="拼音到底应该怎么打 昨晚在刷知乎的时候看到一个有意思的东西，说不定以后可能会用到。
+关于拼英怎么显示的问题。
+之前有自己想过，如果让我自己去实现拼音的显示，大致的思路可能就是调整文本的行高。对每个文字增加伪元素或者写额外的拼音元素用定位来进行展示。
+昨天看到了另外一种展示的方法。
+使用&amp;lt;ruby&amp;gt;元素来进行展示。
+Demo:
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Demo&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;ruby&amp;gt;我&amp;lt;rt&amp;gt;wo&amp;lt;/rt&amp;gt;&amp;lt;/ruby&amp;gt; &amp;lt;ruby&amp;gt;不&amp;lt;rt&amp;gt;bu&amp;lt;/rt&amp;gt;&amp;lt;/ruby&amp;gt; &amp;lt;ruby&amp;gt;开&amp;lt;rt&amp;gt;kai&amp;lt;/rt&amp;gt;&amp;lt;/ruby&amp;gt; &amp;lt;ruby&amp;gt;心&amp;lt;rt&amp;gt;xin&amp;lt;/rt&amp;gt;&amp;lt;/ruby&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 一些属性： 根据 MDN 上面所写，&amp;lt;ruby&amp;gt;元素是专门用来展示东亚文字注音或字符注释。（脑补： 拼音？片甲？🤦‍♂️）
+尝试后感觉应该是非块状元素。注音和文字本身都受 font 相关的 css 属性影响。
+关于文字的行高，界限大致如图可以看到
+兼容性比想象中的好很多 另外 配套使用的&amp;lt;rt&amp;gt;和&amp;lt;rp&amp;gt;各自有各自的用途
+&amp;lt;rt&amp;gt;元素主要是用来包裹注音的内容。
+&amp;lt;rp&amp;gt;元素主要是当&amp;lt;rt&amp;gt;元素不支持上标的时候。用来代替使用的。
+demo：
+&amp;lt;ruby&amp;gt; 漢 &amp;lt;rp&amp;gt;(&amp;lt;/rp&amp;gt;&amp;lt;rt&amp;gt;han&amp;lt;/rt&amp;gt;&amp;lt;rp&amp;gt;)&amp;lt;/rp&amp;gt; 字 &amp;lt;rp&amp;gt;(&amp;lt;/rp&amp;gt;&amp;lt;rt&amp;gt;zi&amp;lt;/rt&amp;gt;&amp;lt;rp&amp;gt;)&amp;lt;/rp&amp;gt; &amp;lt;/ruby&amp;gt; 至此～
+ps： 周一日常丧（´-`）" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>拼音</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.05.27</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="拼音到底应该怎么打">拼音到底应该怎么打</h1>
+<p>昨晚在刷知乎的时候看到一个有意思的东西，说不定以后可能会用到。</p>
+<p>关于拼英怎么显示的问题。</p>
+<p>之前有自己想过，如果让我自己去实现拼音的显示，大致的思路可能就是调整文本的行高。对每个文字增加伪元素或者写额外的拼音元素用定位来进行展示。</p>
+<p>昨天看到了另外一种展示的方法。</p>
+<p>使用<code>&lt;ruby&gt;</code>元素来进行展示。</p>
+<p>Demo:</p>
+<pre tabindex="0"><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Demo&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;ruby&gt;我&lt;rt&gt;wo&lt;/rt&gt;&lt;/ruby&gt;
+    &lt;ruby&gt;不&lt;rt&gt;bu&lt;/rt&gt;&lt;/ruby&gt;
+    &lt;ruby&gt;开&lt;rt&gt;kai&lt;/rt&gt;&lt;/ruby&gt;
+    &lt;ruby&gt;心&lt;rt&gt;xin&lt;/rt&gt;&lt;/ruby&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><img src="demo1.png" alt="demo"></p>
+<h1 id="一些属性">一些属性：</h1>
+<p>根据 MDN 上面所写，<code>&lt;ruby&gt;</code>元素是专门用来展示东亚文字注音或字符注释。（脑补： 拼音？片甲？🤦‍♂️）</p>
+<p>尝试后感觉应该是非块状元素。注音和文字本身都受 font 相关的 css 属性影响。</p>
+<p>关于文字的行高，界限大致如图可以看到</p>
+<p><img src="demo2.jpg" alt="demo1"></p>
+<p>兼容性比想象中的好很多
+<img src="demo3.jpg" alt="兼容性"></p>
+<h1 id="另外">另外</h1>
+<p>配套使用的<code>&lt;rt&gt;</code>和<code>&lt;rp&gt;</code>各自有各自的用途</p>
+<p><code>&lt;rt&gt;</code>元素主要是用来包裹注音的内容。</p>
+<p><code>&lt;rp&gt;</code>元素主要是当<code>&lt;rt&gt;</code>元素不支持上标的时候。用来代替使用的。</p>
+<p>demo：</p>
+<pre tabindex="0"><code>&lt;ruby&gt;
+  漢 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;han&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+  字 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;zi&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+&lt;/ruby&gt;
+</code></pre><p>至此～</p>
+<p>ps： 周一日常丧（´-`）</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%87%E6%8D%A2tab/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">浏览器切换tab</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/vuetransition%E5%8A%A8%E7%94%BB%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B3%A8%E6%84%8F%E7%82%B9/">
+                                    <span class="next_title">Vue——transition动画的一个小注意点</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

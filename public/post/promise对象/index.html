@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>Promise对象 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="Promise 是异步编程的一种解决方案。
+简单讲 promise 就是一个容器，里面装有一个未来得到结果的函数（通常为异步）。 在 js 中，promise 是以对象的形式存在，提供统一的 API， 对各种一步操作可以使用统一的方法处理。
+promise 主要有两个特征。
+  对象的状态不受外界影响。
+ Promise 对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。
+   一旦状态改变，就不会再变，任何时候都可以得到这个结果。
+ promise 对象的状态改变，只有两种情况： 1. 从 pending 到 fulfiled 2. 从 pending 到 rejected 。只要这两种状态发生后就冻结了，不会再变
+   Promise 的基本用法 function setTime(tm) { return new Promise((resolve, reject) =&amp;gt; { // setTimeout 的第三个参数是传给回调函数的第一个参数 setTimeout(resolve, tm, &amp;quot;success&amp;quot;); // setTimeout(reject, tm, &amp;quot;somethingErr&amp;quot;); }); } setTime(4000).then( data =&amp;gt; { console.log(&amp;quot;done&amp;quot; &#43; data); }, err =&amp;gt; { console." />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>Promise对象</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.07.20</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <p>Promise 是异步编程的一种解决方案。</p>
+<p>简单讲 promise 就是一个容器，里面装有一个未来得到结果的函数（通常为异步）。
+在 js 中，promise 是以对象的形式存在，提供统一的 API， 对各种一步操作可以使用统一的方法处理。</p>
+<p>promise 主要有两个特征。</p>
+<ol>
+<li>
+<p>对象的状态不受外界影响。</p>
+<blockquote>
+<p>Promise 对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。</p>
+</blockquote>
+</li>
+<li>
+<p>一旦状态改变，就不会再变，任何时候都可以得到这个结果。</p>
+<blockquote>
+<p>promise 对象的状态改变，只有两种情况： 1. 从 pending 到 fulfiled 2. 从 pending 到 rejected 。只要这两种状态发生后就冻结了，不会再变</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="promise-的基本用法">Promise 的基本用法</h2>
+<pre tabindex="0"><code>function setTime(tm) {
+  return new Promise((resolve, reject) =&gt; {
+    // setTimeout 的第三个参数是传给回调函数的第一个参数
+    setTimeout(resolve, tm, &quot;success&quot;);
+    // setTimeout(reject, tm, &quot;somethingErr&quot;);
+  });
+}
+
+setTime(4000).then(
+  data =&gt; {
+    console.log(&quot;done&quot; + data);
+  },
+  err =&gt; {
+    console.log(&quot;err&quot; + err);
+  }
+);
+
+</code></pre><p><strong>有个注意的地方</strong></p>
+<p>如果函数是这么写的：</p>
+<pre tabindex="0"><code>function setTime(tm) {
+  return new Promise((resolve, reject) =&gt; {
+    // setTimeout 的第三个参数是传给回调函数的第一个参数
+    setTimeout(resolve, tm, &quot;success&quot;);
+    setTimeout(reject, tm, &quot;somethingErr&quot;);
+    console.log(1)
+  });
+}
+
+</code></pre><p>那么，<code>console.log(1)</code>是会执行的，并且率先打印出来。而处于后一行的 setTimeout 函数则不执行。
+这个分开来看</p>
+<ul>
+<li>console.log(1)率先打印出来，是因为在第一轮执行过程中，setTimeout 作为异步函数，会在之后执行结束。而 console.log(1)则会在本轮执行。</li>
+<li>后一行的 setTimeout 不执行，是因为，在第一行的异步执行过后，promise 的状态就会被冻结，不会再有任何改变。所以如果一个 promise 有多个返回（一般不可能），总会以最快的那个回调函数的结果为准。</li>
+</ul>
+<h2 id="promiseprototypethen">Promise.prototype.then()</h2>
+<p><code>promise.then()</code> 函数的主要作用，是为了给 promise 的实例添加状态改变时的回调函数。
+第一个参数对应了 promise 的 resolve 状态。当异步执行成功后会执行。
+第二个参数对应了 promise 的 reject 状态，当异步执行失败后会执行。</p>
+<p><code>then</code> 方法返回的是一个新的 promise 实例（不是原来的那个 promise 实例），因此可以使用链式调用。</p>
+<h2 id="promiseptototypecatch">Promise.ptototype.catch()</h2>
+<p><code>catch</code> 方法是 <code>.then(null, rejection)</code>或者<code>.then(undefined, rejection)</code> 的别名，用于制定发生错误时的回调函数。</p>
+<p>Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 catch 语句捕获。</p>
+<p>在日常开发中，建议不用在每一个 then 函数中都指定第二个函数，而是指定一个成功的函数。最后在链式调用的最后用 catch 方法捕获就好</p>
+<p><strong>promise 会吃掉错误</strong></p>
+<p>和<code>try/catch</code>不同的是，如果没有使用 catch 捕获错误，Promise 对象抛出的错误也不会传递到外层函数，Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应。</p>
+<p>一般总是建议，Promise 对象后面要跟 catch 方法，这样可以处理 Promise 内部发生的错误。catch 方法返回的还是一个 Promise 对象，因此后面还可以接着调用 then 方法。</p>
+<h2 id="promiseprototypefinally">Promise.prototype.finally()</h2>
+<p>finally 方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。
+finally 方法的回调函数不接受任何参数，这意味着没有办法知道，前面的 Promise 状态到底是 fulfilled 还是 rejected。这表明，finally 方法里面的操作，应该是与状态无关的，不依赖于 Promise 的执行结果。</p>
+<h2 id="promiseprototypeall">Promise.prototype.all()</h2>
+<p>Promise.all 方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<pre tabindex="0"><code>const p = Promise.all([p1, p2, p3]);
+</code></pre><p>Promise.all 方法接受一个数组作为参数，p1、p2、p3 都是 Promise 实例，如果不是，就会先调用下面讲到的 Promise.resolve 方法，将参数转为 Promise 实例，再进一步处理。（Promise.all 方法的参数可以不是数组，但必须具有 Iterator 接口，且返回的每个成员都是 Promise 实例。）</p>
+<p>p 的状态由 p1、p2、p3 决定，分成两种情况。</p>
+<p>（1）只有 p1、p2、p3 的状态都变成 fulfilled，p 的状态才会变成 fulfilled，此时 p1、p2、p3 的返回值组成一个数组，传递给 p 的回调函数。</p>
+<p>（2）只要 p1、p2、p3 之中有一个被 rejected，p 的状态就变成 rejected，此时第一个被 reject 的实例的返回值，会传递给 p 的回调函数。</p>
+<h2 id="promiseprototyperace">Promise.prototype.race()</h2>
+<p>Promise.race 方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<pre tabindex="0"><code>const p = Promise.race([p1, p2, p3]);
+</code></pre><p>只要 p1、p2、p3 之中有一个实例率先改变状态，p 的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给 p 的回调函数。</p>
+<h3 id="周一快乐">周一快乐</h3>
+
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/note/">note</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85%E6%97%B6%E7%9A%84%E5%8F%82%E6%95%B0/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">使用npm安装时的参数</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/flexbox%E5%B8%83%E5%B1%80/">
+                                    <span class="next_title">flexbox布局</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

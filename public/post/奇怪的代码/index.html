@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>奇怪的代码 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="&amp;lt;!Doctype html&amp;gt; &amp;lt;script&amp;gt; const x = &amp;quot;sfds&amp;quot;; console.log(typeof x); //String console.log(typeof window.x); //undefined &amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; console.log(typeof x); //String console.log(typeof window.x); //undefined &amp;lt;/script&amp;gt; // es6 开始，let， const， class 声明的全局变量，不属于顶层对象的属性, 上下两个的作用域都是全局
+  const arr = new Array(5).fill([]) arr[0].push(&#39;hi&#39;) console.log(arr) //如果填充的类型为对象，那么被赋值的是同一个内存地址的对象，而不是深拷贝对象。 MDN: 当一个对象被传递给 fill 方法的时候, 填充数组的是这个对象的引用。
+  var number = 10; function fn() { console.log(this) console.log(this.number); } var obj = { number: 2, show: function(fn) { this.number = 3; fn(); arguments[0](); }, }; obj." />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>奇怪的代码</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.09.11</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <ol>
+<li></li>
+</ol>
+<pre tabindex="0"><code>&lt;!Doctype html&gt;
+&lt;script&gt;
+  const x = &quot;sfds&quot;;
+  console.log(typeof x);   //String
+  console.log(typeof window.x);    //undefined
+&lt;/script&gt;
+&lt;script&gt;
+  console.log(typeof x);    //String
+  console.log(typeof window.x);    //undefined
+&lt;/script&gt;
+</code></pre><p>// es6 开始，let， const， class 声明的全局变量，不属于顶层对象的属性, 上下两个的作用域都是全局</p>
+<ol start="2">
+<li></li>
+</ol>
+<pre tabindex="0"><code>const arr = new Array(5).fill([])
+arr[0].push('hi')
+console.log(arr)
+</code></pre><p><img src="%E5%82%A8%E5%AD%98%E7%9A%84%E6%98%AF%E6%95%B0%E7%BB%84%E7%9A%84%E5%9C%B0%E5%9D%80.jpg" alt="fill数组的结果">
+//如果填充的类型为对象，那么被赋值的是同一个内存地址的对象，而不是深拷贝对象。
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill" target="_blank">MDN: 当一个对象被传递给 fill 方法的时候, 填充数组的是这个对象的引用。</a></p>
+<ol start="3">
+<li></li>
+</ol>
+<pre tabindex="0"><code>var number = 10;
+function fn() {
+  console.log(this)
+  console.log(this.number);
+}
+var obj = {
+  number: 2,
+  show: function(fn) {
+    this.number = 3;
+    fn();
+    arguments[0]();
+   },
+};
+obj.show(fn);
+</code></pre><p><img src="argument%5B0%5D%E8%B0%83%E7%94%A8.jpg" alt="argument[0]调用">
+//词法作用域，第一个 number 是 window.number
+//第二个是 fn.call(arguments),arguments 里没有 number，故为 undefined</p>
+<ol start="4">
+<li></li>
+</ol>
+<pre tabindex="0"><code>for(
+  let i = (setTimeout( ()=&gt;console.log(i),2333),0);
+  i&lt;2;
+  i++
+){
+  console.log(i)
+}
+</code></pre><p><img src="for%E5%92%8Clet%E7%9A%84%E9%AD%94%E6%B3%95.jpg" alt="for和let的魔法.jpg">
+首先明确逗号表达式
+let a = 1,2  //a === 2
+let a = (1,2)  //a===2
+那么在for循环的第一个部分里面，i的初始值为0.
+所以循环体内部的<code>console.log(i)</code>才会依次打出0，1</p>
+<p>在2333毫秒后输出的0则为for的初始条件内部的<code>console.log</code>
+输出0是因为<code>let i = (setTimeout( ()=&gt;console.log(i),2333),0);</code>这一步有单独的作用域（阮一峰es6的书里有写）。在第一次赋值结束后则不会对这个里面的i进行影响。所以条件内部的<code>console.log</code>输出的为0</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/js-%E5%BC%82%E6%AD%A5/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">js-异步</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/js-%E7%BB%A7%E6%89%BF/">
+                                    <span class="next_title">js-继承</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

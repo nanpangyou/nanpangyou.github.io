@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>覆盖antdv的默认样式 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="在使用ant-design-vue时。
+当默认样式不满足需求的时候，需要覆盖默认的样式，又不希望影响全局
+ 在vue.config.js中配置  module.exports = { css: { loaderOptions: { // 向 CSS 相关的 loader 传递选项 less: { lessOptions: { javascriptEnabled: true } } } } } 在组件中。如果是less。则只需要在需要的选择器下添加对应的样式 如：  .filter-option { /deep/ .ant-radio-button-wrapper { z-index: 1; color: #4a50d9; } /deep/.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) { background: #4a50d9; color: rgba(255, 255, 255, 0.8); } /deep/.ant-radio-button-wrapper:not(:first-child)::before { background: transparent; } " />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>覆盖antdv的默认样式</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2020.12.06</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <p>在使用<code>ant-design-vue</code>时。</p>
+<p>当默认样式不满足需求的时候，需要覆盖默认的样式，又不希望影响全局</p>
+<ol>
+<li>在<code>vue.config.js</code>中配置</li>
+</ol>
+<pre tabindex="0"><code>module.exports = {
+    css: {
+        loaderOptions: {
+            // 向 CSS 相关的 loader 传递选项 
+            less: {
+                lessOptions: {
+                    javascriptEnabled: true
+                }
+            }
+        }
+
+    }
+}
+</code></pre><ol start="2">
+<li>在组件中。如果是less。则只需要在需要的选择器下添加对应的样式
+如：</li>
+</ol>
+<pre tabindex="0"><code>.filter-option {
+    /deep/ .ant-radio-button-wrapper {
+      z-index: 1;
+      color: #4a50d9;
+    }
+    /deep/.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+      background: #4a50d9;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    /deep/.ant-radio-button-wrapper:not(:first-child)::before {
+      background: transparent;
+    }
+</code></pre>
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/eventloop/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">eventloop</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/asynccomponent/">
+                                    <span class="next_title">AsyncComponent</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

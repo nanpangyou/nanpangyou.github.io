@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>react生命周期 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="React 的生命周期 React 组件生命周期的执行次数是什么样子的？   只执行一次 : constructor、 componentWillMount、componentDidMount
+  执行多次 : render、 子组件的componentWillReceiveProp、componentWillUpdate、componentDidUpdate
+  有条件执行 : componentWillUnmount (页面离开，组件销毁时)
+  不执行的 : 根组件（ReactDOM.render在DOM上的组件）的componentWillReceiveProps（因为压根没有父组件给传递props）
+  执行顺序 假设组件嵌套关系是 App里有parent组件，parent组件有child组件。
+如果不涉及setState更新
+ App： constructor --&amp;gt; componentWillMount --&amp;gt; render --&amp;gt; parent: constructor --&amp;gt; componentWillMount --&amp;gt; render --&amp;gt; child: constructor --&amp;gt; componentWillMount --&amp;gt; render --&amp;gt; componentDidMount (child) --&amp;gt; componentDidMount (parent) --&amp;gt; componentDidMount (App) 这时候触发App的setState事件
+ App： componentWillUpdate --&amp;gt; render --&amp;gt; parent: componentWillReceiveProps --&amp;gt; componentWillUpdate --&amp;gt; render --&amp;gt; child: componentWillReceiveProps --&amp;gt; componentWillUpdate --&amp;gt; render --&amp;gt; componentDidUpdate (child) --&amp;gt; componentDidUpdate (parent) --&amp;gt; componentDidUpdate (App) 如果触发Parent的setState事件" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>react生命周期</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2020.03.31</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="react-的生命周期">React 的生命周期</h1>
+<h2 id="react-组件生命周期的执行次数是什么样子的">React 组件生命周期的执行次数是什么样子的？</h2>
+<ul>
+<li>
+<p>只执行一次 : <code>constructor、 componentWillMount、componentDidMount</code></p>
+</li>
+<li>
+<p>执行多次 : <code>render、 子组件的componentWillReceiveProp、componentWillUpdate、componentDidUpdate</code></p>
+</li>
+<li>
+<p>有条件执行 : <code>componentWillUnmount</code> (页面离开，组件销毁时)</p>
+</li>
+<li>
+<p>不执行的 : 根组件（ReactDOM.render在DOM上的组件）的<code>componentWillReceiveProps</code>（因为压根没有父组件给传递props）</p>
+</li>
+</ul>
+<h2 id="执行顺序">执行顺序</h2>
+<p>假设组件嵌套关系是 App里有parent组件，parent组件有child组件。</p>
+<p>如果不涉及<code>setState</code>更新</p>
+<pre tabindex="0"><code>    App：   constructor --&gt; componentWillMount --&gt;  render --&gt; 
+    parent: constructor --&gt; componentWillMount --&gt;  render --&gt; 
+    child:    constructor --&gt; componentWillMount --&gt;  render  --&gt; 
+    componentDidMount (child) --&gt;  componentDidMount (parent) --&gt; componentDidMount (App)
+</code></pre><p>这时候触发App的setState事件</p>
+<pre tabindex="0"><code>    App：   componentWillUpdate --&gt; render --&gt; 
+    parent: componentWillReceiveProps --&gt; componentWillUpdate --&gt; render --&gt; 
+    child:    componentWillReceiveProps --&gt; componentWillUpdate --&gt; render --&gt;
+    componentDidUpdate (child) --&gt;  componentDidUpdate (parent) --&gt; componentDidUpdate (App)
+</code></pre><p>如果触发Parent的setState事件</p>
+<pre tabindex="0"><code>parent： componentWillUpdate --&gt; render --&gt; 
+child:     componentWillReceiveProps --&gt; componentWillUpdate --&gt; render --&gt; 
+componentDidUpdate (child) --&gt;  componentDidUpdate (parent) 
+</code></pre><p>如果只触发child的setState事件</p>
+<pre tabindex="0"><code>child： componentWillUpdate --&gt; render --&gt;  componentDidUpdate (child)
+</code></pre><p>这个的执行顺序类似于压栈和出栈</p>
+<p>react 生命周期函数
+初始化阶段：</p>
+<p>getDefaultProps:获取实例的默认属性</p>
+<p>getInitialState:获取每个实例的初始化状态</p>
+<p>componentWillMount：组件即将被装载、渲染到页面上</p>
+<p>render:组件在这里生成虚拟的 DOM 节点</p>
+<p>componentDidMount:组件真正在被装载之后</p>
+<p>运行中状态：</p>
+<p>componentWillReceiveProps:组件将要接收到属性的时候调用</p>
+<p>shouldComponentUpdate:组件接受到新属性或者新状态的时候（可以返回 false，接收数据后不更新，阻止 render 调用，后面的函数不会被继续执行了）</p>
+<p>componentWillUpdate:组件即将更新不能修改属性和状态</p>
+<p>render:组件重新描绘</p>
+<p>componentDidUpdate:组件已经更新</p>
+<p>销毁阶段：</p>
+<p>componentWillUnmount:组件即将销毁</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/soyxiaobi/p/9559117.html" target="_blank">react的生命周期</a></li>
+</ul>
+
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/react/">react</a>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/note/">note</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/style-getcomputedstyle-getboundingclientrect%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">style,getComputedStyle,getBoundingClientRect的区别</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+                                    <span class="next_title">踩坑记录</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

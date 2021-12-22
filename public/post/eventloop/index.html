@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>eventloop ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="Eventloop 关于Eventloop，大概可以理解为一种操作系统的运行机制。JS使用的就是这种运行机制来解决单线程运行带来的一些问题。
+Wiki的定义如下
+ &amp;ldquo;Event Loop是一个程序结构，用于等待和发送消息和事件。（a programming construct that waits for and dispatches events or messages in a program.）&amp;rdquo;
+ 有关Eventloop的详细信息，可以参考Node的官方文档。
+这里主要是就常见的题目来进行总结。
+ Eventloop主要有6个阶段
+ timers I/O callbacks idle prepare poll check close callbacks  牢记以下的三个不同阶段
+ timers阶段 poll阶段 check阶段  与之对应的有三个常见的API
+ setTimeout setImmediate nextTick  其中 setTimeout 会在timers阶段执行 setImmediate 会在check阶段执行 nextTick 会在每个阶段结束后立刻执行
+举个🌰
+setImmediate(()=&amp;gt;{ console.log(&#39;setImmediate1&#39;) setTimeout(()=&amp;gt;{ console.log(&#39;setTimeout1&#39;) },0) }) setTimeout(()=&amp;gt;{ console.log(&#39;setTimeout2&#39;) setImmediate(()=&amp;gt;{ console.log(&#39;setImmediate2&#39;) }) },0) 在这个🌰中 最外层有两个函数，分别为setImmediate和setTimeout。每个函数内部又有一个与之不同的函数
+  先执行最外层" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>eventloop</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2020.11.13</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="eventloop">Eventloop</h1>
+<p>关于<code>Eventloop</code>，大概可以理解为一种操作系统的运行机制。JS使用的就是这种运行机制来解决单线程运行带来的一些问题。</p>
+<p>Wiki的定义如下</p>
+<blockquote>
+<p>&ldquo;Event Loop是一个程序结构，用于等待和发送消息和事件。（a programming construct that waits for and dispatches events or messages in a program.）&rdquo;</p>
+</blockquote>
+<p>有关<code>Eventloop</code>的详细信息，可以参考Node的官方文档。</p>
+<p>这里主要是就常见的题目来进行总结。</p>
+<hr>
+<p>Eventloop主要有6个阶段</p>
+<ul>
+<li>timers</li>
+<li>I/O callbacks</li>
+<li>idle prepare</li>
+<li>poll</li>
+<li>check</li>
+<li>close callbacks</li>
+</ul>
+<p><strong>牢记以下的三个不同阶段</strong></p>
+<ul>
+<li>timers阶段</li>
+<li>poll阶段</li>
+<li>check阶段</li>
+</ul>
+<p>与之对应的有三个常见的API</p>
+<ul>
+<li>setTimeout</li>
+<li>setImmediate</li>
+<li>nextTick</li>
+</ul>
+<p>其中
+setTimeout 会在timers阶段执行
+setImmediate 会在check阶段执行
+nextTick 会在每个阶段结束后立刻执行</p>
+<p>举个🌰</p>
+<pre tabindex="0"><code>setImmediate(()=&gt;{
+    console.log('setImmediate1')
+    setTimeout(()=&gt;{
+        console.log('setTimeout1')
+    },0)
+})
+
+setTimeout(()=&gt;{
+    console.log('setTimeout2')
+    setImmediate(()=&gt;{
+        console.log('setImmediate2')
+    })
+},0)
+</code></pre><p>在这个🌰中
+最外层有两个函数，分别为setImmediate和setTimeout。每个函数内部又有一个与之不同的函数</p>
+<ol>
+<li>
+<p>先执行最外层</p>
+<blockquote>
+<p>setImmediate将函数体(fn1)内部的部分放入check阶段。setTimeout将函数体(fn2)内部的部分放入timers阶段。</p>
+</blockquote>
+</li>
+<li>
+<p>eventloop由poll阶段执行到check阶段</p>
+<blockquote>
+<p>eventloop由poll阶段执行到check阶段后发现fn1，执行fn1。先输出&rsquo;setImmediate1'，然后执行fn1内部的setTimeout(fn3)，将fn3的函数体放入timers阶段。</p>
+</blockquote>
+</li>
+<li>
+<p>eventloop由check阶段执行到timers阶段</p>
+<blockquote>
+<p>eventloop由check阶段执行到timers阶段发现fn2，fn3。先执行fn2，输出‘setTimeout2’然后将fn2内部的setImmediate(fn4)放入check阶段，继续执行fn3，输出‘setTimeout1’</p>
+</blockquote>
+</li>
+<li>
+<p>eventloop由timers阶段执行到poll阶段再到check阶段</p>
+<blockquote>
+<p>发现有fn4，执行后输出&rsquo;setImmediate2'</p>
+</blockquote>
+</li>
+</ol>
+<p>所以结果为setImmediate1-&gt;setTimeout2-&gt;setTimeout1-&gt;setImmediate2</p>
+<h1 id="浏览器中的eventloop">浏览器中的eventloop</h1>
+<p>浏览器中没有setImmediate和nextTick</p>
+<p>一般将浏览器中的调度分为<code>宏任务</code>和<code>微任务</code></p>
+<p>一般可以这样理解。</p>
+<p>宏任务就是可以一会做的任务，微任务就是要马上做的任务</p>
+<p><strong>常见的浏览器异步中（setTimeout，setInterval，promise）只有promise.then(fn)后面的fn属于微任务，要立马执行，其他均为宏任务</strong></p>
+<p>如果见到await，可以将await改写为promise即可判断。</p>
+<p>值得注意的是:<strong>new Promise（fn）后面的函数fn是立即执行的</strong></p>
+<p>举个🌰</p>
+<pre tabindex="0"><code>async function async1(){
+    console.log(1)
+    await async2();
+    console.log(2)
+}
+
+async function async2(){
+    console.log(3)
+}
+
+async1()
+
+new Promise(function(resolve){
+    console.log(4)
+    resolve()
+}).then(function(){
+    console.log(5)
+})
+</code></pre><p>在这个🌰中</p>
+<ol>
+<li>
+<p>声明了两个async函数。执行async1</p>
+<blockquote>
+<p>先输出console.log(1)。然后将await async2()以及后面的部分改写为 async2().then(console.log(2)).这时先执行async2函数，输出console.log(3).然后将then后面的函数放入微任务队列</p>
+</blockquote>
+</li>
+<li>
+<p>继续执行后面的函数</p>
+<blockquote>
+<p>new Promise内部的函数会立即执行。所以接着输出console.log(4)，然后执行resolve回调。将Promise后面的then函数放入微任务队列</p>
+</blockquote>
+</li>
+<li>
+<p>检查微任务队列</p>
+<blockquote>
+<p>按照顺序依次执行。先输出console.log(2).然后输出console.log(5)</p>
+</blockquote>
+</li>
+</ol>
+<p>最后的结果：1-&gt;3-&gt;4-&gt;2-&gt;5</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">动态创建vue实例</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/%E8%A6%86%E7%9B%96antdv%E7%9A%84%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F/">
+                                    <span class="next_title">覆盖antdv的默认样式</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

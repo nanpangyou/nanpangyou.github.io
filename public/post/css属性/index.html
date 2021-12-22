@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>css属性 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="遇见的，不会的，CSS 属性   backface-visibility
+功能： 隐藏被旋转的 div 元素的背面
+&amp;lt;style&amp;gt; div { position:relative; height:60px; width:60px; border:1px solid #000; background-color:yellow; transform:rotateY(180deg); -webkit-transform:rotateY(180deg); /* Chrome and Safari */ -moz-transform:rotateY(180deg); /* Firefox */ } #div1 { -webkit-backface-visibility:hidden; -moz-backface-visibility:hidden; -ms-backface-visibility:hidden; } #div2 { -webkit-backface-visibility:visible; -moz-backface-visibility:visible; -ms-backface-visibility:visible; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;本例有两个 div 元素，均旋转 180 度，背向用户。&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;第一个 div 元素的 backface-visibility 属性设置为 &amp;quot;hidden&amp;quot;，所以应该是不可见的。&amp;lt;/p&amp;gt; &amp;lt;div id=&amp;quot;div1&amp;quot;&amp;gt;DIV 1&amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;div2&amp;quot;&amp;gt;DIV 2&amp;lt;/div&amp;gt; can i use
+  user-select
+功能：可以使元素中的文字不被选中,在日常需求中,以一些需求会要求比如链接等地方的文字不可被选中，这个时候就可以使用这个属性" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>css属性</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.11.13</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="遇见的不会的css-属性">遇见的，不会的，CSS 属性</h1>
+<ol>
+<li>
+<p>backface-visibility</p>
+<p>功能： 隐藏被旋转的 div 元素的背面</p>
+<pre tabindex="0"><code>&lt;style&gt;
+div
+{
+position:relative;
+height:60px;
+width:60px;
+border:1px solid #000;
+background-color:yellow;
+transform:rotateY(180deg);
+-webkit-transform:rotateY(180deg); /* Chrome and Safari */
+-moz-transform:rotateY(180deg); /* Firefox */
+}
+#div1
+{
+-webkit-backface-visibility:hidden;
+-moz-backface-visibility:hidden;
+-ms-backface-visibility:hidden;
+}
+#div2
+{
+-webkit-backface-visibility:visible;
+-moz-backface-visibility:visible;
+-ms-backface-visibility:visible;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;本例有两个 div 元素，均旋转 180 度，背向用户。&lt;/p&gt;
+
+&lt;p&gt;第一个 div 元素的 backface-visibility 属性设置为 &quot;hidden&quot;，所以应该是不可见的。&lt;/p&gt;
+
+&lt;div id=&quot;div1&quot;&gt;DIV 1&lt;/div&gt;
+
+&lt;div id=&quot;div2&quot;&gt;DIV 2&lt;/div&gt;
+
+</code></pre><p><a href="https://www.caniuse.com/#search=backface-visibility" target="_blank">can i use</a></p>
+</li>
+<li>
+<p>user-select</p>
+<p>功能：可以使元素中的文字不被选中,在日常需求中,以一些需求会要求比如链接等地方的文字不可被选中，这个时候就可以使用这个属性</p>
+<pre tabindex="0"><code>&lt;style&gt;
+   a{
+      user-select: none;
+   }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;a href='#'&gt;链接链接链接链接链接&lt;/a&gt;
+
+</code></pre><p>该属性有5个值：</p>
+<ul>
+<li>none(元素和子元素的文本将无法被选中)</li>
+<li>all(当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素)</li>
+<li>auto(默认)</li>
+<li>text(文本可以被选中)</li>
+<li>contain、element(可以选择文本，但选择范围受元素边界的约束，也就是选择的文本将包含在该元素的范围内。只支持Internet Explorer)</li>
+</ul>
+<p><a href="https://www.caniuse.com/#search=user-select" target="_blank">can i use</a></p>
+</li>
+<li>
+<p>pointer-events</p>
+<p>功能：This CSS property, when set to &ldquo;none&rdquo; allows elements to not receive hover/click events, instead the event will occur on anything behind it.</p>
+<pre tabindex="0"><code>&lt;style&gt;
+div{
+   pointer-events: none;
+}
+div:hover{
+   color: orange;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+   链接：&lt;a href='http://www.bilibili.com'&gt;bilibili&lt;/a&gt;
+&lt;/div&gt;
+
+</code></pre><p>注意点：</p>
+<ul>
+<li>pointer-events 的值为 none 时，如果元素上绝对定位，那在它下一层的元素可以被选中。</li>
+<li>pointer-events: none; 只是用来禁用鼠标的事件，通过其他方式绑定的事件还是会触发的，比如键盘事件等。</li>
+<li>如果将一个元素的子元素 pointer-events 设置成其他值（比如：auto），那么当点击子元素时，还是会通过事件冒泡的形式出发父元素的事件。</li>
+</ul>
+<p><a href="https://www.caniuse.com/#search=pointer-events" target="_blank">can i use</a></p>
+</li>
+</ol>
+
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/css-variable/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">CSS-Variable</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/%E4%BD%BF%E7%94%A8karma-mocha-sinon%E5%92%8Ctravis%E5%B0%9D%E8%AF%95%E5%81%9A%E6%8C%81%E7%BB%AD%E6%B5%8B%E8%AF%95/">
+                                    <span class="next_title">使用karma-mocha-sinon和travis尝试做持续测试</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

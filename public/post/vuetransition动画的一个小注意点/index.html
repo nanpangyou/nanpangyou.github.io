@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>Vue——transition动画的一个小注意点 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="太长不看就记住display属性不能transition 起源于日常进行着龟速的Vue自啃。
+看到有关于transition标签相关的内容。 做了一个小小的动画实验。
+Demo：
+&amp;lt;body&amp;gt; &amp;lt;div class=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;!-- 测试小球的动画，使用Vue自带的transition元素 --&amp;gt; &amp;lt;button @click=&amp;quot;flag = !flag&amp;quot;&amp;gt;车来了&amp;lt;/button&amp;gt; &amp;lt;transition @before-enter=&amp;quot;beforeEnter&amp;quot; @enter=&amp;quot;enter&amp;quot; @after-enter=&amp;quot;afterEnter&amp;quot; &amp;gt; &amp;lt;div class=&amp;quot;car&amp;quot; v-show=&amp;quot;flag&amp;quot;&amp;gt;车速很快&amp;lt;/div&amp;gt; &amp;lt;/transition&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; var app = new Vue({ el: &amp;quot;.app&amp;quot;, data: { flag: false }, methods: { beforeEnter(el) { el.style.transform = &amp;quot;translate(0,0)&amp;quot;; }, enter(el) { el.style.transform = &amp;quot;translate(350px,0)&amp;quot;; el.style.transition = &amp;quot;all 400ms ease&amp;quot;; }, afterEnter(el) { this.flag = !this.flag; } } }); &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; 这个demo中在transition中使用了自带的钩子函数，分别处理动画开始前（before-enter）,动画开始后到动画结束（enter），以及动画结束后（after-enter）三个不通状态的样式
+在上面的代码里，虽然在enter的方法中使用了 el.style.transition = &#39;all 400ms ease&#39;,但是，代表🚗的方块并没有从开始位置逐渐过度到结束的位置。只是在结束的位置瞬间出现。" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>Vue——transition动画的一个小注意点</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.05.30</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="太长不看就记住display属性不能transition">太长不看就记住<code>display</code>属性不能<code>transition</code></h1>
+<p>起源于日常进行着龟速的Vue自啃。</p>
+<p>看到有关于<code>transition</code>标签相关的内容。
+做了一个小小的动画实验。</p>
+<p>Demo：</p>
+<pre tabindex="0"><code>&lt;body&gt;
+    &lt;div class=&quot;app&quot;&gt;
+      &lt;!-- 测试小球的动画，使用Vue自带的transition元素 --&gt;
+      &lt;button @click=&quot;flag = !flag&quot;&gt;车来了&lt;/button&gt;
+      &lt;transition
+        @before-enter=&quot;beforeEnter&quot;
+        @enter=&quot;enter&quot;
+        @after-enter=&quot;afterEnter&quot;
+      &gt;
+        &lt;div class=&quot;car&quot; v-show=&quot;flag&quot;&gt;车速很快&lt;/div&gt;
+      &lt;/transition&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      var app = new Vue({
+        el: &quot;.app&quot;,
+        data: {
+          flag: false
+        },
+        methods: {
+          beforeEnter(el) {
+            el.style.transform = &quot;translate(0,0)&quot;;
+          },
+          enter(el) {
+            el.style.transform = &quot;translate(350px,0)&quot;;
+            el.style.transition = &quot;all 400ms ease&quot;;
+          },
+          afterEnter(el) {
+            this.flag = !this.flag;
+          }
+        }
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+</code></pre><p>这个demo中在transition中使用了自带的钩子函数，分别处理动画开始前（before-enter）,动画开始后到动画结束（enter），以及动画结束后（after-enter）三个不通状态的样式</p>
+<p>在上面的代码里，虽然在<code>enter</code>的方法中使用了 <code>el.style.transition = 'all 400ms ease'</code>,但是，代表🚗的方块并没有从开始位置逐渐过度到结束的位置。只是在结束的位置瞬间出现。</p>
+<p>网上查了一圈后，流行的说法是因为<code>transition</code>属性不支持<code>display</code>,也就是说<code>display</code>这个属性不可以发生渐变。
+本例中，小🚗通过<code>data</code>中的<code>flag</code>来控制🚗的显示和隐藏。当动画开始的时候，🚗还是<code>display:none;</code>的状态，又由于<code>display</code>属性不可渐变。所以只有当移动到结束位置的时候才触发重绘，将🚗显示出来。</p>
+<p>解决方法就是要在🚗移动之前就触发浏览器的重绘，将🚗显示出来，这样，🚗的位移就可以渐变了。</p>
+<p>大多数此类的代码触发重绘的属性是<code>offsetWidth</code>或者<code>offsetHeight</code>之类的。（offset家族）</p>
+<p>所以改造后的代码如下
+demo2:</p>
+<pre tabindex="0"><code> &lt;body&gt;
+    &lt;div class=&quot;app&quot;&gt;
+      &lt;!-- 测试小球的动画，使用Vue自带的transition元素 --&gt;
+      &lt;button @click=&quot;flag = !flag&quot;&gt;车来了&lt;/button&gt;
+      &lt;transition
+        @before-enter=&quot;beforeEnter&quot;
+        @enter=&quot;enter&quot;
+        @after-enter=&quot;afterEnter&quot;
+      &gt;
+        &lt;div class=&quot;car&quot; v-show=&quot;flag&quot;&gt;车速很快&lt;/div&gt;
+      &lt;/transition&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      var app = new Vue({
+        el: &quot;.app&quot;,
+        data: {
+          flag: false
+        },
+        methods: {
+          beforeEnter(el) {
+            el.style.transform = &quot;translate(0,0)&quot;;
+          },
+          enter(el, done) {
+            el.offsetWidth;
+            el.style.transform = &quot;translate(350px,0)&quot;;
+            el.style.transition = &quot;all 400ms ease&quot;;
+            done();
+          &lt;!-- done 方法用来立即触发afterEnter函数，换句话说就是after-enter钩子函数的别名。 --&gt;
+          &lt;!-- 如果不立即调用done函数，则会有少许延迟才调用after-enter函数 --&gt;
+          },
+          afterEnter(el) {
+            this.flag = !this.flag;
+          }
+        }
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+</code></pre><p>这样，整个的动画就稍显流畅了。</p>
+<p>资料：
+<a href="https://blog.csdn.net/xingsilong/article/details/80624765" target="_blank">有关网页呈现，重绘，回流</a>
+最后的展示：
+<a href="/demo/%e5%b0%8f%e7%90%83%e5%8a%a8%e7%94%bb.html">小球动画demo</a></p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/%E6%8B%BC%E9%9F%B3/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">拼音</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/homebrew%E8%8A%82%E7%82%B9/">
+                                    <span class="next_title">homebrew节点</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

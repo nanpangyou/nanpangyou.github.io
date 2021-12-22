@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>使用karma-mocha-sinon和travis尝试做持续测试 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="Karma（[ˈkɑrmə] 卡玛）是一个测试运行器，它可以呼起浏览器，加载测试脚本，然后运行测试用例 Mocha（[ˈmoʊkə] 摩卡）是一个单元测试框架/库，它可以用来写测试用例 Sinon（西农）是一个 spy / stub / mock 库，用以辅助测试 travis 是一个免费的 CI 平台  安装各种工具 npm i -D karma karma-chrome-launcher karma-mocha karma-sinon-chai mocha sinon sinon-chai karma-chai karma-chai-spies 在根目录里创建karma.config.js karma.config.js中主要制定了测试的浏览器。带测试的文件（file 项下的配置）
+// 新建 karma.conf.js，内容如下 module.exports = function(config) { config.set({ // base path that will be used to resolve all patterns (eg. files, exclude) basePath: &amp;quot;&amp;quot;, // frameworks to use // available frameworks: https://npmjs.org/browse/keyword/karma-adapter frameworks: [&amp;quot;mocha&amp;quot;, &amp;quot;sinon-chai&amp;quot;], client: { chai: { includeStack: true } }, // list of files / patterns to load in the browser // **/*." />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>使用karma-mocha-sinon和travis尝试做持续测试</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.12.04</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <ol>
+<li>Karma（[ˈkɑrmə] 卡玛）是一个测试运行器，它可以呼起浏览器，加载测试脚本，然后运行测试用例</li>
+<li>Mocha（[ˈmoʊkə] 摩卡）是一个单元测试框架/库，它可以用来写测试用例</li>
+<li>Sinon（西农）是一个 spy / stub / mock 库，用以辅助测试</li>
+<li>travis 是一个免费的 CI 平台</li>
+</ol>
+<h1 id="安装各种工具">安装各种工具</h1>
+<pre tabindex="0"><code>npm i -D karma karma-chrome-launcher karma-mocha karma-sinon-chai mocha sinon sinon-chai karma-chai karma-chai-spies
+</code></pre><h1 id="在根目录里创建karmaconfigjs">在根目录里创建<code>karma.config.js</code></h1>
+<p><code>karma.config.js</code>中主要制定了测试的浏览器。带测试的文件（file 项下的配置）</p>
+<pre tabindex="0"><code>// 新建 karma.conf.js，内容如下
+module.exports = function(config) {
+  config.set({
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: &quot;&quot;,
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: [&quot;mocha&quot;, &quot;sinon-chai&quot;],
+    client: {
+      chai: {
+        includeStack: true
+      }
+    },
+
+    // list of files / patterns to load in the browser
+    //   **/*.js 代表循环该目录下的所有js文件
+    files: [&quot;dist/**/*.js&quot;, &quot;dist/**/*.css&quot;],
+
+    // list of files / patterns to exclude
+    exclude: [],
+
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {},
+
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: [&quot;progress&quot;],
+
+    // web server port
+    port: 9876,
+
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
+
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: true,
+
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: [&quot;ChromeHeadless&quot;],
+
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: false,
+
+    // Concurrency level
+    // how many browser should be started simultaneous
+    concurrency: Infinity
+  });
+};
+
+</code></pre><h1 id="创建-test-文件夹并且在文件夹下创建xxxtestjs">创建 <code>test</code> 文件夹，并且在文件夹下创建<code>xxx.test.js</code></h1>
+<pre tabindex="0"><code>//这里我做的是一个按钮的单元测试，所以新建button.text.js
+import Vue from &quot;vue&quot;;
+import Button from &quot;../src/button&quot;;
+
+Vue.config.productionTip = false;
+Vue.config.devtools = false;
+const expect = chai.expect;
+
+describe(&quot;Button&quot;, () =&gt; {
+  it(&quot;存在.&quot;, () =&gt; {
+    expect(Button).to.be.ok;
+  });
+  it(&quot;可以设置icon.&quot;, () =&gt; {
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+      propsData: {
+        icon: &quot;setting&quot;
+      }
+    }).$mount();
+    const useElement = vm.$el.querySelector(&quot;use&quot;);
+    expect(useElement.getAttribute(&quot;xlink:href&quot;)).to.equal(&quot;#i-setting&quot;);
+    vm.$destroy();
+  });
+  it(&quot;可以设置loading.&quot;, () =&gt; {
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+      propsData: {
+        icon: &quot;setting&quot;,
+        loading: true
+      }
+    }).$mount();
+    const useElements = vm.$el.querySelectorAll(&quot;use&quot;);
+    expect(useElements.length).to.equal(1);
+    expect(useElements[0].getAttribute(&quot;xlink:href&quot;)).to.equal(&quot;#i-loading&quot;);
+    vm.$destroy();
+  });
+  it(&quot;icon 默认的 order 是 1&quot;, () =&gt; {
+    const div = document.createElement(&quot;div&quot;);
+    document.body.appendChild(div);
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+      propsData: {
+        icon: &quot;settings&quot;
+      }
+    }).$mount(div);
+    const icon = vm.$el.querySelector(&quot;svg&quot;);
+    expect(getComputedStyle(icon).order).to.eq(&quot;1&quot;);
+    vm.$el.remove();
+    vm.$destroy();
+  });
+  it(&quot;设置 iconPosition 可以改变 order&quot;, () =&gt; {
+    const div = document.createElement(&quot;div&quot;);
+    document.body.appendChild(div);
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+      propsData: {
+        icon: &quot;setting&quot;,
+        iconPosition: &quot;right&quot;
+      }
+    }).$mount(div);
+    const icon = vm.$el.querySelector(&quot;svg&quot;);
+    expect(getComputedStyle(icon).order).to.eq(&quot;2&quot;);
+    vm.$el.remove();
+    vm.$destroy();
+  });
+  it(&quot;点击 button 触发 click 事件&quot;, () =&gt; {
+    const Constructor = Vue.extend(Button);
+    const vm = new Constructor({
+      propsData: {
+        icon: &quot;setting&quot;
+      }
+    }).$mount();
+    //判断callback是否被执行
+    const callback = sinon.fake();
+    vm.$on(&quot;click&quot;, callback);
+    vm.$el.click();
+    expect(callback).to.have.been.called;
+    vm.$destroy();
+  });
+});
+
+</code></pre><p>该文件主要写了单元测试的语句，使用 mocha 来完成测试的，通过描述 Button 的不同动作，使用 it 函数来包裹每一个动作并在内部写断言
+这里主要使用了 chai.js 的断言库还有 sinon 的 fake 函数来充当 mock 函数</p>
+<h1 id="在packagejson中写测试调用语句">在<code>package.json</code>中写测试调用语句</h1>
+<p>改写<code>scripts</code>
+添加</p>
+<pre tabindex="0"><code>{
+  &quot;dev-test&quot;: &quot;parcel watch test/* --no-cache &amp; karma start&quot;,
+  &quot;test&quot;: &quot;parcel build test/* --no-cache --no-minify &amp;&amp; karma start --single-run&quot;
+}
+</code></pre><p>至此 就可以在开发过程中进行单元测试了，如果需要进行一次单元测试，则<code>npm run test</code>,如果需要 watch 打包后的文件，则<code>npm run dev-test</code></p>
+<h1 id="使用-travis-ci-来在每次-push-代码后自动测试">使用 travis CI 来在每次 push 代码后自动测试</h1>
+<p>在根目录下创建<code>.travis.yml</code>文件</p>
+<pre tabindex="0"><code>language: node_js
+node_js:
+  - &quot;8&quot;
+  - &quot;9&quot;
+  - &quot;10&quot;
+addons:
+  chrome: stable
+sudo: required
+before_script:
+  - &quot;sudo chown root /opt/google/chrome/chrome-sandbox&quot;
+  - &quot;sudo chmod 4755 /opt/google/chrome/chrome-sandbox&quot;
+</code></pre><p>打开<a href="https://travis-ci.com/" target="_blank">travis</a>的官网
+添加你的 git 仓库当你每次进行<code>git push</code>的时候，就会自动进行<code>npm test</code>将测试结果发送至你的邮箱</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/css%E5%B1%9E%E6%80%A7/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">css属性</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/%E4%BD%BF%E7%94%A8npm-link%E6%88%96yarn-link/">
+                                    <span class="next_title">使用npm-link或yarn-link</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

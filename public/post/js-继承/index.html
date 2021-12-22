@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>js-继承 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="使用 JavaScript 实现继承 要求： 要求不使用 class，完成如下需求：
+  写出一个构造函数 Animal 输入为空 输出为一个新对象，该对象的共有属性为 {行动: function(){}}，没有自有属性
+  再写出一个构造函数 Human Human 继承 Animal 输入为一个对象，如 {name: &amp;lsquo;xxx&amp;rsquo;, birthday: &amp;lsquo;2000-10-10&amp;rsquo;} 输出为一个新对象，该对象自有的属性有 name 和 birthday，共有的属性有物种（人类）、行动和使用工具
+  再写出一个构造函数 Asian Asian 继承 Human 输入为一个对象，如 {city: &amp;lsquo;北京&amp;rsquo;, name: &amp;lsquo;xxx&amp;rsquo;, birthday: &amp;lsquo;2000-10-10&amp;rsquo; } 输出为一个新对象，改对象自有的属性有 name city 和 bitrhday，共有的属性有物种、行动和使用工具和肤色 既
+  最后一个新对象是 Asian 构造出来的
+ Asian 继承 Human，Human 继承 Animal 使用原型链
+function Animal(){ } Animal.prototype.行动 = function(){} function Human(options){ this." />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>js-继承</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.09.23</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="使用-javascript-实现继承">使用 JavaScript 实现继承</h1>
+<p>要求：
+要求不使用 class，完成如下需求：</p>
+<ul>
+<li>
+<p>写出一个构造函数 Animal
+输入为空
+输出为一个新对象，该对象的共有属性为 {行动: function(){}}，没有自有属性</p>
+</li>
+<li>
+<p>再写出一个构造函数 Human
+Human 继承 Animal
+输入为一个对象，如 {name: &lsquo;xxx&rsquo;, birthday: &lsquo;2000-10-10&rsquo;}
+输出为一个新对象，该对象自有的属性有 name 和 birthday，共有的属性有物种（人类）、行动和使用工具</p>
+</li>
+<li>
+<p>再写出一个构造函数 Asian
+Asian 继承 Human
+输入为一个对象，如 {city: &lsquo;北京&rsquo;, name: &lsquo;xxx&rsquo;, birthday: &lsquo;2000-10-10&rsquo; }
+输出为一个新对象，改对象自有的属性有 name city 和 bitrhday，共有的属性有物种、行动和使用工具和肤色
+既</p>
+</li>
+</ul>
+<p>最后一个新对象是 Asian 构造出来的</p>
+<pre tabindex="0"><code>  Asian 继承 Human，Human 继承 Animal
+</code></pre><p>使用原型链</p>
+<pre tabindex="0"><code>function Animal(){
+
+}
+Animal.prototype.行动 = function(){}
+
+function Human(options){
+	this.name = options.name;
+	this.birthday = options.birthday
+}
+// 方法一
+// 通过Object.create 将Human.prototype.__proto__指向Animal.prototype
+Human.prototype = Object.create(Animal.prototype)
+Human.prototype.物种 = '人类'
+Human.prototype.行动 = function(){}
+Human.prototype.使用工具	= function(){}
+
+function Asian(options){
+	Human.call(this,options);
+	this.city = options.city;
+}
+// 方法二
+// 首先 new Human() 执行了三句隐藏的代码
+// this = {}
+// this.__proto__ = Human.prototype
+// retrun this
+// 所以我们可以借助new 将子函数的prototpye下的__proto__(也就是共有属性)指向 new 的这个函数的prototype
+// 但是，当我们的父函数有自有属性时，不能直接new Human()
+// 需要借助下面的代码。搭桥，将子函数的prototype.__proto__ 指向 父函数的 prototype
+
+function fakeHuman(){}
+fakeHuman.prototype = Human.prototype
+Asian.prototype = new fakeHuman()
+
+// 或者用地下的这句直接就可以了
+// Asian.prototype = Object.create(Human.prototype)
+</code></pre><p>使用 class 关键字</p>
+<pre tabindex="0"><code>class Animal{
+	行动(){}
+}
+
+class Human extends Animal{
+	constructor(options){
+		super(options)
+		this.name = options.name;
+		this.birthday = options.birthday
+		this.物种 = '人类'
+	}
+
+	行动(){}
+	使用工具(){}
+}
+
+
+class Asian extends Human{
+	constructor(options){
+		super(options)
+		this.city = options.city
+	}
+}
+</code></pre><p>class 方式无法让非函数称为共有属性，只能写入静态属性</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/blog/">blog</a>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/code/">code</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/%E5%A5%87%E6%80%AA%E7%9A%84%E4%BB%A3%E7%A0%81/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">奇怪的代码</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8zsh%E4%B8%ADcurl%E5%91%BD%E4%BB%A4%E6%80%BB%E6%9C%89%E4%B8%80%E4%B8%AA/">
+                                    <span class="next_title">为什么在zsh中curl命令总有一个%</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

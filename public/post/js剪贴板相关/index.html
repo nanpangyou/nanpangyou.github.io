@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>JS剪贴板相关 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="JS 剪贴板相关的内容 这两天做了一个需求，是通过 js 获取剪贴板中的字符串，对用户复制不同长度的字符串进行分类处理。
+由于自己之前从来都没有关注过复制事件 paste ,于是就去网上找了找相关的资料，记录如下：
+JS 是可以拿到用户所输入的内容的 paste 事件不一定需要绑定在 input 元素中，可以绑定在任意元素中，当用户鼠标在该元素上或者该元素处于 focus 状态，绑定的 paste 事件就会在复制的时候执行。
+事件对象  if (window.clipboardData &amp;amp;&amp;amp; window.clipboardData.getData) { // IE pastedText = window.clipboardData.getData(&amp;quot;Text&amp;quot;); } else { //e.clipboardData.getData(&#39;text/plain&#39;); pastedText = e.originalEvent.clipboardData.getData(&amp;quot;Text&amp;quot;); } 粘贴事件为你提供了一个 clipboardData 对象, 它实际上是一个 DataTransfer 类型的对象, DataTransfer 是拖动产生的一个对象，但实际上粘贴事件也是它。
+clipboardData 属性介绍
+   属性 类型 说明     dropEffect String 默认是 none   effectAllowed String 默认是 uninitialized   files FileList 粘贴操作为空 List   items DataTransferItemList 剪切板中的各项数据   types Array 剪切板中的数据类型 该属性在 Safari 下比较混乱    items 介绍 items 是一个 DataTransferItemList 对象，自然里面都是 DataTransferItem 类型的数据了。" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>JS剪贴板相关</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2019.04.19</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="js-剪贴板相关的内容">JS 剪贴板相关的内容</h1>
+<p>这两天做了一个需求，是通过 js 获取剪贴板中的字符串，对用户复制不同长度的字符串进行分类处理。</p>
+<p>由于自己之前从来都没有关注过复制事件 <code>paste</code> ,于是就去网上找了找相关的资料，记录如下：</p>
+<h2 id="js-是可以拿到用户所输入的内容的">JS 是可以拿到用户所输入的内容的</h2>
+<p><code>paste</code> 事件不一定需要绑定在 <code>input</code> 元素中，可以绑定在任意元素中，当用户鼠标在该元素上或者该元素处于 <code>focus</code> 状态，绑定的 <code>paste</code> 事件就会在复制的时候执行。</p>
+<h2 id="事件对象">事件对象</h2>
+<pre tabindex="0"><code>        if (window.clipboardData &amp;&amp; window.clipboardData.getData) {
+          // IE
+          pastedText = window.clipboardData.getData(&quot;Text&quot;);
+        } else {
+          //e.clipboardData.getData('text/plain');
+          pastedText = e.originalEvent.clipboardData.getData(&quot;Text&quot;);
+        }
+
+</code></pre><p>粘贴事件为你提供了一个 <code>clipboardData</code> 对象, 它实际上是一个 <code>DataTransfer</code> 类型的对象, <code>DataTransfer</code> 是拖动产生的一个对象，但实际上粘贴事件也是它。</p>
+<p><code>clipboardData</code> 属性介绍</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dropEffect</td>
+<td>String</td>
+<td>默认是 none</td>
+</tr>
+<tr>
+<td>effectAllowed</td>
+<td>String</td>
+<td>默认是 uninitialized</td>
+</tr>
+<tr>
+<td>files</td>
+<td>FileList</td>
+<td>粘贴操作为空 List</td>
+</tr>
+<tr>
+<td>items</td>
+<td>DataTransferItemList</td>
+<td>剪切板中的各项数据</td>
+</tr>
+<tr>
+<td>types</td>
+<td>Array</td>
+<td>剪切板中的数据类型 该属性在 Safari 下比较混乱</td>
+</tr>
+</tbody>
+</table>
+<h3 id="items-介绍">items 介绍</h3>
+<p><code>items</code> 是一个 <code>DataTransferItemList</code> 对象，自然里面都是 <code>DataTransferItem</code> 类型的数据了。</p>
+<h4 id="属性">属性</h4>
+<p><code>items</code> 的 <code>DataTransferItem</code> 有两个属性 <code>kind</code> 和 <code>type</code></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kind</td>
+<td>一般为 string 或者 file</td>
+</tr>
+<tr>
+<td>type</td>
+<td>具体的数据类型，例如具体是哪种类型字符串或者哪种类型的文件，即 MIME-Type</td>
+</tr>
+</tbody>
+</table>
+<h4 id="方法">方法</h4>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getAsFile</td>
+<td>空</td>
+<td>如果 kind 是 file，可以用该方法获取到文件</td>
+</tr>
+<tr>
+<td>getAsString</td>
+<td>回调函数</td>
+<td>如果 kind 是 string，可以用该方法获取到字符串，字符串需要用回调函数得到，回调函数的第一个参数就是剪切板中的字符串</td>
+</tr>
+</tbody>
+</table>
+<p>在原型上还有一些其他方法，不过在处理剪切板操作的时候一般用不到了。</p>
+<p><code>types</code> 介绍
+一般 <code>types</code> 中常见的值有 <code>text/plain</code>、<code>text/html</code>、<code>Files</code>。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text/plain</td>
+<td>普通字符串</td>
+</tr>
+<tr>
+<td>text/html</td>
+<td>带有样式的 html</td>
+</tr>
+<tr>
+<td>Files</td>
+<td>文件(例如剪切板中的数据)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一个 Demo</strong></p>
+<pre tabindex="0"><code>pasteEle.addEventListener(&quot;paste&quot;, function (e){
+    if ( !(e.clipboardData &amp;&amp; e.clipboardData.items) ) {
+        return ;
+    }
+
+    for (var i = 0, len = e.clipboardData.items.length; i &lt; len; i++) {
+        var item = e.clipboardData.items[i];
+
+        if (item.kind === &quot;string&quot;) {
+            item.getAsString(function (str) {
+                console.log(str)
+                // str 是获取到的字符串
+            })
+        } else if (item.kind === &quot;file&quot;) {
+            var pasteFile = item.getAsFile();
+            console.log(pasteFile)
+            // pasteFile就是获取到的文件
+        }
+    }
+});
+</code></pre><p>注意如果是 <code>string</code> 类型的数据，可能针对具体是 <code>text/plain</code>、<code>text/html</code> 进行分别的处理。</p>
+
+                    </div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-hashtag"></i>
+                                    
+                                    <a href="https://nanpangyou.github.io/tags/note/">note</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/arrayapi/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">ArrayAPI</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%87%E6%8D%A2tab/">
+                                    <span class="next_title">浏览器切换tab</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

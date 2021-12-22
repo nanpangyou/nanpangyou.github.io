@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="nanpangyou" />
+	
+	
+	
+	<title>vim备忘 ♡ 男胖友de部落格</title>
+	
+    
+    
+    <meta name="description" content="Vim操作方式备忘  Command模式
+分屏
+:vs (vertical split), :sp(split)
+全局替换
+:% s/带替换内容/替换为/g
+ Visual模式
+使用 v 进入
+使用 V 选择行
+使用 ctrl&#43;v 方块选择
+ 编辑模式
+ctrl&#43;h 删除上一个字符
+ctrl&#43;w 删除上一个单词
+ctrl&#43;u 删除当前行
+(在终端下 ctrl&#43;a 移动到行首 ctrl&#43;e 移动到行尾 ctrl&#43;b 向前移动 ctrl&#43;f 向后移动)
+ 快速切换从insert模式去normal模式
+除了esc还可以ctrl&#43;c(有可能中断其他插件)还可以ctrl&#43;[
+快速切换从noraml模式去insert模式
+使用 gi 快速跳转到你最后一次编辑的地方并进入插入模式
+ 行间搜索移动  使用f{char}可以移动到 char 字符上，t{char}移动到 char 的前一个字符 如果第一次没有搜到，可以用分号(;)/逗号(,)继续搜该行的上一个/下一个 使用F表示反过来搜索前面的字符  vim的水平移动  0 移动到行首第一个字符，^ 移动到第一个非空白字符 $ 移动到行尾，g_ 移动到行尾非空白字符  vim的页面移动  gg/G 移动到文件开头或者结尾， 使用 ctrl&#43;o 快速返回 使用 H/M/L 跳转到屏幕的 开头（Head） 中间（Middle） 结尾（Lower） Ctrl&#43;u ctrl&#43;f 上下翻页 （upword/forward） zz把屏幕置为中间  vim的快速修改  常用有三个，r(replace), c(change), s(substitute) 在normal模式中 r 可以替换一个字符， s 替换并插入一个字符 使用c配合文本对象，我们可以快速进行修改  vim的查询  使用/或者?" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://nanpangyou.github.io/images/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/base16/github.min.css">
+    <link href="https://nanpangyou.github.io/css/fancybox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://nanpangyou.github.io/css/captain.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <h1>
+        <a href="https://nanpangyou.github.io/"> </a>
+      </h1>
+    </div>
+    <div class="description">
+      <p class="sub_title">
+        
+      </p>
+      <div class="my_socials">
+        
+        <a
+          href="https://nanpangyou.github.io/index.xml"
+          type="application/rss+xml"
+          title="rss"
+          target="_blank"
+          ><i class="ri-rss-fill"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="content">
+            <div class="single_page post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2>vim备忘</h2>
+                        <div class="date">Updated&nbsp;on&nbsp;2021.09.28</div>
+                    </div>
+                    <div class="post_content markdown">
+                        <h1 id="vim操作方式备忘">Vim操作方式备忘</h1>
+<hr>
+<p>Command模式</p>
+<p>分屏</p>
+<p>:vs (vertical split), :sp(split)</p>
+<p>全局替换</p>
+<p>:% s/带替换内容/替换为/g</p>
+<hr>
+<p>Visual模式</p>
+<p>使用 v 进入</p>
+<p>使用 V 选择行</p>
+<p>使用 ctrl+v 方块选择</p>
+<hr>
+<p>编辑模式</p>
+<p>ctrl+h 删除上一个字符</p>
+<p>ctrl+w 删除上一个单词</p>
+<p>ctrl+u 删除当前行</p>
+<p>(在终端下 ctrl+a 移动到行首  ctrl+e 移动到行尾 ctrl+b 向前移动  ctrl+f 向后移动)</p>
+<hr>
+<p>快速切换从insert模式去normal模式</p>
+<p>除了esc还可以ctrl+c(有可能中断其他插件)还可以ctrl+[</p>
+<p>快速切换从noraml模式去insert模式</p>
+<p>使用 gi 快速跳转到你最后一次编辑的地方并进入插入模式</p>
+<hr>
+<h3 id="行间搜索移动">行间搜索移动</h3>
+<ul>
+<li>使用f{char}可以移动到 char 字符上，t{char}移动到 char 的前一个字符</li>
+<li>如果第一次没有搜到，可以用分号(;)/逗号(,)继续搜该行的上一个/下一个</li>
+<li>使用F表示反过来搜索前面的字符</li>
+</ul>
+<h3 id="vim的水平移动">vim的水平移动</h3>
+<ul>
+<li>0 移动到行首第一个字符，^ 移动到第一个非空白字符</li>
+<li>$ 移动到行尾，g_ 移动到行尾非空白字符</li>
+</ul>
+<h3 id="vim的页面移动">vim的页面移动</h3>
+<ul>
+<li>gg/G 移动到文件开头或者结尾， 使用 ctrl+o 快速返回</li>
+<li>使用 H/M/L 跳转到屏幕的 开头（Head） 中间（Middle） 结尾（Lower）</li>
+<li>Ctrl+u ctrl+f 上下翻页 （upword/forward） zz把屏幕置为中间</li>
+</ul>
+<h3 id="vim的快速修改">vim的快速修改</h3>
+<ul>
+<li>常用有三个，r(replace), c(change), s(substitute)</li>
+<li>在normal模式中 r 可以替换一个字符， s 替换并插入一个字符</li>
+<li>使用c配合文本对象，我们可以快速进行修改</li>
+</ul>
+<h3 id="vim的查询">vim的查询</h3>
+<ul>
+<li>使用/或者?来进行向前或者反向的搜索</li>
+<li>使用n/N跳转到下一个或者上一个匹配</li>
+<li>使用*/#进行当前光标单词的前向或者后项匹配</li>
+</ul>
+<h3 id="vim的替换命令">vim的替换命令</h3>
+<p>substitute命令允许我们查找并且替换掉文本，并且支持正则</p>
+<ul>
+<li>:[range] s[ubstitute]/{pattern}/{string}/[flags]</li>
+<li>range 表示范围 比如： 10,20 表示 10-20行，  % 表示全部</li>
+<li>pattern是要替换的模式，string是替换后的文本</li>
+</ul>
+<blockquote>
+<p>替换标志位
+g(global) 表示全局范围内执行
+c(comfirm) 表示确认， 可以确认或者拒绝修改
+n(number) 报告匹配到的次数而不替换，可以用来查询匹配次数</p>
+</blockquote>
+<h2 id="vim的多文件操作">vim的多文件操作</h2>
+<h3 id="buffer-window-tab">Buffer Window Tab</h3>
+<ul>
+<li>Buffer是指打开的一个文件的内存缓冲区</li>
+<li>窗口是Buffer可视化的分割区域</li>
+<li>Tab 可以组织窗口为一个工作 区</li>
+</ul>
+<h3 id="buffer---什么是缓冲区">Buffer - 什么是缓冲区</h3>
+<ul>
+<li>vim 打开一个文件后会加载文件内容到缓冲区</li>
+<li>之后的修改都是针对内存中的缓冲区，并不会直接保存到文件里</li>
+<li>知道我们执行： w(write)的时候才会吧修改内容写入到文件里</li>
+</ul>
+<h3 id="如何进行buffer切换">如何进行buffer切换</h3>
+<ul>
+<li>使用:ls 会列举当前缓冲区，然后使用:b n跳转到第n个缓冲区</li>
+<li>:bpre :bnext :bfirst :blast</li>
+<li>或者:b buffer_name加上tab补全来跳转</li>
+</ul>
+<p>(在编辑的过程中可以使用<code>:e 文件名</code>来打开新的文件 edit)</p>
+<h3 id="window---窗口是可视化的分割区域">Window - 窗口是可视化的分割区域</h3>
+<ul>
+<li>一个缓冲区可以分割成多个窗口，每个窗口也可以打开不同的缓冲区</li>
+<li>&lt;ctrl+w&gt;s 水平分割, &lt;ctrl+w&gt;v 垂直分割，或者:sp和:vs</li>
+<li>每个窗口可以继续无限分割</li>
+</ul>
+<h3 id="如何切换窗口">如何切换窗口</h3>
+<p>切换窗口都是使用<code>ctrl+w</code>(window)作为前缀</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;ctrl+w&gt;w</td>
+<td>在窗口间循环</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;h</td>
+<td>切换到左边的窗口</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;j</td>
+<td>切换到下边的窗口</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;k</td>
+<td>切换到上边的窗口</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;l</td>
+<td>切换到右边的窗口</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;H</td>
+<td>移动当前窗口到左边</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;J</td>
+<td>移动当前窗口到下面</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;K</td>
+<td>移动当前窗口到上面</td>
+</tr>
+<tr>
+<td>&lt;ctrl+w&gt;L</td>
+<td>移动当前窗口到右边</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tab标签页将窗口重组">tab(标签页)，将窗口重组</h3>
+<p>tab是可以容纳一系列窗口的容器（:h tabpage）</p>
+<h2 id="vim中的文本对象">vim中的文本对象</h2>
+<h3 id="文本对象的操作方式">文本对象的操作方式</h3>
+<ul>
+<li>[number]<!-- raw HTML omitted -->[text object]</li>
+<li>number 表示次数，command 是命令，d(delete),c(change),y(yank)</li>
+<li>text object 是要操作的对象，比如单词w，句子s，段落p</li>
+</ul>
+<h2 id="vim的寄存器">vim的寄存器</h2>
+<p>Vim不使用单一剪贴板进行剪贴，复制和粘贴，而是多组寄存器</p>
+<ul>
+<li>通过 <code>&quot;{register}</code> 前缀可以指定寄存器，不指定默认用无名寄存器</li>
+<li>比如使用 <code>&quot;ayiw</code> 复制一个单词到寄存器a中，<code>&quot;bdd</code> 删除当前行到寄存器b中</li>
+<li>（可以用:reg a 查看a寄存器的内容）</li>
+<li>使用<code>&quot;ap</code>粘贴a寄存器中的内容</li>
+</ul>
+<h3 id="其他常见寄存器">其他常见寄存器</h3>
+<p>除了有名寄存器a-z，vim中还有其他寄存器</p>
+<ul>
+<li>复制专用寄存器 <code>&quot;0</code> 使用y复制文本的同时会被拷贝到复制寄存器0</li>
+<li>系统剪贴板 <code>&quot;+</code> 可以在复制前加上<code>&quot;+</code>复制到系统剪贴板 （需要使用 :echo has(&lsquo;clipboard&rsquo;) 输出1来确保可以被系统使用）</li>
+<li>其他一些寄存器比如 <code>&quot;%</code>当前文件名， <code>&quot;.</code>上次插入的文本</li>
+</ul>
+<p><strong>可以使用<code>:set clipboard=unnamed</code>可以直接复制粘贴系统剪贴板的内容</strong></p>
+<h2 id="vim中的宏">Vim中的宏</h2>
+<p>宏的使用分为录制和回放</p>
+<ul>
+<li>vim使用q来录制，同时也是q来结束录制（normal模式）</li>
+<li>使用q{register}选择要保存的寄存器，把录制的命令保存其中</li>
+<li>使用@{register}回放寄存器中保存的一系列命令</li>
+</ul>
+<p>(例如可以输入 :normal @a 对选中的部分回放宏)</p>
+<h2 id="vim补全">vim补全</h2>
+<p>vim中的补全方式</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>补全类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;ctrl-n&gt;</td>
+<td>普通关键字</td>
+</tr>
+<tr>
+<td>&lt;ctrl-x&gt;&lt;ctrl-n&gt;</td>
+<td>当前缓冲区关键字</td>
+</tr>
+<tr>
+<td>&lt;ctrl-x&gt;&lt;ctrl-i&gt;</td>
+<td>包含文件关键字</td>
+</tr>
+<tr>
+<td>&lt;ctrl-x&gt;&lt;ctrl-]&gt;</td>
+<td>标签文件关键字</td>
+</tr>
+<tr>
+<td>&lt;ctrl-x&gt;&lt;ctrl-k&gt;</td>
+<td>字典查找</td>
+</tr>
+<tr>
+<td>&lt;ctrl-x&gt;&lt;ctrl-l&gt;</td>
+<td>整行补全</td>
+</tr>
+<tr>
+<td>&lt;ctrl-x&gt;&lt;ctrl-f&gt;</td>
+<td>文件名补全</td>
+</tr>
+<tr>
+<td>&lt;ctrl-x&gt;&lt;ctrl-o&gt;</td>
+<td>全能（Omni）补全</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vim的映射">vim的映射</h2>
+<h3 id="基本映射">基本映射</h3>
+<p>基本映射指的是normal模式下的映射</p>
+<ul>
+<li>使用map就可以实现映射。比如:map - x 然后按-就可以删除字符</li>
+<li>:map &lt;space&gt; viw 告诉vim按下空格的时候选中整个单词</li>
+<li>:map &lt;c-d&gt; dd 可以使用ctrl+d执行dd删除一行</li>
+</ul>
+<h3 id="模式映射">模式映射</h3>
+<p>Vim常用模式Normal/Insert/Visual都可以定义映射</p>
+<ul>
+<li>用nmap/imap/vmap定义映射只在normal/insert/visual模式下分别有效</li>
+<li>:vmap \ U 把在visual模式下按下<code>\</code>选中的文本变为大写</li>
+<li>在insert模式下映射ctrl+d来删除一行  :imap <!-- raw HTML omitted --> <!-- raw HTML omitted -->ddi</li>
+</ul>
+<h3 id="递归与非递归映射">递归与非递归映射</h3>
+<p>*<strong>map系列命令有递归的风险</strong>
+vim提供了非递归映射，这些命令不会递归解释</p>
+<ul>
+<li>使用nnoremap/vnoremap/inoremap</li>
+</ul>
+
+                    </div>
+                    <div class="post_footer">
+                        
+
+                        <div class="single_page_divider"></div>
+
+                        <div class="single_page_pagination">
+                            
+                                <a class="single_page_pagination_pre" href="https://nanpangyou.github.io/post/asynccomponent/">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                    <span class="prev_title">AsyncComponent</span>
+                                    <span class="prev_text">Prev</span>
+                                </a>
+                            
+                            
+                                <a class="single_page_pagination_next" href="https://nanpangyou.github.io/post/tmux/">
+                                    <span class="next_title">tmux</span>
+                                    <span class="next_text">Next</span>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="http://www.gohugo.io/">Published by Hugo,</a>
+        <a href="https://github.com/CaptainOfPhB">Hosted on GitHub</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span></span>
+    </div>
+</footer>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js"></script>
+<script src="https://nanpangyou.github.io/js/jquery-3.5.1.min.js"></script>
+<script src="https://nanpangyou.github.io/js/fancybox.min.js"></script>
+<script src="https://nanpangyou.github.io/js/captain.js"></script>
+
+<script>
+  hljs.highlightAll();
+</script>
+
+<script>
+  var tables = document.getElementsByTagName('table');
+  if(tables.length) {
+    for(var i = 0; i < tables.length; i++) {
+      tables[i].outerHTML = '<div style="overflow-x: auto">' + tables[i].outerHTML + '</div>'; 
+    }
+  }
+</script>
+
+
+</body>
+
+</html>
