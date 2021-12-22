@@ -1,7 +1,7 @@
 baseURL = "https://nanpangyou.github.io/"
 languageCode = "en-us"
 title = '男胖友de部落格'
-# theme = "yinyang"
+theme = "yinyang"
 # publishDir =  './docs'
 [author]
   name = "nanpangyou"
