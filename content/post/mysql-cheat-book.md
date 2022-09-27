@@ -149,3 +149,27 @@ show databases;
 ### default
 
 * 默认值
+
+6. 创建表
+
+```sql
+create table [if not exists] 表名(
+    `id` int(4) not null auto_increment comment 'id',
+    字段名1 数据类型 [属性1] [属性2] ...,
+    字段名2 数据类型 [属性1] [属性2] ...,
+    字段名3 数据类型 [属性1] [属性2] ...,
+    ...
+    [primary key(字段名1, 字段名2, ...)],  -- 主键
+    [unique(字段名1, 字段名2, ...)],  -- 唯一约束
+    [foreign key(字段名1, 字段名2, ...) references 表名(字段名1, 字段名2, ...)],  -- 外键
+    [check(字段名1 > 字段名2)]  -- 检查约束
+);
+```
+
+显示表的结构,建表语句
+
+```sql
+show create database 数据库名
+show create table 表名
+DESC 表名
+```
