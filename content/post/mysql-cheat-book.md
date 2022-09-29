@@ -248,6 +248,14 @@ turncate table 表名;
 9. DQL(数据查询语言)
 
 ```sql
+-- select 语法 （关键字的顺序不能变）
+select 字段名1, 字段名2, ... 
+from 表名 
+where 条件 
+group by 字段名 
+having 条件 
+order by 字段名 
+limit 0, 10;
 -- 查询版本
 select version()
 -- 做计算
@@ -316,3 +324,91 @@ join
 ![demo1](join2.png)
 
 ```sql
+-- 自连接（父子关系）
+select * from t_b_industry a, t_b_industry b where a.parentid = b.id;
+
+-- 参加高等数学-3考试的同学信息： 学号，学生姓名，科目名，分数
+
+select s.studentno as '学号', s.studentname as '学生姓名', sub.subjectname as '科目名', r.studentresult as '分数' from result r
+left join student s
+on r.studentno = s.studentno
+left join subject sub
+on r.subjectno = sub.subjectno
+where sub.subjectname = '高等数学-3';
+```
+
+9.6 排序和分页
+  
+  ```sql
+  -- 排序
+  order by 字段 asc/desc
+  -- asc 升序
+  -- desc 降序
+
+  -- 分页
+  -- limit 起始的位置, 每页显示的条数
+  -- 第n页：limit (n-1)*pageSize, pageSize
+  limit 0, 10;
+  ```
+
+9.10 自查询
+
+where (这个值是计算出来的)
+本质： 在where中嵌套一个select语句
+
+```sql
+
+where (select * from )
+
+
+select studentno as '学号', r. subjectno as '科目变好', studentresult as '成绩' , subjectname as '科目名称' from result r, subject a
+where r.subjectno = a.subjectno
+and r.subjectno = (select sub.subjectno from subject sub where sub.subjectno = '1')
+order by studentresult desc ;
+
+```
+
+9.11 MySQL函数
+
+1. 常用函数
+
+   ```sql
+   -- 数学运算
+   select ABS(-10) as '绝对值';
+   select ceil(10.1) as '向上取整';
+   select floor(10.1) as '向下取整';
+   select rand() as '0-1间的随机数';
+   select round(10.1) as '四舍五入';
+   select sign(-10) as '正数返回1，负数返回-1，0返回0';
+
+   -- 字符串函数
+   select char_length('abc') as '字符长度';
+   select concat('a', 'b', 'c') as '拼接字符串';
+   select replace('abc', 'a', 'b') as '替换字符串';
+   select insert('abc', 1, 1, 'b') as '插入字符串';
+   select lower('ABC') as '转小写';
+   select upper('abc') as '转大写';
+   select instr('abc', 'a') as '查找字符串';
+   select replace('abc', 'a', 'b') as '替换字符串';
+   select substring('abc', 1, 2) as '截取字符串';
+   select substr('abc', 1, 2) as '截取字符串';
+   select reverse('abc') as '反转字符串';
+
+   -- 日期函数
+   select current_date() as '当前日期'; -- 2020-03-30
+   select current_time() as '当前时间'; -- 15:30:00
+   select curdate() as '当前日期'; -- 与current_date()相同 
+   select now() as '当前日期时间'; -- 2019-11-11 11:11:11 
+   select curtime() as '当前时间'; -- 与current_time()相同
+   select localtime() as '本地时间';
+   select sysdate() as '系统当前日期时间'; -- 2019-11-11 11:11:11 
+   select year(now()) as '年';
+
+   -- 系统
+   select system_user() as '系统用户';
+   select user() as '当前用户';
+   select version() as '版本';
+
+   ```
+
+2. 聚合函数
