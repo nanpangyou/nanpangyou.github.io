@@ -173,3 +173,146 @@ show create database 数据库名
 show create table 表名
 DESC 表名
 ```
+
+7. 修改，删除表
+
+```sql
+
+-- 修改表名 
+ALTER TABLE 旧表名 RENAME AS 新表名
+
+-- 添加字段
+ALTER TABLE 表名 ADD字段名 列属性[属性]
+
+-- 修改字段 :
+
+ALTER TABLE 表名 MODIFY 字段名 列类型[属性]
+
+ALTER TABLE 表名 CHANGE 旧字段名 新字段名 列属性[属性]
+
+-- 删除字段 :  
+
+ALTER TABLE 表名 DROP 字段名
+
+-- 删除表
+
+DROP TABLE [IF EXISTS] 表名
+
+-- IF EXISTS为可选 , 判断是否存在该数据表
+
+-- 如删除不存在的数据表会抛出错误
+
+
+
+```
+
+8. DML（数据库操作语言）
+
+* insert
+
+```sql
+insert into 表名(字段名1, 字段名2, ...) values(值1, 值2, ...);
+-- 如果不写表的字段名，那么就要按照表的字段顺序插入数据
+```
+
+* update
+
+```sql
+update 表名 set 字段名1=值1, 字段名2=值2, ... where 条件;
+
+where 后面常见的表达式
+=, !=, <>, >, <, >=, <=, between, in, like, is null, is not null
+例如
+update xx set name = 'name' where id between 3 and 5;
+```
+
+* delete
+
+```sql
+
+delete from 表名 where 条件;
+-- 如果不写where条件，那么就会删除表中的所有数据
+
+-- turncate 完全删除表中的数据，不会删除表结构,索引
+turncate table 表名;
+
+```
+
+> delete 和 turncate 的区别
+
+* 相同点：都能删除数据，都不会删除表结构
+* 不同：
+  * TRUNCATE 重新设置自增列 计数器会归零
+  * TRUNCATE 不会影响事务
+
+9. DQL(数据查询语言)
+
+```sql
+-- 查询版本
+select version()
+-- 做计算
+select 100*3+1 as '计算结果'
+-- 查询自增的步长
+select @@auto_increment_increment
+```
+
+9.1 查询所有字段
+
+```sql
+select * from student;
+
+select studnetNo from student;
+
+-- as 别名 （可以给字段起别名，也可以给表起别名）
+
+select studentNo as '学号' from student as s;
+
+-- 可以结合函数使用
+
+select concat('学号：', studentNo) from student;
+
+```
+
+9.2 去重
+  
+  ```sql
+  select studentno from result;
+  -- 发现重复数据
+
+  -- 去重
+  select distinct  studentno from result;
+  ```
+
+9.3 where 条件查询
+
+| 条件表达式 | 语法 | 说明 |
+| :--- | :--- | :--- |
+| = | where 字段名 = 值 | 等于 |
+| and   && | a and b    a && b | 且 |
+| or    \|\| | a or b   a \|\| b | 或 |
+| not    !  | not a     !a | 非 |
+
+9.4 模糊查询
+
+```sql
+
+-- like
+-- 查询名字里带 红 的  %代表任意个字符， _代表一个字符
+select student_name from student where student_name like '%红%'
+
+
+select student_name from student where student_name like '_红'
+
+-- in (具体的一个或者多个值)
+
+select studentNo from student where studnetNo in (1001,1002,1003)
+
+```
+
+9.5 联表查询
+
+join
+![demo1](join.png)
+![demo1](join2.png)
+
+```sql
