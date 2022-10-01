@@ -370,7 +370,7 @@ order by studentresult desc ;
 
 9.11 MySQL函数
 
-1. 常用函数
+9.11.1 常用函数
 
    ```sql
    -- 数学运算
@@ -411,4 +411,121 @@ order by studentresult desc ;
 
    ```
 
-2. 聚合函数
+  9.11.2 聚合函数
+
+    ```sql
+
+    -- 聚合函数
+    count() -- 计算个数
+    sum() -- 求和
+    avg() -- 求平均值
+    max() -- 求最大值
+    min() -- 求最小值
+
+    -- 这三个都可以统计总数
+    select count(*) as '总人数' from student; -- count(*)
+    select count(1) as '总人数' from student; -- count(1)
+    select count(studentno) as '总人数' from student; -- count(字段)
+
+    -- count(字段), 回忽略所有null值
+    -- count(*), 不会忽略null值
+    -- count(1), 不会忽略null值
+    -- count(1)貌似快一点
+
+    select sum(studentresult) as '总分' from result;
+    select avg(studentresult) as '平均分' from result;
+
+
+    -- group by 分组
+    -- 查询不同课程的平均分，最高分，最低分
+    -- where 后面的条件在分组之前执行
+    -- having 后面的条件在分组之后执行
+    select subjectname as '科目名称', avg(studentresult) as '平均分', max(studentresult) as '最高分', min(studentresult) as '最低分' from result r, subject s
+    where r.subjectno = s.subjectno
+    group by subjectname;
+
+    select subjectname as '课程', avg(studentresult) as '平均分',max(studentresult),min(studentresult)
+    from result r, subject s where r.subjectno = s.subjectno
+    group by s.subjectno
+    having 平均分 > 80;
+
+    ```
+
+10. 事务
+
+  要点： **要么都成功，要么都失败**
+
+  将一组SQL放在一个批次中执行
+
+  事务原则： ACID原则 原子性，一致性，隔离性，持久性
+
+  ```sql
+  --mysql 是默认开启事务自动提交的
+  set autocommit = 0; -- 关闭事务自动提交
+  set autocommit = 1; -- 开启事务自动提交
+
+  -- 手动处理事务
+
+  -- 开启事务
+  start transaction;
+
+  insert xxxxx
+  insert xxxxx
+
+  -- 提交事务
+  commit;
+
+  -- 回滚事务
+  rollback;
+
+  -- 事务结束
+  set autocommit = 1; -- 开启事务自动提交
+
+  -- 了解一下
+  savepoint sp1; -- 设置保存点
+  rollback to sp1; -- 回滚到保存点
+  relase savepoint sp1; -- 删除保存点
+
+  -- 过程
+  关闭自动提交 -> 开启事务 -> 执行sql -> 提交事务 -> 开启自动提交
+
+  ```
+
+11. 索引
+
+  索引是一种特殊的文件，它的结构与数据文件的结构类似，但是索引文件中存储的是数据的地址，而不是数据本身。帮助MySQL高效获取数据。
+
+  索引的分类
+
+* 主键索引
+  * PRIMARY key
+  * 唯一的标识，主键不可重复，只能有一个列作为主键
+* 唯一索引
+  * UNIQUE key
+  * 避免重复的列出现，唯一索引可以重复，多个列都可以标识为唯一索引
+* 普通索引
+  * key(index)
+  * 默认的，index/key关键字来设置
+* 全文索引
+  * FULLTEXT key
+  * 用于全文检索，只能对char，varchar，text类型的列进行索引
+  * 在特定的数据库引擎中才支持，比如MyISAM，InnoDB不支持
+
+```sql
+
+-- 创建索引
+create index 索引名称 on 表名(列名);
+
+-- 显示索引
+show index from 表名;
+
+-- 修改索引
+alter table 表名 add index 索引名称(列名);
+
+-- 删除索引
+drop index 索引名称 on 表名;
+
+-- explain 分析sql执行的状况
+explain select * from student;
+
+```
