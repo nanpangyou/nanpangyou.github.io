@@ -179,3 +179,71 @@ useradd -选项 用户名
 -m: 自动创建这个用户名的主目录 /home/xxx
 
 ```
+
+Linux中一切皆文件，这里的创建用户其实就是在某一个文件中写入了用户信息（/etc/passwd）
+
+> userdel 命令 删除用户
+
+```shell
+
+userdel -选项 用户名
+
+-r: 会同时删除用户的目录文件
+
+```
+
+> usermod 命令 修改用户
+
+```shell
+
+usermod -选项 用户名
+
+# 例如 usermod -d /home/new-home user1    将user1的家目录指向改为/home/new-home
+
+-d: 修改用户所指向的家目录（需要提前创建好，这里的修改只会在/etc/passwd文件中修改指向）
+
+```
+
+> 切换用户
+
+1. 切换用户的命令: su username
+2. 从普通用户切到root用户， 可以使用： sudo su
+3. 在终端输入exit或者logout或使用快捷方式ctrl+d,可以退回到原来的用户，ctrl+d就是执行exit命令
+4. 在切换用户时，如果想用新的用户的工作环境，可以在su和username之间加`-`, 例如： su - user1
+`$`表示普通用户
+`#`表示超级用户，也就是root用户
+
+> 更改主机名
+
+```shell
+
+hostname newHostName （临时的，重启电脑就没了）
+
+```
+  
+> 用户密码设置
+
+```shell
+
+# 为user用户设置密码(如果是超级用户)
+passwd user
+
+# 普通用户为自己修改密码
+passwd
+
+```
+
+> 锁定用户
+
+```shell
+
+# 锁定 usr1 账号，usr1就不能登录了
+passwd -l usr1
+
+# 删除use1的密码
+passwd -D use1
+
+# 解锁 usr1
+passwd -u usr1
+
+```
