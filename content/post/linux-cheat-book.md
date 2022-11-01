@@ -178,6 +178,8 @@ useradd -选项 用户名
 
 -m: 自动创建这个用户名的主目录 /home/xxx
 
+-G: 给用户分配组
+
 ```
 
 Linux中一切皆文件，这里的创建用户其实就是在某一个文件中写入了用户信息（/etc/passwd）
@@ -245,5 +247,104 @@ passwd -D use1
 
 # 解锁 usr1
 passwd -u usr1
+
+```
+
+用户组的管理本质上就是对/etc/group文件的更新
+
+> 创建用户组
+
+```shell
+
+grougadd 选项 groupname  
+
+-g: 可以指定group-id
+
+```
+
+> 删除用户组
+
+```shell
+
+groupdel groupname
+
+```
+
+> 修改用户组
+
+```shell
+
+groupmod 选项 groupname
+
+-g: 可以跟新的group-id
+-n: 可以修改groupname
+
+```
+
+
+/etc/passwd 的文件格式
+
+`用户名:口令(登录密码，不可见):用户标识号:组标识号:注释性描述:组目录:登录shell`
+
+
+
+# 磁盘管理
+
+> df (列出文件系统的整体的磁盘使用量)
+
+```shell
+
+df -h
+
+```
+
+> dh (检查磁盘空间的使用量)
+
+
+```shell
+
+# 检查根目录下每个目录所占的容量
+
+du -sm /*
+
+```
+
+# 进程管理
+
+> ps 命令
+
+用于查看当前系统中正在执行的各种进程信息
+
+```shell
+
+ps 选项
+
+-h: 查看帮助手册
+-A: 显示当前终端运行的所有进程信息
+-u: 以用户的信息显示进程
+-x: 显示后台运行进程的参数
+
+# 查看所有进程
+ps -aux  
+
+# 查看mysql进程
+ps -aux | grep mysql
+
+# 查看父进程的信息
+ps -ef  
+
+# 以树的形式查看进程jh
+pstree 
+
+-p: 显示父进程
+-u: 显示用户组
+
+pstree -pu
+
+
+# 结束进程(强制执行)
+kill -9 pid 
+# 结束进程（由程序自主决定）
+kill -15 pid
 
 ```
