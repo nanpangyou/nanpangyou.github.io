@@ -80,3 +80,53 @@ const c:C = {
 }
 
 ```
+
+如果 A、B 无交集，则可能得到 never 也可能是属性 never
+
+#### 记录一个犯的错
+
+```ts
+
+type A = {name: string} // 代表对象拥有一个属性为name，并且该属性的值为string，（并不是只能有一个name属性）
+
+type B = {age: number} // 不是指对象只能有一个属性age，而是指对象拥有一个属性为age，并且该属性的值为number 
+
+type C = A | B
+
+const d = {name : 'xxx', gender: 'male'}
+
+const c: C = d //这样赋值是不会报错的
+
+const c：C = {name: 'xxx', gender: 'male'}  //这样赋值会报错
+
+// ts 只在声明同时赋值的时候会严格检查类型，而在赋值的时候不会严格检查类型
+
+```
+
+## 类型兼容
+
+小类型可以复制给大类型
+
+```ts
+
+// 简单类型
+type A = string | number;
+const a: A = 'hi'
+
+
+// 简单对象
+type Person = { name: string; age: number; }
+
+const student = { name: 'Tom', age: 18, grade: 3 };
+const aa: Person = student; // ok
+
+
+```
+
+```ts
+
+// 获取一个没有声明对象类型的类型
+const user = { name: 'Tom', age: 18, grade: 3 };
+type User = typeof user;
+
+```
