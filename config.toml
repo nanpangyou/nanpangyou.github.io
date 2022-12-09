@@ -1,14 +1,50 @@
+# baseURL = "https://nanpangyou.github.io/"
+# languageCode = "en-us"
+# title = '男胖友de部落格'
+# theme = "yinyang"
+# # publishDir =  './docs'
+# [author]
+#   name = "nanpangyou"
+#   homepage = "https://nanpangyou.github.io/"
+# [params]
+#  headTitle = "这里是男胖友" 
+# #  mainSections = ["post"]
+# [[params.socials]]
+# type = "about"
+# name = "About Me"
+# link = "./about/about"
+# [[params.socials]]
+# name = "Github"
+# link = "https://github.com/nanpangyou"
+
+
 baseURL = "https://nanpangyou.github.io/"
 languageCode = "en-us"
+disqusShortname = '男胖友de部落格'   # add disqus comments
 title = '男胖友de部落格'
-theme = "yinyang"
+theme = "paper"
 # publishDir =  './docs'
 [author]
   name = "nanpangyou"
   homepage = "https://nanpangyou.github.io/"
 [params]
- headTitle = "这里是男胖友" 
-#  mainSections = ["post"]
+  # color style
+  color = 'wheat'                 # linen, wheat, gray, light
+
+  # header social icons
+  # twitter = 'YOUR_TWITTER_ID'     # twitter.com/YOUR_TWITTER_ID
+  github = 'https://github.com/nanpangyou'       # github.com/YOUR_GITHUB_ID
+  # instagram = 'YOUR_INSTAGRAM_ID' # instagram.com/YOUR_INSTAGRAM_ID
+  # rss = false                      # show rss icon with link
+
+  # home page profile
+  avatar = 'https://avatars.githubusercontent.com/u/11482364?v=4'       # Gravatar email or image url(e.g. "https://deno.land/logo.svg")
+  name = 'NPY'
+  bio = '胖子 饮料控'
+
+  # misc
+  disableHLJS = true              # disable requesting highlight.js
+  monoDarkIcon = true             # show monochrome dark mode icon
 [[params.socials]]
 type = "about"
 name = "About Me"
