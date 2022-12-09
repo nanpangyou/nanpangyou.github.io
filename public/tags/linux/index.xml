@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 男胖友de部落格</title>
+    <link>https://nanpangyou.github.io/tags/linux/</link>
+    <description>Recent content in Linux on 男胖友de部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Sep 2022 22:21:24 +0800</lastBuildDate><atom:link href="https://nanpangyou.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Cheat Book</title>
+      <link>https://nanpangyou.github.io/post/linux-cheat-book/</link>
+      <pubDate>Sun, 25 Sep 2022 22:21:24 +0800</pubDate>
+      
+      <guid>https://nanpangyou.github.io/post/linux-cheat-book/</guid>
+      <description>目录管理 cd 切换目录
+./ 当前目录
+cd .. 切换至上一级目录
+ls 列出目录
+ls -a 查看全部文件，包含隐藏文件
+ls -l 列出所有文件，包含文件的属性和权限，不包含隐藏文件
+pwd 显示当前路径
+mkdir 创建目录
+mkdir -p test1/test2/test3 递归创建文件夹
+rmdir 删除空目录
+rmdir -p test1/test2/test3 递归删除多个目录
+cp 复制文件或者目录
+cp install.sh test1 拷贝install.sh 到test1文件夹
+rm 移除文件或者目录
+rm -f 忽略不存在的文件，不会出现警告， 强制删除
+rm -r 递归删除目录
+rm -i 询问是否删除
+rm -rf / 删除系统中的所有文件 （极其危险）
+mv 移动文件或者目录
+mv -f 强制移动
+mv -u 只替换已经更新过的文件
+mv 也可以作为重命名的命令
+mv 源文件名 新文件名
+文件属性 如图所示，左侧第一列为文件属性
+在Linux中第一个字符代表整个文件是目录、文件或者链接文件等</description>
+    </item>
+    
+  </channel>
+</rss>

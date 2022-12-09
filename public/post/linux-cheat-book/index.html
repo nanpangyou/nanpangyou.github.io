@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #f1efe1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Linux Cheat Book - 男胖友de部落格</title>
+
+  
+  <meta name="theme-color" />
+  
+  <meta name="description" content="目录管理 cd 切换目录
+./ 当前目录
+cd .. 切换至上一级目录
+ls 列出目录
+ls -a 查看全部文件，包含隐藏文件
+ls -l 列出所有文件，包含文件的属性和权限，不包含隐藏文件
+pwd 显示当前路径
+mkdir 创建目录
+mkdir -p test1/test2/test3 递归创建文件夹
+rmdir 删除空目录
+rmdir -p test1/test2/test3 递归删除多个目录
+cp 复制文件或者目录
+cp install.sh test1 拷贝install.sh 到test1文件夹
+rm 移除文件或者目录
+rm -f 忽略不存在的文件，不会出现警告， 强制删除
+rm -r 递归删除目录
+rm -i 询问是否删除
+rm -rf / 删除系统中的所有文件 （极其危险）
+mv 移动文件或者目录
+mv -f 强制移动
+mv -u 只替换已经更新过的文件
+mv 也可以作为重命名的命令
+mv 源文件名 新文件名
+文件属性 如图所示，左侧第一列为文件属性
+在Linux中第一个字符代表整个文件是目录、文件或者链接文件等" />
+  <meta
+    name="author"
+    content="nanpangyou"
+  />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://nanpangyou.github.io/main.min.css" />
+
+  
+
+  
+     
+  <link rel="preload" as="image" href="https://nanpangyou.github.io/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/11482364?v=4" />
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://nanpangyou.github.io/github.svg" />
+  
+
+  
+  <link rel="icon" href="https://nanpangyou.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://nanpangyou.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.93.3" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Linux Cheat Book" />
+<meta property="og:description" content="目录管理 cd 切换目录
+./ 当前目录
+cd .. 切换至上一级目录
+ls 列出目录
+ls -a 查看全部文件，包含隐藏文件
+ls -l 列出所有文件，包含文件的属性和权限，不包含隐藏文件
+pwd 显示当前路径
+mkdir 创建目录
+mkdir -p test1/test2/test3 递归创建文件夹
+rmdir 删除空目录
+rmdir -p test1/test2/test3 递归删除多个目录
+cp 复制文件或者目录
+cp install.sh test1 拷贝install.sh 到test1文件夹
+rm 移除文件或者目录
+rm -f 忽略不存在的文件，不会出现警告， 强制删除
+rm -r 递归删除目录
+rm -i 询问是否删除
+rm -rf / 删除系统中的所有文件 （极其危险）
+mv 移动文件或者目录
+mv -f 强制移动
+mv -u 只替换已经更新过的文件
+mv 也可以作为重命名的命令
+mv 源文件名 新文件名
+文件属性 如图所示，左侧第一列为文件属性
+在Linux中第一个字符代表整个文件是目录、文件或者链接文件等" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nanpangyou.github.io/post/linux-cheat-book/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-25T22:21:24+08:00" />
+<meta property="article:modified_time" content="2022-09-25T22:21:24+08:00" />
+
+
+  
+  <meta itemprop="name" content="Linux Cheat Book">
+<meta itemprop="description" content="目录管理 cd 切换目录
+./ 当前目录
+cd .. 切换至上一级目录
+ls 列出目录
+ls -a 查看全部文件，包含隐藏文件
+ls -l 列出所有文件，包含文件的属性和权限，不包含隐藏文件
+pwd 显示当前路径
+mkdir 创建目录
+mkdir -p test1/test2/test3 递归创建文件夹
+rmdir 删除空目录
+rmdir -p test1/test2/test3 递归删除多个目录
+cp 复制文件或者目录
+cp install.sh test1 拷贝install.sh 到test1文件夹
+rm 移除文件或者目录
+rm -f 忽略不存在的文件，不会出现警告， 强制删除
+rm -r 递归删除目录
+rm -i 询问是否删除
+rm -rf / 删除系统中的所有文件 （极其危险）
+mv 移动文件或者目录
+mv -f 强制移动
+mv -u 只替换已经更新过的文件
+mv 也可以作为重命名的命令
+mv 源文件名 新文件名
+文件属性 如图所示，左侧第一列为文件属性
+在Linux中第一个字符代表整个文件是目录、文件或者链接文件等"><meta itemprop="datePublished" content="2022-09-25T22:21:24+08:00" />
+<meta itemprop="dateModified" content="2022-09-25T22:21:24+08:00" />
+<meta itemprop="wordCount" content="359">
+<meta itemprop="keywords" content="Linux," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux Cheat Book"/>
+<meta name="twitter:description" content="目录管理 cd 切换目录
+./ 当前目录
+cd .. 切换至上一级目录
+ls 列出目录
+ls -a 查看全部文件，包含隐藏文件
+ls -l 列出所有文件，包含文件的属性和权限，不包含隐藏文件
+pwd 显示当前路径
+mkdir 创建目录
+mkdir -p test1/test2/test3 递归创建文件夹
+rmdir 删除空目录
+rmdir -p test1/test2/test3 递归删除多个目录
+cp 复制文件或者目录
+cp install.sh test1 拷贝install.sh 到test1文件夹
+rm 移除文件或者目录
+rm -f 忽略不存在的文件，不会出现警告， 强制删除
+rm -r 递归删除目录
+rm -i 询问是否删除
+rm -rf / 删除系统中的所有文件 （极其危险）
+mv 移动文件或者目录
+mv -f 强制移动
+mv -u 只替换已经更新过的文件
+mv 也可以作为重命名的命令
+mv 源文件名 新文件名
+文件属性 如图所示，左侧第一列为文件属性
+在Linux中第一个字符代表整个文件是目录、文件或者链接文件等"/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://nanpangyou.github.io/"
+      >男胖友de部落格</a
+    >
+    <a
+      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+    ></a>
+  </div>
+
+  <a
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+  ></a>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#f1efe1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href=" https://github.com/https://github.com/nanpangyou "
+        target="_blank"
+      ></a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">Linux Cheat Book</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Sep 25, 2022</time>
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>nanpangyou</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="目录管理">目录管理</h1>
+<p>cd  切换目录</p>
+<p>./  当前目录</p>
+<p>cd ..  切换至上一级目录</p>
+<p>ls  列出目录</p>
+<p>ls -a 查看全部文件，包含隐藏文件</p>
+<p>ls -l 列出所有文件，包含文件的属性和权限，不包含隐藏文件</p>
+<p>pwd 显示当前路径</p>
+<p>mkdir 创建目录</p>
+<p>mkdir -p test1/test2/test3  递归创建文件夹</p>
+<p>rmdir 删除空目录</p>
+<p>rmdir -p test1/test2/test3  递归删除多个目录</p>
+<p>cp  复制文件或者目录</p>
+<p>cp install.sh test1  拷贝install.sh 到test1文件夹</p>
+<p>rm 移除文件或者目录</p>
+<p>rm -f 忽略不存在的文件，不会出现警告， 强制删除</p>
+<p>rm -r 递归删除目录</p>
+<p>rm -i 询问是否删除</p>
+<p>rm -rf /  删除系统中的所有文件 （极其危险）</p>
+<p>mv  移动文件或者目录</p>
+<p>mv -f 强制移动</p>
+<p>mv -u 只替换已经更新过的文件</p>
+<p>mv 也可以作为重命名的命令</p>
+<p>mv 源文件名 新文件名</p>
+<h1 id="文件属性">文件属性</h1>
+<p><img src="ROOT.png" alt="demo"></p>
+<p>如图所示，左侧第一列为文件属性</p>
+<p>在Linux中第一个字符代表整个文件是目录、文件或者链接文件等</p>
+<ul>
+<li>当为 <code>[ d ]</code> 则是目录</li>
+<li>当为 <code>[ - ]</code> 则是文件</li>
+<li>当为 <code>[ l ]</code> 则表示为链接文档（link file）</li>
+<li>当为 <code>[ b ]</code> 则表示为装置文件里面的可供储存的接口设备（可随机存储装置）</li>
+<li>当为 <code>[ c ]</code> 则表示为装置文件里面的串行端口设备，例如键盘、鼠标（一次性读取装置）</li>
+</ul>
+<p>接下来的字符中，以三个为一组，且均为 <code>rwx</code> 的三个参数的组合</p>
+<p>其中，<code>r</code>代表可读(read), <code>w</code>代表可写(write), <code>x</code>代表可执行(execute)</p>
+<p>要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现<code>-</code>占位</p>
+<p>每个文件的属性由左边第一部分的十个字符来确定（如下图）:</p>
+<p><img src="rwx.png" alt="demo1"></p>
+<p>从左至右用0-9这些数字来表示</p>
+<p>第0位确定文件类型，第1-3位确定属主（该文件的所有者）拥有该文件的权限。第4-6位确定属组（所有者的同组用户）拥有该文件的权限，第7-9位确定其他用户拥有该文件的权限。</p>
+<p>其中：</p>
+<p>第1、4、7位表示读权限，如果用&quot;r&quot;字符表示，
+则有读权限，如果用&quot;-&ldquo;字符表示，则没有读权限;</p>
+<p>第2、5、8位表示写权限，如果用&quot;w&quot;字符表示，则有写权限，如果用&rdquo;-&ldquo;字符表示没有写权限;</p>
+<p>第3、6、9位表示可执行权限，如果用&quot;x&quot;字符表示，则有执行权限，如果用&rdquo;-&ldquo;字符表示，则没有执行权限。</p>
+<p>对于文件来说，它都有一个特定的所有者，也就是对该文件具有所有权的用户。</p>
+<p>同时，在Linux系统中，用户是按组分类的，一个用户属于一个或多个组。</p>
+<p>文件所有者以外的用户又可以分为文件所有者的同组用户和其他用户。</p>
+<p>因此，Linux系统按文件所有者、文件所有者同组用户和其他用户来规定了不同的文件访问权限。</p>
+<p>在以上实例中，boot文件是一个目录文件，属主和属组都为root。</p>
+<p>第二列为文件的个数，第三列是属主，第四列是属组的用户组,第五列是文件的大小，第六列是时间</p>
+<h2 id="修改文件属性">修改文件属性</h2>
+<ol>
+<li>chgrp: 更改文件属组</li>
+</ol>
+<pre tabindex="0"><code>chgrp [-R] 属主名 文件名
+
+-R : 递归更改文件属组，就是在更改某个目录文件的属组时，如果加上-R参数，那么该目录下的所有文件的属组都会改变
+</code></pre><ol start="2">
+<li>chwon: 更改文件属主，也可以同时更改文件属组</li>
+</ol>
+<pre tabindex="0"><code>chown [-R] 属主名 文件名
+chown [-R] 属主名: 属主名 文件名
+</code></pre><ol start="3">
+<li>chmod: 更改文件的9个属性</li>
+</ol>
+<pre tabindex="0"><code>chmod [-R] xyz 文件或者目录
+</code></pre><p>Linux文件属性有两种设置方法，一种是数字，一种是符号。
+Linux文件的基本权限就有九个，分别是owner/group/others三种身份各自的read/write/execute权限</p>
+<p>文件权限字符为： 【-rwxrwxrwx】 ，这九个权限三个三个为一组，我们可以使用数字来代表各个权限</p>
+<pre tabindex="0"><code>r:4  w:2  x:1
+</code></pre><p>每种身份（owner/group/others）各自的三个权限（r/w/x）分数是需要累加的</p>
+<p>例如：</p>
+<pre tabindex="0"><code>chmod 755 filename
+</code></pre><h1 id="文件内容查看">文件内容查看</h1>
+<p>Linux系统中使用以下命令来查看文件的内容：</p>
+<ul>
+<li>cat 由第一行开始显示文件内容</li>
+<li>tac 由最后一行开始显示文件内容（cat 命令倒着写）</li>
+<li>nl 显示的时候，顺道输出行号</li>
+<li>more 一页一页的显示文件内容</li>
+<li>less less与more类似，但是比more更好的是，他可以往前翻页(/字符串 : 向下查询，  ?字符串 : 向上查询  n表示下一个匹配项  N表示上一个匹配项)</li>
+<li>head 只看头几行 -n 表示查看几行</li>
+<li>tail 只看最后几行 -n 表示查看几行</li>
+</ul>
+<p>可以使用 man [命令] 来查看哥哥命令对应的文档， 如：man cp</p>
+<h1 id="账号管理">账号管理</h1>
+<ul>
+<li>用户账号的添加，删除与修改</li>
+<li>用户口令的管理</li>
+<li>用户组的管理</li>
+</ul>
+<ol>
+<li>用户账号的管理</li>
+</ol>
+<blockquote>
+<p>useradd 命令 添加用户</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>useradd -选项 用户名
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-m: 自动创建这个用户名的主目录 /home/xxx
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-G: 给用户分配组
+</span></span></code></pre></div><p>Linux中一切皆文件，这里的创建用户其实就是在某一个文件中写入了用户信息（/etc/passwd）</p>
+<blockquote>
+<p>userdel 命令 删除用户</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>userdel -选项 用户名
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-r: 会同时删除用户的目录文件
+</span></span></code></pre></div><blockquote>
+<p>usermod 命令 修改用户</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>usermod -选项 用户名
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 例如 usermod -d /home/new-home user1    将user1的家目录指向改为/home/new-home</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-d: 修改用户所指向的家目录（需要提前创建好，这里的修改只会在/etc/passwd文件中修改指向）
+</span></span></code></pre></div><blockquote>
+<p>切换用户</p>
+</blockquote>
+<ol>
+<li>切换用户的命令: su username</li>
+<li>从普通用户切到root用户， 可以使用： sudo su</li>
+<li>在终端输入exit或者logout或使用快捷方式ctrl+d,可以退回到原来的用户，ctrl+d就是执行exit命令</li>
+<li>在切换用户时，如果想用新的用户的工作环境，可以在su和username之间加<code>-</code>, 例如： su - user1
+<code>$</code>表示普通用户
+<code>#</code>表示超级用户，也就是root用户</li>
+</ol>
+<blockquote>
+<p>更改主机名</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hostname newHostName （临时的，重启电脑就没了）
+</span></span></code></pre></div><blockquote>
+<p>用户密码设置</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 为user用户设置密码(如果是超级用户)</span>
+</span></span><span style="display:flex;"><span>passwd user
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 普通用户为自己修改密码</span>
+</span></span><span style="display:flex;"><span>passwd
+</span></span></code></pre></div><blockquote>
+<p>锁定用户</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 锁定 usr1 账号，usr1就不能登录了</span>
+</span></span><span style="display:flex;"><span>passwd -l usr1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除use1的密码</span>
+</span></span><span style="display:flex;"><span>passwd -D use1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 解锁 usr1</span>
+</span></span><span style="display:flex;"><span>passwd -u usr1
+</span></span></code></pre></div><p>用户组的管理本质上就是对/etc/group文件的更新</p>
+<blockquote>
+<p>创建用户组</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>grougadd 选项 groupname  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-g: 可以指定group-id
+</span></span></code></pre></div><blockquote>
+<p>删除用户组</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>groupdel groupname
+</span></span></code></pre></div><blockquote>
+<p>修改用户组</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>groupmod 选项 groupname
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-g: 可以跟新的group-id
+</span></span><span style="display:flex;"><span>-n: 可以修改groupname
+</span></span></code></pre></div><p>/etc/passwd 的文件格式</p>
+<p><code>用户名:口令(登录密码，不可见):用户标识号:组标识号:注释性描述:组目录:登录shell</code></p>
+<h1 id="磁盘管理">磁盘管理</h1>
+<blockquote>
+<p>df (列出文件系统的整体的磁盘使用量)</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df -h
+</span></span></code></pre></div><blockquote>
+<p>dh (检查磁盘空间的使用量)</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 检查根目录下每个目录所占的容量</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>du -sm /*
+</span></span></code></pre></div><h1 id="进程管理">进程管理</h1>
+<blockquote>
+<p>ps 命令</p>
+</blockquote>
+<p>用于查看当前系统中正在执行的各种进程信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ps 选项
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-h: 查看帮助手册
+</span></span><span style="display:flex;"><span>-A: 显示当前终端运行的所有进程信息
+</span></span><span style="display:flex;"><span>-u: 以用户的信息显示进程
+</span></span><span style="display:flex;"><span>-x: 显示后台运行进程的参数
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看所有进程</span>
+</span></span><span style="display:flex;"><span>ps -aux  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看mysql进程</span>
+</span></span><span style="display:flex;"><span>ps -aux | grep mysql
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看父进程的信息</span>
+</span></span><span style="display:flex;"><span>ps -ef  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 以树的形式查看进程jh</span>
+</span></span><span style="display:flex;"><span>pstree 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-p: 显示父进程
+</span></span><span style="display:flex;"><span>-u: 显示用户组
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pstree -pu
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 结束进程(强制执行)</span>
+</span></span><span style="display:flex;"><span>kill -9 pid 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 结束进程（由程序自主决定）</span>
+</span></span><span style="display:flex;"><span>kill -15 pid
+</span></span></code></pre></div></section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="https://nanpangyou.github.io/tags/linux"
+      >Linux</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center p-6 pr-3 no-underline"
+      href="https://nanpangyou.github.io/post/vue3-tsx-%E8%A6%86%E7%9B%96element-plus%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F/"
+      ><span class="mr-1.5">←</span><span>Vue3 Tsx 覆盖element Plus默认样式</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline"
+      href="https://nanpangyou.github.io/post/mysql-cheat-book/"
+      ><span>Mysql Cheat Book</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    const disqusShortname = '男胖友de部落格';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2022
+    <a class="link" href="https://nanpangyou.github.io/">男胖友de部落格</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >▷ Paper 6</a
+  >
+</footer>
+
+  </body>
+</html>

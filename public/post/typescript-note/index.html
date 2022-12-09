@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #f1efe1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>TypeScript Note - 男胖友de部落格</title>
+
+  
+  <meta name="theme-color" />
+  
+  <meta name="description" content="使用类型谓词做类型收窄 type Rect = {  height: number;  width: number; }  type Circle = {  point: [number,number];  radius: number; }  const f1 = (a: Rect |Cricle) =&gt; {  if(isRect(a)){  a // 这里a的类型就是Rect  }else if(isCircle(a)){  a // 这里a的类型就是Circle  } }  // 使用类型谓词做类型收窄 这里要使用function关键字，不能使用箭头函数 function isRect(x: Rect | Circle): x is Rect {  return &#39;height&#39; in x &amp;&amp; &#39;width&#39; in x; }  function isCricle(x: Rect | Circle): x is Circle {  return &#39;point&#39; in x &amp;&amp; &#39;radius&#39; in x; } 可辨别联合（ kind ）  // 可辨别联合 它们都有一个kind属性 kind也可以用其他任意key代替，如 type ， tag ， category 等 type Circle = { kind: &#39;circle&#39;, point: [number, number], radius: number }; type Square = { kind: &#39;square&#39;, x: number}; type Shape = Circle | Square;  const f1 = (a: Shape) =&gt;{  if(a." />
+  <meta
+    name="author"
+    content="nanpangyou"
+  />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://nanpangyou.github.io/main.min.css" />
+
+  
+
+  
+     
+  <link rel="preload" as="image" href="https://nanpangyou.github.io/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/11482364?v=4" />
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://nanpangyou.github.io/github.svg" />
+  
+
+  
+  <link rel="icon" href="https://nanpangyou.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://nanpangyou.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.93.3" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="TypeScript Note" />
+<meta property="og:description" content="使用类型谓词做类型收窄 type Rect = {  height: number;  width: number; }  type Circle = {  point: [number,number];  radius: number; }  const f1 = (a: Rect |Cricle) =&gt; {  if(isRect(a)){  a // 这里a的类型就是Rect  }else if(isCircle(a)){  a // 这里a的类型就是Circle  } }  // 使用类型谓词做类型收窄 这里要使用function关键字，不能使用箭头函数 function isRect(x: Rect | Circle): x is Rect {  return &#39;height&#39; in x &amp;&amp; &#39;width&#39; in x; }  function isCricle(x: Rect | Circle): x is Circle {  return &#39;point&#39; in x &amp;&amp; &#39;radius&#39; in x; } 可辨别联合（ kind ）  // 可辨别联合 它们都有一个kind属性 kind也可以用其他任意key代替，如 type ， tag ， category 等 type Circle = { kind: &#39;circle&#39;, point: [number, number], radius: number }; type Square = { kind: &#39;square&#39;, x: number}; type Shape = Circle | Square;  const f1 = (a: Shape) =&gt;{  if(a." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nanpangyou.github.io/post/typescript-note/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-12-01T23:00:12+08:00" />
+<meta property="article:modified_time" content="2022-12-01T23:00:12+08:00" />
+
+
+  
+  <meta itemprop="name" content="TypeScript Note">
+<meta itemprop="description" content="使用类型谓词做类型收窄 type Rect = {  height: number;  width: number; }  type Circle = {  point: [number,number];  radius: number; }  const f1 = (a: Rect |Cricle) =&gt; {  if(isRect(a)){  a // 这里a的类型就是Rect  }else if(isCircle(a)){  a // 这里a的类型就是Circle  } }  // 使用类型谓词做类型收窄 这里要使用function关键字，不能使用箭头函数 function isRect(x: Rect | Circle): x is Rect {  return &#39;height&#39; in x &amp;&amp; &#39;width&#39; in x; }  function isCricle(x: Rect | Circle): x is Circle {  return &#39;point&#39; in x &amp;&amp; &#39;radius&#39; in x; } 可辨别联合（ kind ）  // 可辨别联合 它们都有一个kind属性 kind也可以用其他任意key代替，如 type ， tag ， category 等 type Circle = { kind: &#39;circle&#39;, point: [number, number], radius: number }; type Square = { kind: &#39;square&#39;, x: number}; type Shape = Circle | Square;  const f1 = (a: Shape) =&gt;{  if(a."><meta itemprop="datePublished" content="2022-12-01T23:00:12+08:00" />
+<meta itemprop="dateModified" content="2022-12-01T23:00:12+08:00" />
+<meta itemprop="wordCount" content="594">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TypeScript Note"/>
+<meta name="twitter:description" content="使用类型谓词做类型收窄 type Rect = {  height: number;  width: number; }  type Circle = {  point: [number,number];  radius: number; }  const f1 = (a: Rect |Cricle) =&gt; {  if(isRect(a)){  a // 这里a的类型就是Rect  }else if(isCircle(a)){  a // 这里a的类型就是Circle  } }  // 使用类型谓词做类型收窄 这里要使用function关键字，不能使用箭头函数 function isRect(x: Rect | Circle): x is Rect {  return &#39;height&#39; in x &amp;&amp; &#39;width&#39; in x; }  function isCricle(x: Rect | Circle): x is Circle {  return &#39;point&#39; in x &amp;&amp; &#39;radius&#39; in x; } 可辨别联合（ kind ）  // 可辨别联合 它们都有一个kind属性 kind也可以用其他任意key代替，如 type ， tag ， category 等 type Circle = { kind: &#39;circle&#39;, point: [number, number], radius: number }; type Square = { kind: &#39;square&#39;, x: number}; type Shape = Circle | Square;  const f1 = (a: Shape) =&gt;{  if(a."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://nanpangyou.github.io/"
+      >男胖友de部落格</a
+    >
+    <a
+      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+    ></a>
+  </div>
+
+  <a
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+  ></a>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#f1efe1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href=" https://github.com/https://github.com/nanpangyou "
+        target="_blank"
+      ></a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">TypeScript Note</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Dec 1, 2022</time>
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>nanpangyou</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h2 id="使用类型谓词做类型收窄">使用类型谓词做类型收窄</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Rect</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">height</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">width</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Circle</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">point</span><span style="color:#f92672">:</span> [<span style="color:#66d9ef">number</span>,<span style="color:#66d9ef">number</span>];
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">radius</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">f1</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">Rect</span> <span style="color:#f92672">|</span><span style="color:#a6e22e">Cricle</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isRect</span>(<span style="color:#a6e22e">a</span>)){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span> <span style="color:#75715e">// 这里a的类型就是Rect
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> }<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isCircle</span>(<span style="color:#a6e22e">a</span>)){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span> <span style="color:#75715e">// 这里a的类型就是Circle
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用类型谓词做类型收窄 这里要使用function关键字，不能使用箭头函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isRect</span>(<span style="color:#a6e22e">x</span>: <span style="color:#66d9ef">Rect</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">Circle</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">x</span> <span style="color:#66d9ef">is</span> <span style="color:#a6e22e">Rect</span> {
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;height&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#39;width&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">x</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isCricle</span>(<span style="color:#a6e22e">x</span>: <span style="color:#66d9ef">Rect</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">Circle</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">x</span> <span style="color:#66d9ef">is</span> <span style="color:#a6e22e">Circle</span> {
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;point&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#39;radius&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">x</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="可辨别联合-kind-">可辨别联合（ kind ）</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 可辨别联合 它们都有一个kind属性  kind也可以用其他任意key代替，如 type ， tag ， category 等
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Circle</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">kind</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;circle&#39;</span>, <span style="color:#a6e22e">point</span><span style="color:#f92672">:</span> [<span style="color:#66d9ef">number</span>, <span style="color:#66d9ef">number</span>], <span style="color:#a6e22e">radius</span>: <span style="color:#66d9ef">number</span> };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Square</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">kind</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;square&#39;</span>, <span style="color:#a6e22e">x</span>: <span style="color:#66d9ef">number</span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Shape</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Circle</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">Square</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">f1</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">Shape</span>) <span style="color:#f92672">=&gt;</span>{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">kind</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;circle&#39;</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span> <span style="color:#75715e">// 这里a的类型就是Circle
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> }<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">kind</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;square&#39;</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span> <span style="color:#75715e">// 这里a的类型就是Square
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用同名，可辨别的简单类型的key做区分
+</span></span></span></code></pre></div><h2 id="交叉类型">交叉类型</h2>
+<h3 id="可以使用来实现交叉类型">可以使用<code>&amp;</code>来实现交叉类型</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">B</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">C</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">&amp;</span> <span style="color:#a6e22e">B</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">c</span>:<span style="color:#66d9ef">C</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxx&#39;</span>,
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">18</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>如果 A、B 无交集，则可能得到 never 也可能是属性 never</p>
+<h4 id="记录一个犯的错">记录一个犯的错</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>} <span style="color:#75715e">// 代表对象拥有一个属性为name，并且该属性的值为string，（并不是只能有一个name属性）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">B</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>} <span style="color:#75715e">// 不是指对象只能有一个属性age，而是指对象拥有一个属性为age，并且该属性的值为number 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">C</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">B</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">d</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxx&#39;</span>, <span style="color:#a6e22e">gender</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;male&#39;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">c</span>: <span style="color:#66d9ef">C</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d</span> <span style="color:#75715e">//这样赋值是不会报错的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">c</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">C</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxx&#39;</span>, <span style="color:#a6e22e">gender</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;male&#39;</span>}  <span style="color:#75715e">//这样赋值会报错
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ts 只在声明同时赋值的时候会严格检查类型，而在赋值的时候不会严格检查类型
+</span></span></span></code></pre></div><h2 id="类型兼容">类型兼容</h2>
+<p>小类型可以复制给大类型</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 简单类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">string</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">A</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hi&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 简单对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>; <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">student</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Tom&#39;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">18</span>, <span style="color:#a6e22e">grade</span>: <span style="color:#66d9ef">3</span> };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">aa</span>: <span style="color:#66d9ef">Person</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">student</span>; <span style="color:#75715e">// ok
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 获取一个没有声明对象类型的类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Tom&#39;</span>, <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">18</span>, <span style="color:#a6e22e">grade</span>: <span style="color:#66d9ef">3</span> };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">user</span>;
+</span></span></code></pre></div><h2 id="指定this">指定this</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span>(<span style="color:#66d9ef">this</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Person</span>, <span style="color:#a6e22e">word</span>: <span style="color:#66d9ef">string</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">word</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 1. 拼凑 person.f()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">person</span>: <span style="color:#66d9ef">Person</span> <span style="color:#f92672">&amp;</span> {<span style="color:#a6e22e">F</span>: <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">f</span>} <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxx&#39;</span>, <span style="color:#a6e22e">F</span>: <span style="color:#66d9ef">f</span> }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">f</span>(<span style="color:#e6db74">&#39;hi&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 2. call
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">person</span>, <span style="color:#e6db74">&#39;hi&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 3. apply
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#a6e22e">person</span>, [<span style="color:#e6db74">&#39;hi&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 4. bind
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">f1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">person</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">f1</span>(<span style="color:#e6db74">&#39;hi&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// =====================
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">person</span>)(<span style="color:#e6db74">&#39;hi&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// =====================
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">f1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">f</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">person</span>)  <span style="color:#75715e">// this =&gt; person
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">f2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">f1</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">null</span>, <span style="color:#e6db74">&#39;hi&#39;</span>) <span style="color:#75715e">// word =&gt; &#39;hi&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f2</span>()
+</span></span></code></pre></div><h2 id="as-const">as const</h2>
+<p>在开发过程中，有时需要ts将类型自动推导变小</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 这里的 a 的类型可以是 number[] 也可以是 readonly [1,2,3], 逻辑都是可以说过去的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 一般没有明确说明时，a 的类型是 number[]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>] <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">const</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 这里的 b 的类型就是 readonly [1,2,3]，这样就可以保证 b 的值不会被修改
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 如果使用了 as const 那么 b.push(5) 就会报错, 因为 b 的类型是 readonly [1,2,3]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 如果不使用 as const 那么 b.push(5) 就不会报错, 因为 b 的类型是 number[]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用场景
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">c</span>: <span style="color:#66d9ef">number</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">f</span>(...<span style="color:#a6e22e">a</span>) <span style="color:#75715e">// 由于 a 的类型是 number[]，所以这里会报错，因为 f 的参数类型是 number, number, number，不能保证数组内容不可变
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>] <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">const</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">f</span>(...<span style="color:#a6e22e">a</span>) <span style="color:#75715e">// 这里就不会报错了，因为 a 的类型是 readonly [1,2,3]，这样就可以保证数组内容不可变
+</span></span></span></code></pre></div><h2 id="函数参数析构">函数参数析构</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Config</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span>: <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;get&#39;</span> <span style="color:#f92672">|</span> <span style="color:#e6db74">&#39;post&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">data?</span>: <span style="color:#66d9ef">unknown</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">params?</span>: <span style="color:#66d9ef">unknown</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 普通析构
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ajax</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">method</span> }<span style="color:#f92672">:</span> <span style="color:#a6e22e">Config</span>) <span style="color:#f92672">=&gt;</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 剩余参数析构
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ajax</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">method</span>, ...<span style="color:#a6e22e">rest</span>}<span style="color:#f92672">:</span> <span style="color:#a6e22e">Config</span>) <span style="color:#f92672">=&gt;</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 默认值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ajax</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">method</span>, ...<span style="color:#a6e22e">rest</span>}<span style="color:#f92672">:</span> <span style="color:#a6e22e">Config</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;get&#39;</span> }) <span style="color:#f92672">=&gt;</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 默认值的另一种写法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ajax</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">method</span>, ...<span style="color:#a6e22e">rest</span>} <span style="color:#f92672">=</span> { <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;get&#39;</span> } <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">Config</span>) <span style="color:#f92672">=&gt;</span> {}
+</span></span></code></pre></div><h2 id="索引签名-index-signature-和-映射类型-mapped-types">索引签名 (Index Signature) 和 映射类型 (Mapped Types)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#960050;background-color:#1e0010">索引签名</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">k</span>: <span style="color:#66d9ef">string</span>]<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">length</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person2</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">k</span>: <span style="color:#66d9ef">number</span>]<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">length</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#960050;background-color:#1e0010">映射类型</span> (<span style="color:#960050;background-color:#1e0010">常用于范型</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">k</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">string</span>]<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">length</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person2</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  [<span style="color:#a6e22e">k</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">number</span>]<span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">length</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline"
+      href="https://nanpangyou.github.io/post/vue3-tsx-%E8%A6%86%E7%9B%96element-plus%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F/"
+      ><span>Vue3 Tsx 覆盖element Plus默认样式</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    const disqusShortname = '男胖友de部落格';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2022
+    <a class="link" href="https://nanpangyou.github.io/">男胖友de部落格</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >▷ Paper 6</a
+  >
+</footer>
+
+  </body>
+</html>

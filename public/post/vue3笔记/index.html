@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #f1efe1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Vue3笔记 - 男胖友de部落格</title>
+
+  
+  <meta name="theme-color" />
+  
+  <meta name="description" content="Vue 3.0 learning note  Life Cycle  与 2.0 的生命周期类似
+2.0中生命周期是以选项的形式存在,而3.0中是以lifecycle hooks的形式存在，可以以onX的形式直接用import导入，而且，这些hooks只能在setup函数中同步执行" />
+  <meta
+    name="author"
+    content="nanpangyou"
+  />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://nanpangyou.github.io/main.min.css" />
+
+  
+
+  
+     
+  <link rel="preload" as="image" href="https://nanpangyou.github.io/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/11482364?v=4" />
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://nanpangyou.github.io/github.svg" />
+  
+
+  
+  <link rel="icon" href="https://nanpangyou.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://nanpangyou.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.93.3" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Vue3笔记" />
+<meta property="og:description" content="Vue 3.0 learning note  Life Cycle  与 2.0 的生命周期类似
+2.0中生命周期是以选项的形式存在,而3.0中是以lifecycle hooks的形式存在，可以以onX的形式直接用import导入，而且，这些hooks只能在setup函数中同步执行" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nanpangyou.github.io/post/vue3%E7%AC%94%E8%AE%B0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-24T14:57:21+08:00" />
+<meta property="article:modified_time" content="2021-12-24T14:57:21+08:00" />
+
+
+  
+  <meta itemprop="name" content="Vue3笔记">
+<meta itemprop="description" content="Vue 3.0 learning note  Life Cycle  与 2.0 的生命周期类似
+2.0中生命周期是以选项的形式存在,而3.0中是以lifecycle hooks的形式存在，可以以onX的形式直接用import导入，而且，这些hooks只能在setup函数中同步执行"><meta itemprop="datePublished" content="2021-12-24T14:57:21+08:00" />
+<meta itemprop="dateModified" content="2021-12-24T14:57:21+08:00" />
+<meta itemprop="wordCount" content="11">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue3笔记"/>
+<meta name="twitter:description" content="Vue 3.0 learning note  Life Cycle  与 2.0 的生命周期类似
+2.0中生命周期是以选项的形式存在,而3.0中是以lifecycle hooks的形式存在，可以以onX的形式直接用import导入，而且，这些hooks只能在setup函数中同步执行"/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://nanpangyou.github.io/"
+      >男胖友de部落格</a
+    >
+    <a
+      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+    ></a>
+  </div>
+
+  <a
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+  ></a>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#f1efe1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href=" https://github.com/https://github.com/nanpangyou "
+        target="_blank"
+      ></a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">Vue3笔记</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      <time>Dec 24, 2021</time>
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>nanpangyou</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="vue-30--learning-note">Vue 3.0  learning note</h1>
+<ol>
+<li>Life Cycle</li>
+</ol>
+<p>与 2.0 的生命周期类似</p>
+<p>2.0中生命周期是以选项的形式存在,而3.0中是以lifecycle hooks的形式存在，可以以<code>onX</code>的形式直接用<code>import</code>导入，而且，这些hooks只能在setup函数中同步执行</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center p-6 pr-3 no-underline"
+      href="https://nanpangyou.github.io/post/mysql-cheat-book/"
+      ><span class="mr-1.5">←</span><span>Mysql Cheat Book</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline"
+      href="https://nanpangyou.github.io/post/tmux/"
+      ><span>tmux</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+  <div id="disqus_thread"></div>
+  <script>
+    const disqusShortname = '男胖友de部落格';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2022
+    <a class="link" href="https://nanpangyou.github.io/">男胖友de部落格</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >▷ Paper 6</a
+  >
+</footer>
+
+  </body>
+</html>
