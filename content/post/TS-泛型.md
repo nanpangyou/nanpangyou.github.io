@@ -143,4 +143,28 @@ type Record<K extends keyof string | number | symbol, V> = {
   [key in K]: V
 }
 
+type Exclude<T, U> = T extends U ? never : T
+
+type Extract<T, U> = T extends U ? T : never
+
+type Omit<T,K> = {
+  [key in keyof T as key extends K ? never : key]: T[key]
+}
+
+type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
+```
+
+Readonly的反向操作
+
+```ts
+
+type Person = { readonly name: string, readonly age: number }
+
+// 去除 readonly
+type Mutable<T> = {
+  -readonly [K in keyof T]: T[K]
+}
+
+type Result = Mutable<Person> // Result 的type为 { name: string; age: number; }
+
 ```
