@@ -153,3 +153,31 @@ type A = 'ji ni tai mei'
 type Result = GetLastOfTuple<StringToTuple<A>> // 'i'
 
 ```
+
+```ts
+
+// 字符串变联合类型
+type A = 'ji ni tai mei'
+type B = 'jinitaimei'
+type StringToUnion<T extends String> = T extends `${infer First}${infer Rest}` ? First | StringToUnion<Rest> : never
+
+type Result = StringToUnion<A> // "j" | "i" | " " | "n" | "t" | "a" | "m" | "e"
+type Result1 = StringToUnion<B> // "j" | "i" | "n" | "t" | "a" | "m" | "e"
+// 联合类型会自动去重
+
+```
+
+```ts
+
+// 字符串变元组
+type A = 'ji ni tai mei'
+type StringToTuple<T extends string> = T extends `${infer First}${infer Rest}` ? [First, ...StringToTuple<Rest>] : []
+type StringToTupleWithSpace<T extends string> = T extends `${infer First} ${infer Rest}` ? [First, ...StringToTupleWithSpace<Rest>] : [T]
+
+type Result = StringToTuple<A> // ["j", "i", " ", "n", "i", " ", "t", "a", "i", " ", "m", "e", "i"]
+type Result1 = StringToTupleWithSpace<A> //  ["ji", "ni", "tai", "mei"]
+
+```
+
+```ts
+```
