@@ -178,6 +178,3 @@ type Result = StringToTuple<A> // ["j", "i", " ", "n", "i", " ", "t", "a", "i", 
 type Result1 = StringToTupleWithSpace<A> //  ["ji", "ni", "tai", "mei"]
 
 ```
-
-```ts
-```
