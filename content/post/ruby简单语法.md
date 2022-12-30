@@ -28,6 +28,44 @@ user1.hi('frank')
 
 ```
 
+定义属性的get set
+
+```ruby
+
+class Person
+  def name
+    @name
+  end
+  def name= xx
+    @name = xx
+  end
+end
+
+p = Person.new
+
+
+p p.name
+p.name= '11adsf'
+p p.name
+
+```
+
+可以使用attr_accessor来简化
+
+```ruby
+class Person
+  attr_accessor :name, :age
+  attr_accessor :email
+end
+
+p = Person.new
+
+
+p p.name
+p.name= '11adsf'
+p p.name
+```
+
 2. 数组
 
 ```ruby
