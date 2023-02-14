@@ -1,6 +1,7 @@
 ---
 title: "Go语法"
 date: 2023-02-07T11:53:08+08:00
+draft: true
 ---
 
 
@@ -26,12 +27,12 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"math/rand"
+ "fmt"
+ "math/rand"
 )
 
 func main() {
-	fmt.Println("My favorite number is", rand.Intn(10))
+ fmt.Println("My favorite number is", rand.Intn(10))
 }
 
 
@@ -45,8 +46,8 @@ import "fmt"
 import "math"
 // 和以下形式等价（分组导入）
 import (
-	"fmt"
-	"math"
+ "fmt"
+ "math"
 )
 
 ```
@@ -70,11 +71,11 @@ package main
 import "fmt"
 
 func add(x int, y int) int {
-	return x + y
+ return x + y
 }
 
 func main() {
-	fmt.Println(add(42, 13))
+ fmt.Println(add(42, 13))
 }
 
 ```
@@ -95,12 +96,12 @@ package main
 import "fmt"
 
 func swap(x, y string) (string, string) {
-	return y, x
+ return y, x
 }
 
 func main() {
-	a, b := swap("hello", "world")
-	fmt.Println(a, b)
+ a, b := swap("hello", "world")
+ fmt.Println(a, b)
 }
 
 ```
@@ -119,14 +120,14 @@ package main
 import "fmt"
 
 func split(sum int)( x int) {
-	x = sum * 4 / 9
-	c := 19
-	fmt.Println(c)
-	return c
+ x = sum * 4 / 9
+ c := 19
+ fmt.Println(c)
+ return c
 }
 
 func main() {
-	fmt.Println(split(17))
+ fmt.Println(split(17))
 }
 ```
 

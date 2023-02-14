@@ -1,9 +1,10 @@
 ---
 title: "Go语法3"
 date: 2023-02-11T13:19:29+08:00
+draft: true
 ---
 
-## 指针 
+## 指针
 
 Go 拥有指针。指针保存了值的内存地址。
 
@@ -37,16 +38,16 @@ package main
 import "fmt"
 
 func main() {
-	i, j := 42, 2701
+ i, j := 42, 2701
 
-	p := &i         // 指向 i
-	fmt.Println(*p) // 通过指针读取 i 的值
-	*p = 21         // 通过指针设置 i 的值
-	fmt.Println(i)  // 查看 i 的值
+ p := &i         // 指向 i
+ fmt.Println(*p) // 通过指针读取 i 的值
+ *p = 21         // 通过指针设置 i 的值
+ fmt.Println(i)  // 查看 i 的值
 
-	p = &j         // 指向 j
-	*p = *p / 37   // 通过指针对 j 进行除法运算
-	fmt.Println(j) // 查看 j 的值
+ p = &j         // 指向 j
+ *p = *p / 37   // 通过指针对 j 进行除法运算
+ fmt.Println(j) // 查看 j 的值
 }
 ```
 
@@ -60,12 +61,12 @@ package main
 import "fmt"
 
 type Vertex struct {
-	X int
-	Y int
+ X int
+ Y int
 }
 
 func main() {
-	fmt.Println(Vertex{1, 2})
+ fmt.Println(Vertex{1, 2})
 }
 
 ```
@@ -78,14 +79,14 @@ package main
 import "fmt"
 
 type Vertex struct {
-	X int
-	Y int
+ X int
+ Y int
 }
 
 func main() {
-	v := Vertex{1, 2}
-	v.X = 4
-	fmt.Println(v.X)
+ v := Vertex{1, 2}
+ v.X = 4
+ fmt.Println(v.X)
 }
 ```
 
@@ -99,15 +100,15 @@ package main
 import "fmt"
 
 type Vertex struct {
-	X int
-	Y int
+ X int
+ Y int
 }
 
 func main() {
-	v := Vertex{1, 2}
-	p := &v
-	p.X = 1e9
-	fmt.Println(v)
+ v := Vertex{1, 2}
+ p := &v
+ p.X = 1e9
+ fmt.Println(v)
 }
 ```
 
@@ -123,19 +124,19 @@ package main
 import "fmt"
 
 type Vertex struct {
-	X, Y int
+ X, Y int
 }
 
 var (
-	v1 = Vertex{1, 2}  // 创建一个 Vertex 类型的结构体
-	v2 = Vertex{X: 1}  // Y:0 被隐式地赋予
-	v3 = Vertex{}      // X:0 Y:0
-	p  = &Vertex{1, 2} // 创建一个 *Vertex 类型的结构体（指针）
+ v1 = Vertex{1, 2}  // 创建一个 Vertex 类型的结构体
+ v2 = Vertex{X: 1}  // Y:0 被隐式地赋予
+ v3 = Vertex{}      // X:0 Y:0
+ p  = &Vertex{1, 2} // 创建一个 *Vertex 类型的结构体（指针）
 )
 
 func main() {
-	fmt.Println(v1, p, v2, v3)
-	// 输出 {1 2} &{1 2} {1 0} {0 0}
+ fmt.Println(v1, p, v2, v3)
+ // 输出 {1 2} &{1 2} {1 0} {0 0}
 }
 
 ```
@@ -155,21 +156,22 @@ package main
 import "fmt"
 
 func main() {
-	var a [2]string
-	a[0] = "Hello"
-	a[1] = "World"
-	fmt.Println(a[0], a[1])
-	// Hello World
-	fmt.Println(a)
-	// [Hello World]
+ var a [2]string
+ a[0] = "Hello"
+ a[1] = "World"
+ fmt.Println(a[0], a[1])
+ // Hello World
+ fmt.Println(a)
+ // [Hello World]
 
-	primes := [6]int{2, 3, 5, 7, 11, 13}
-	fmt.Println(primes)
-	// [2 3 5 7 11 13]
+ primes := [6]int{2, 3, 5, 7, 11, 13}
+ fmt.Println(primes)
+ // [2 3 5 7 11 13]
 }
 ```
 
 ## 切片
+
 每个数组的大小都是固定的。而切片则为数组元素提供动态大小的、灵活的视角。在实践中，切片比数组更常用。
 
 类型 `[]T` 表示一个元素类型为 T 的切片。
@@ -189,11 +191,11 @@ package main
 import "fmt"
 
 func main() {
-	primes := [6]int{2, 3, 5, 7, 11, 13}
+ primes := [6]int{2, 3, 5, 7, 11, 13}
 
-	var s []int = primes[1:4]
-	fmt.Println(s)
-	// [3 5 7]
+ var s []int = primes[1:4]
+ fmt.Println(s)
+ // [3 5 7]
 }
 
 ```
@@ -204,27 +206,28 @@ func main() {
 更改切片的元素会修改其底层数组中对应的元素。
 
 与它共享底层数组的切片都会观测到这些修改。
+
 ```go
 package main
 
 import "fmt"
 
 func main() {
-	names := [4]string{
-		"John",
-		"Paul",
-		"George",
-		"Ringo",
-	}
-	fmt.Println(names)
+ names := [4]string{
+  "John",
+  "Paul",
+  "George",
+  "Ringo",
+ }
+ fmt.Println(names)
 
-	a := names[0:2]
-	b := names[1:3]
-	fmt.Println(a, b)
+ a := names[0:2]
+ b := names[1:3]
+ fmt.Println(a, b)
 
-	b[0] = "XXX"
-	fmt.Println(a, b)
-	fmt.Println(names)
+ b[0] = "XXX"
+ fmt.Println(a, b)
+ fmt.Println(names)
 //[John Paul George Ringo]
 // [John Paul] [Paul George]
 // [John XXX] [XXX George]
@@ -277,28 +280,28 @@ package main
 import "fmt"
 
 func main() {
-	s := []int{2, 3, 5, 7, 11, 13}
-	printSlice(s)
+ s := []int{2, 3, 5, 7, 11, 13}
+ printSlice(s)
 
-	// 截取切片使其长度为 0
-	s = s[:0]
-	printSlice(s)
+ // 截取切片使其长度为 0
+ s = s[:0]
+ printSlice(s)
 
-	// 拓展其长度
-	s = s[:4]
-	printSlice(s)
+ // 拓展其长度
+ s = s[:4]
+ printSlice(s)
 
-	// 舍弃前两个值
-	s = s[2:]
-	printSlice(s)
+ // 舍弃前两个值
+ s = s[2:]
+ printSlice(s)
 }
 
 func printSlice(s []int) {
-	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
-	// len=6 cap=6 [2 3 5 7 11 13]
-	// len=0 cap=6 []
-	// len=4 cap=6 [2 3 5 7]
-	// len=2 cap=4 [5 7]
+ fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+ // len=6 cap=6 [2 3 5 7 11 13]
+ // len=0 cap=6 []
+ // len=4 cap=6 [2 3 5 7]
+ // len=2 cap=4 [5 7]
 }
 ```
 
@@ -317,6 +320,7 @@ make 函数会分配一个元素为**零值**的数组并返回一个引用了�
 ```go
 a := make([]int, 5)  // len(a)=5
 ```
+
 要指定它的容量，需向 make 传入第三个参数：
 
 ```go
@@ -332,22 +336,22 @@ package main
 import "fmt"
 
 func main() {
-	a := make([]int, 5)
-	printSlice("a", a)
+ a := make([]int, 5)
+ printSlice("a", a)
 
-	b := make([]int, 0, 5)
-	printSlice("b", b)
+ b := make([]int, 0, 5)
+ printSlice("b", b)
 
-	c := b[:2]
-	printSlice("c", c)
+ c := b[:2]
+ printSlice("c", c)
 
-	d := c[2:5]
-	printSlice("d", d)
+ d := c[2:5]
+ printSlice("d", d)
 }
 
 func printSlice(s string, x []int) {
-	fmt.Printf("%s len=%d cap=%d %v\n",
-		s, len(x), cap(x), x)
+ fmt.Printf("%s len=%d cap=%d %v\n",
+  s, len(x), cap(x), x)
 }
 
 ```
@@ -374,24 +378,24 @@ package main
 import "fmt"
 
 func main() {
-	var s []int
-	printSlice(s)
+ var s []int
+ printSlice(s)
 
-	// 添加一个空切片
-	s = append(s, 0)
-	printSlice(s)
+ // 添加一个空切片
+ s = append(s, 0)
+ printSlice(s)
 
-	// 这个切片会按需增长
-	s = append(s, 1)
-	printSlice(s)
+ // 这个切片会按需增长
+ s = append(s, 1)
+ printSlice(s)
 
-	// 可以一次性添加多个元素
-	s = append(s, 2, 3, 4)
-	printSlice(s)
+ // 可以一次性添加多个元素
+ s = append(s, 2, 3, 4)
+ printSlice(s)
 }
 
 func printSlice(s []int) {
-	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+ fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 // len=0 cap=0 []
 // len=1 cap=1 [0]
@@ -414,9 +418,9 @@ import "fmt"
 var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
 
 func main() {
-	for i, v := range pow {
-		fmt.Printf("%d = %d\n", i, v)
-	}
+ for i, v := range pow {
+  fmt.Printf("%d = %d\n", i, v)
+ }
 }
 // 输出
 // 0 = 1
@@ -441,7 +445,6 @@ for _, value := range pow
 ```go
 for i := range pow
 ```
-
 
 ## 映射
 

@@ -1,6 +1,7 @@
 ---
 title: "Go语法 2"
 date: 2023-02-10T16:58:30+08:00
+draft: true
 ---
 
 ### for
