@@ -10,6 +10,7 @@ draft: true
 ### Hello Wold
 
 ```go
+// hello.go
 package main
 
 import "fmt"
